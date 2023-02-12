@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Microsoft YaHei:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1. 日志打印：Release下打印行号和文件名The class provides information about the source code location a qDebug(), qInfo(), qWarning(), qCritical() or qFatal() message was generated.Note: By default, this information">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT实用小技巧（想到就更新）">
+<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2021/10/12/QT%E5%AE%9E%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%88%E6%83%B3%E5%88%B0%E5%B0%B1%E6%9B%B4%E6%96%B0%EF%BC%89/index.html">
+<meta property="og:site_name" content="自由意志">
+<meta property="og:description" content="1. 日志打印：Release下打印行号和文件名The class provides information about the source code location a qDebug(), qInfo(), qWarning(), qCritical() or qFatal() message was generated.Note: By default, this information">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-11T19:53:20.000Z">
+<meta property="article:modified_time" content="2022-12-13T11:46:09.790Z">
+<meta property="article:author" content="年轻气盛">
+<meta property="article:tag" content="QT">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/12/QT%E5%AE%9E%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%88%E6%83%B3%E5%88%B0%E5%B0%B1%E6%9B%B4%E6%96%B0%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>QT实用小技巧（想到就更新） | 自由意志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">自由意志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">黑人夏川</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/RealChuan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/12/QT%E5%AE%9E%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%88%E6%83%B3%E5%88%B0%E5%B0%B1%E6%9B%B4%E6%96%B0%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          QT实用小技巧（想到就更新）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-11 19:53:20" itemprop="dateCreated datePublished" datetime="2021-10-11T19:53:20Z">2021-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-13 11:46:09" itemprop="dateModified" datetime="2022-12-13T11:46:09Z">2022-12-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/QT/" itemprop="url" rel="index"><span itemprop="name">QT</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1-日志打印：Release下打印行号和文件名"><a href="#1-日志打印：Release下打印行号和文件名" class="headerlink" title="1. 日志打印：Release下打印行号和文件名"></a>1. 日志打印：Release下打印行号和文件名</h1><p>The class provides information about the source code location a <code>qDebug()</code>, <code>qInfo()</code>, <code>qWarning()</code>, <code>qCritical()</code> or <code>qFatal()</code> message was generated.<br>Note: By default, this information is recorded only in debug builds. You can overwrite this explicitly by defining <code>QT_MESSAGELOGCONTEXT</code> or <code>QT_NO_MESSAGELOGCONTEXT</code>.</p>
+<p><code>pro</code>或者<code>pri</code>文件内加入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEFINES += QT_MESSAGELOGCONTEXT</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h1 id="2-Release下生成调试文件（win：pdb）"><a href="#2-Release下生成调试文件（win：pdb）" class="headerlink" title="2. Release下生成调试文件（win：pdb）"></a>2. Release下生成调试文件（win：pdb）</h1><p><code>pro</code>或者<code>pri</code>文件内加入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QMAKE_CXXFLAGS_RELEASE += $$QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO</span><br><span class="line">QMAKE_LFLAGS_RELEASE += $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-高分屏适配（只支持整数倍缩放，不好）"><a href="#3-高分屏适配（只支持整数倍缩放，不好）" class="headerlink" title="3. 高分屏适配（只支持整数倍缩放，不好）"></a>3. 高分屏适配（只支持整数倍缩放，不好）</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setHighDpiEnvironmentVariable</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Utils::<span class="built_in">HostOsInfo</span>().<span class="built_in">isMacHost</span>())</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (Utils::<span class="built_in">HostOsInfo</span>().<span class="built_in">isWindowsHost</span>() &amp;&amp; !<span class="built_in">qEnvironmentVariableIsSet</span>(<span class="string">&quot;QT_OPENGL&quot;</span>)) &#123;</span><br><span class="line">        QCoreApplication::<span class="built_in">setAttribute</span>(Qt::AA_UseOpenGLES);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (Utils::<span class="built_in">HostOsInfo</span>().<span class="built_in">isWindowsHost</span>()</span><br><span class="line">        &amp;&amp; !<span class="built_in">qEnvironmentVariableIsSet</span>(<span class="string">&quot;QT_DEVICE_PIXEL_RATIO&quot;</span>) <span class="comment">// legacy in 5.6, but still functional</span></span><br><span class="line">        &amp;&amp; !<span class="built_in">qEnvironmentVariableIsSet</span>(<span class="string">&quot;QT_AUTO_SCREEN_SCALE_FACTOR&quot;</span>)</span><br><span class="line">        &amp;&amp; !<span class="built_in">qEnvironmentVariableIsSet</span>(<span class="string">&quot;QT_SCALE_FACTOR&quot;</span>)</span><br><span class="line">        &amp;&amp; !<span class="built_in">qEnvironmentVariableIsSet</span>(<span class="string">&quot;QT_SCREEN_SCALE_FACTORS&quot;</span>)) &#123;</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> QT_VERSION &lt; QT_VERSION_CHECK(6, 0, 0)</span></span><br><span class="line">        QCoreApplication::<span class="built_in">setAttribute</span>(Qt::AA_EnableHighDpiScaling);</span><br><span class="line">        QCoreApplication::<span class="built_in">setAttribute</span>(Qt::AA_UseHighDpiPixmaps);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="或者添加资源文件（-x2F-qt-x2F-etc-x2F-qt-conf）"><a href="#或者添加资源文件（-x2F-qt-x2F-etc-x2F-qt-conf）" class="headerlink" title="或者添加资源文件（:&#x2F;qt&#x2F;etc&#x2F;qt.conf）"></a>或者添加资源文件（:&#x2F;qt&#x2F;etc&#x2F;qt.conf）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Platforms]</span><br><span class="line">WindowsArguments = fontengine=freetype</span><br><span class="line">WindowsArguments = dpiawareness=0</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-窗口居中（去掉任务栏的区域居中）"><a href="#4-窗口居中（去掉任务栏的区域居中）" class="headerlink" title="4. 窗口居中（去掉任务栏的区域居中）"></a>4. 窗口居中（去掉任务栏的区域居中）</h1><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> windowCenter(QWidget *<span class="built_in">window</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> QRect <span class="built_in">rect</span> = qApp-&gt;primaryScreen()-&gt;availableGeometry();</span><br><span class="line">    <span class="built_in">int</span> x = (<span class="built_in">rect</span>.width() - <span class="built_in">window</span>-&gt;width()) / <span class="number">2</span> + <span class="built_in">rect</span>.x();</span><br><span class="line">    <span class="built_in">int</span> y = (<span class="built_in">rect</span>.height() - <span class="built_in">window</span>-&gt;height()) / <span class="number">2</span> + <span class="built_in">rect</span>.y();</span><br><span class="line">    x = qMax(<span class="number">0</span>, x);</span><br><span class="line">    y = qMax(<span class="number">0</span>, y);</span><br><span class="line">    <span class="built_in">window</span>-&gt;move(x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-字体加载"><a href="#5-字体加载" class="headerlink" title="5. 字体加载"></a>5. 字体加载</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">QFontDatabase::addApplicationFont</span><span class="params">(<span class="type">const</span> QString &amp;fileName)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Loads the font from the file specified by fileName and makes it available to the application. An ID is returned that can be used to remove the font again with <code>removeApplicationFont()</code> or to retrieve the list of family names contained in the font.<br>The function returns -1 if the font could not be loaded.<br>Currently only TrueType fonts, TrueType font collections, and OpenType fonts are supported.<br>Note: Adding application fonts on Unix&#x2F;X11 platforms without fontconfig is currently not supported.<br>See also <code>addApplicationFontFromData()</code>, <code>applicationFontFamilies()</code>, and <code>removeApplicationFont()</code>.</p>
+<h1 id="6-给生成文件添加信息（windows）"><a href="#6-给生成文件添加信息（windows）" class="headerlink" title="6. 给生成文件添加信息（windows）"></a>6. 给生成文件添加信息（windows）</h1><h2 id="1-在Pro或者pri文件中添加以下信息："><a href="#1-在Pro或者pri文件中添加以下信息：" class="headerlink" title="1. 在Pro或者pri文件中添加以下信息："></a>1. 在Pro或者pri文件中添加以下信息：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#中文（简体）</span><br><span class="line">RC_LANG = 0x0004</span><br><span class="line"></span><br><span class="line">#产品版本</span><br><span class="line">VERSION = 0.0.0.1</span><br><span class="line"></span><br><span class="line">#产生文件名字忽略主版本号（VERSION）</span><br><span class="line">CONFIG += skip_target_version_ext</span><br><span class="line"></span><br><span class="line">#公司名称</span><br><span class="line">QMAKE_TARGET_COMPANY = The Qt Company Ltd.</span><br><span class="line"></span><br><span class="line">#文件说明</span><br><span class="line">QMAKE_TARGET_DESCRIPTION = C++ Application Development Framework</span><br><span class="line"></span><br><span class="line">#版权</span><br><span class="line">QMAKE_TARGET_COPYRIGHT = Copyright (C) 2021 The Qt Company Ltd.</span><br><span class="line"></span><br><span class="line">#产品名称</span><br><span class="line">QMAKE_TARGET_PRODUCT = Qt5</span><br><span class="line"></span><br><span class="line">#原始文件名</span><br><span class="line">QMAKE_TARGET_ORIGINAL_FILENAME = Qt5</span><br><span class="line"></span><br><span class="line">#内部名称</span><br><span class="line">QMAKE_TARGET_INTERNALNAME = AppPlugin</span><br><span class="line"></span><br><span class="line">#评论</span><br><span class="line">QMAKE_TARGET_COMMENTS = C++ Application Development Framework</span><br><span class="line"></span><br><span class="line">#商标</span><br><span class="line">QMAKE_TARGET_TRADEMARKS = Qt</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-添加-rc文件"><a href="#2-添加-rc文件" class="headerlink" title="2. 添加.rc文件"></a>2. 添加.rc文件</h2><figure class="highlight wren"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;windows.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">IDI_ICON1</span>	<span class="variable">ICON</span>	<span class="string">&quot;D:<span class="char escape_">\\</span>Mine<span class="char escape_">\\</span>CODE<span class="char escape_">\\</span>Qt<span class="char escape_">\\</span>AppTools<span class="char escape_">\\</span>app-subdir<span class="char escape_">\\</span>app<span class="char escape_">\\</span>app.ico&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">VS_VERSION_INFO</span> <span class="variable">VERSIONINFO</span></span><br><span class="line">	<span class="variable">FILEVERSION</span> <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">	<span class="variable">PRODUCTVERSION</span> <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">	<span class="variable">FILEFLAGSMASK</span> <span class="number">0x3f</span>L</span><br><span class="line"><span class="comment">#ifdef _DEBUG</span></span><br><span class="line">	<span class="variable">FILEFLAGS</span> <span class="variable">VS_FF_DEBUG</span></span><br><span class="line"><span class="comment">#<span class="keyword">else</span></span></span><br><span class="line">	<span class="variable">FILEFLAGS</span> <span class="number">0x0</span>L</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">	<span class="variable">FILEOS</span> <span class="variable">VOS_NT_WINDOWS32</span></span><br><span class="line">	<span class="variable">FILETYPE</span> <span class="variable">VFT_DLL</span></span><br><span class="line">	<span class="variable">FILESUBTYPE</span> <span class="variable">VFT2_UNKNOWN</span></span><br><span class="line">	<span class="variable">BEGIN</span></span><br><span class="line">		<span class="variable">BLOCK</span> <span class="string">&quot;StringFileInfo&quot;</span></span><br><span class="line">		<span class="variable">BEGIN</span></span><br><span class="line">			<span class="variable">BLOCK</span> <span class="string">&quot;000404b0&quot;</span></span><br><span class="line">			<span class="variable">BEGIN</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;CompanyName&quot;</span>, <span class="string">&quot;The Qt Company Ltd.<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;FileDescription&quot;</span>, <span class="string">&quot;C++ Application Development Framework<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;FileVersion&quot;</span>, <span class="string">&quot;0.0.0.1<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;LegalCopyright&quot;</span>, <span class="string">&quot;Copyright (C) 2021 The Qt Company Ltd.<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;OriginalFilename&quot;</span>, <span class="string">&quot;Qt5<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;ProductName&quot;</span>, <span class="string">&quot;Qt5<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;ProductVersion&quot;</span>, <span class="string">&quot;0.0.0.1<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;InternalName&quot;</span>, <span class="string">&quot;Qt5<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;Comments&quot;</span>, <span class="string">&quot;C++ Application Development Framework<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">				<span class="variable">VALUE</span> <span class="string">&quot;LegalTrademarks&quot;</span>, <span class="string">&quot;Qt<span class="char escape_">\0</span>&quot;</span></span><br><span class="line">			<span class="variable">END</span></span><br><span class="line">		<span class="variable">END</span></span><br><span class="line">		<span class="variable">BLOCK</span> <span class="string">&quot;VarFileInfo&quot;</span></span><br><span class="line">		<span class="variable">BEGIN</span></span><br><span class="line">			<span class="variable">VALUE</span> <span class="string">&quot;Translation&quot;</span>, <span class="number">0x0004</span>, <span class="number">1200</span></span><br><span class="line">		<span class="variable">END</span></span><br><span class="line">	<span class="variable">END</span></span><br><span class="line"><span class="comment">/* End of Version info */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>如果变量值是中文，需要将.pro文件以system本地编码保存。</strong></p>
+<h2 id="MAC下直接修改Info-plist"><a href="#MAC下直接修改Info-plist" class="headerlink" title="MAC下直接修改Info.plist"></a>MAC下直接修改Info.plist</h2><p>例子：<a href="https://github.com/qt-creator/qt-creator/blob/master/src/app/app-Info.plist">qt-creator的info.plist</a></p>
+<h1 id="7-警告当成错误处理和忽略警告"><a href="#7-警告当成错误处理和忽略警告" class="headerlink" title="7. 警告当成错误处理和忽略警告"></a>7. 警告当成错误处理和忽略警告</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#将所有的警告当成错误处理</span><br><span class="line">QMAKE_CXXFLAGS += \</span><br><span class="line">    -Werror = return-type \#函数有返回值</span><br><span class="line">    -Werror = return-local-addr \#返回局部变量地址</span><br><span class="line">    -Werror = missing-field-initializers \#缺少初始值设定项</span><br><span class="line">    -Werror = maybe-uninitialized \#变量可能没有被初始化</span><br><span class="line">    -Werror = delete-non-virtual-dtor \#</span><br><span class="line">    -Werror = unused-but-set-variable \#设置了但未使用的变量</span><br><span class="line">    -Werror = parentheses \#括号不匹配</span><br><span class="line">    -Werror = pointer-arith \#指针用在了算术运算</span><br><span class="line">    -Werror = reorder \#警告构造函数的顺序不会被使用</span><br><span class="line">    -Werror = format-extra-args \#格式不对</span><br><span class="line">    -Werror = format= \#格式不对</span><br><span class="line">    -Werror = unused-variable \#未使用的变量</span><br><span class="line"></span><br><span class="line">#忽略该警告</span><br><span class="line">QMAKE_CXXFLAGS += \</span><br><span class="line">    -Wno-unused-function \#未使用的函数</span><br><span class="line">    -Wno-unused-parameter \#设置了但未使用的参数</span><br><span class="line">    -Wno-comment \#注释使用不规范。</span><br><span class="line">    -Wno-sequence-point \#如出现i=i++这类代码，则报警告</span><br></pre></td></tr></table></figure>
+
+<h1 id="8-Mac下去掉焦点的蓝色轮廓"><a href="#8-Mac下去掉焦点的蓝色轮廓" class="headerlink" title="8. Mac下去掉焦点的蓝色轮廓"></a>8. Mac下去掉焦点的蓝色轮廓</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setAttribute</span>(Qt::WA_MacShowFocusRect, <span class="literal">false</span>); </span><br></pre></td></tr></table></figure>
+
+<p>Indicates that this widget should get a QFocusFrame around it. Some widgets draw their own focus halo regardless of this attribute. Not that the QWidget::focusPolicy also plays the main role in whether something is given focus or not, this only controls whether or not this gets the focus frame. This attribute is only applicable to macOS.</p>
+<p>机翻：</p>
+<p>指示这个小部件应该在它周围获得一个 QFocusFrame 。 无论此属性如何，一些小部件都会绘制自己的焦点光环。 并不是说 QWidget::focusPolicy 在是否获得焦点方面也起着主要作用，这仅控制是否获得焦点框。 此属性仅适用于 macOS。</p>
+<h1 id="9-继承QWidget的子类样式表不生效"><a href="#9-继承QWidget的子类样式表不生效" class="headerlink" title="9. 继承QWidget的子类样式表不生效"></a>9. 继承QWidget的子类样式表不生效</h1><p>Supports only the background, background-clip and background-origin properties.If you subclass from QWidget, you need to provide a paintEvent for your custom QWidget as below:</p>
+<p>机翻：</p>
+<p>仅支持 background、background-clip 和 background-origin 属性。如果你从 QWidget 继承，你需要为你的自定义 QWidget 提供一个paintEvent，如下所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CustomWidget::paintEvent</span><span class="params">(QPaintEvent *)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QStyleOption opt;</span><br><span class="line">    opt.<span class="built_in">init</span>(<span class="keyword">this</span>);</span><br><span class="line">    <span class="function">QPainter <span class="title">p</span><span class="params">(<span class="keyword">this</span>)</span></span>;</span><br><span class="line">    <span class="built_in">style</span>()-&gt;<span class="built_in">drawPrimitive</span>(QStyle::PE_Widget, &amp;opt, &amp;p, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The above code is a no-operation if there is no stylesheet set.</p>
+<p>Warning: Make sure you define the Q_OBJECT macro for your custom widget.</p>
+<p>机翻：</p>
+<p>如果没有设置样式表，上面的代码是无操作的。</p>
+<p>警告：确保为自定义小部件定义 Q_OBJECT 宏。</p>
+<h2 id="其他方案："><a href="#其他方案：" class="headerlink" title="其他方案："></a>其他方案：</h2><ol>
+<li><code>setAttribute(Qt::WA_TranslucentBackground);</code></li>
+<li>从QFrame继承；</li>
+</ol>
+<h1 id="10-国际化实时翻译"><a href="#10-国际化实时翻译" class="headerlink" title="10. 国际化实时翻译"></a>10. 国际化实时翻译</h1><ol>
+<li>需要翻译的文字带上<code>QCoreApplication::translate</code>或者<code>QObject::tr</code>，比如<code>QObject::tr(&quot;Hello&quot;)</code>；</li>
+<li>使用QtCreator工具-外部-Qt语言家<strong>更新</strong>翻译；</li>
+<li>使用Linguist打开文件进行翻译；</li>
+<li>使用QtCreator工具-外部-Qt语言家<strong>发布</strong>翻译；</li>
+<li>使用QTranslator加载翻译文件；</li>
+<li><code>QCoreApplication::installTranslator(&amp;translator)</code>；</li>
+</ol>
+<p>以上操作仅支持程序打开时翻译，程序运行中则无效，需加入以下代码：</p>
+<ol>
+<li>使用QCoreApplication::removeTranslator移除上一次的翻译；</li>
+<li>构造新的QTranslator，并加载翻译；</li>
+<li><code>QCoreApplication::installTranslator(&amp;translator)</code>；</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Widget::changeEvent</span><span class="params">(QEvent *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QWidget::<span class="built_in">changeEvent</span>(e);</span><br><span class="line">    <span class="keyword">switch</span> (e-&gt;<span class="built_in">type</span>()) &#123;</span><br><span class="line">    <span class="keyword">case</span> QEvent::LanguageChange:</span><br><span class="line">        comboBox-&gt;<span class="built_in">setItemText</span>(<span class="number">0</span>, <span class="built_in">tr</span>(<span class="string">&quot;Hello&quot;</span>));</span><br><span class="line">        label-&gt;<span class="built_in">setText</span>(<span class="built_in">tr</span>(<span class="string">&quot;Hello&quot;</span>)); <span class="comment">// 代码添加的文字</span></span><br><span class="line">        ui-&gt;<span class="built_in">retranslateUi</span>(<span class="keyword">this</span>);     <span class="comment">// 有UI文件情况下</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="11-QIcon添加不同状态的图标"><a href="#11-QIcon添加不同状态的图标" class="headerlink" title="11. QIcon添加不同状态的图标"></a>11. QIcon添加不同状态的图标</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">QIcon::addFile</span><span class="params">(<span class="type">const</span> QString &amp;fileName, <span class="type">const</span> QSize &amp;size = QSize(), QIcon::Mode mode = Normal, QIcon::State state = Off)</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">QIcon::addPixmap</span><span class="params">(<span class="type">const</span> QPixmap &amp;pixmap, QIcon::Mode mode = Normal, QIcon::State state = Off)</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="12-加载字体"><a href="#12-加载字体" class="headerlink" title="12. 加载字体"></a>12. 加载字体</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">static</span>] <span class="function"><span class="type">int</span> <span class="title">QFontDatabase::addApplicationFont</span><span class="params">(<span class="type">const</span> QString &amp;fileName)</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="13-隐式共享和显示共享（MVC好帮手）"><a href="#13-隐式共享和显示共享（MVC好帮手）" class="headerlink" title="13. 隐式共享和显示共享（MVC好帮手）"></a>13. 隐式共享和显示共享（MVC好帮手）</h1><p><code>QSharedData</code> + <code>QSharedDataPointer</code> &#x3D; 隐式共享：修改数据即拷贝；</p>
+<p><code>QSharedData</code> + <code>QExplicitlySharedDataPointer</code> &#x3D; 显示共享：即永远只有一个数据源（除非手动调用detach()）；</p>
+<p>Qt文档有具体例子和说明，以下是从Qt中复制的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QSharedData&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QString&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EmployeeData</span> : <span class="keyword">public</span> QSharedData</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">EmployeeData</span>() : <span class="built_in">id</span>(<span class="number">-1</span>) &#123; &#125;</span><br><span class="line">    <span class="built_in">EmployeeData</span>(<span class="type">const</span> EmployeeData &amp;other)</span><br><span class="line">        : <span class="built_in">QSharedData</span>(other), <span class="built_in">id</span>(other.id), <span class="built_in">name</span>(other.name) &#123; &#125;</span><br><span class="line">    ~<span class="built_in">EmployeeData</span>() &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    QString name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Employee</span>() &#123; d = <span class="keyword">new</span> EmployeeData; &#125;</span><br><span class="line">    <span class="built_in">Employee</span>(<span class="type">int</span> id, <span class="type">const</span> QString &amp;name) &#123;</span><br><span class="line">        d = <span class="keyword">new</span> EmployeeData;</span><br><span class="line">        <span class="built_in">setId</span>(id);</span><br><span class="line">        <span class="built_in">setName</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Employee</span>(<span class="type">const</span> Employee &amp;other)</span><br><span class="line">          : <span class="built_in">d</span> (other.d)</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setId</span><span class="params">(<span class="type">int</span> id)</span> </span>&#123; d-&gt;id = id; &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setName</span><span class="params">(<span class="type">const</span> QString &amp;name)</span> </span>&#123; d-&gt;name = name; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">id</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> d-&gt;id; &#125;</span><br><span class="line">    <span class="function">QString <span class="title">name</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> d-&gt;name; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    QSharedDataPointer&lt;EmployeeData&gt; d;</span><br><span class="line">    <span class="comment">//改成QExplicitlySharedDataPointer&lt;EmployeeData&gt; d;即为显示共享</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用MVC，建议使用显示共享，任意位置修改数据，都会反映到显示的视图上。"><a href="#使用MVC，建议使用显示共享，任意位置修改数据，都会反映到显示的视图上。" class="headerlink" title="使用MVC，建议使用显示共享，任意位置修改数据，都会反映到显示的视图上。"></a>使用MVC，建议使用显示共享，任意位置修改数据，都会反映到显示的视图上。</h2><h1 id="14-void-QComboBox-setMaxVisibleItems-int-maxItems-无效"><a href="#14-void-QComboBox-setMaxVisibleItems-int-maxItems-无效" class="headerlink" title="14. void QComboBox::setMaxVisibleItems(int maxItems)无效"></a>14. void QComboBox::setMaxVisibleItems(int maxItems)无效</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comboBox-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">&quot;QComboBox &#123;combobox-popup:0;&#125;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="15-Mac-QHBoxLayout添加的QPushButton矩形范围溢出"><a href="#15-Mac-QHBoxLayout添加的QPushButton矩形范围溢出" class="headerlink" title="15. Mac QHBoxLayout添加的QPushButton矩形范围溢出"></a>15. Mac QHBoxLayout添加的QPushButton矩形范围溢出</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pushButton-&gt;<span class="built_in">setAttribute</span>(Qt::WA_LayoutUsesWidgetRect);</span><br></pre></td></tr></table></figure>
+
+<h1 id="16-使用QT-style内置的图标"><a href="#16-使用QT-style内置的图标" class="headerlink" title="16. 使用QT style内置的图标"></a>16. 使用QT style内置的图标</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[pure <span class="keyword">virtual</span>] <span class="function">QIcon <span class="title">QStyle::standardIcon</span><span class="params">(QStyle::StandardPixmap standardIcon, <span class="type">const</span> QStyleOption *option = <span class="literal">nullptr</span>, <span class="type">const</span> QWidget *widget = <span class="literal">nullptr</span>)</span> <span class="type">const</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="17-QPushButton和QToolButton-setMenu去掉下拉小箭头"><a href="#17-QPushButton和QToolButton-setMenu去掉下拉小箭头" class="headerlink" title="17. QPushButton和QToolButton setMenu去掉下拉小箭头"></a>17. QPushButton和QToolButton setMenu去掉下拉小箭头</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QPushButton::menu-indicator,</span><br><span class="line">QToolButton::menu-indicator&#123;</span><br><span class="line">image:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="18-屏蔽MacOS深色模式"><a href="#18-屏蔽MacOS深色模式" class="headerlink" title="18. 屏蔽MacOS深色模式"></a>18. 屏蔽MacOS深色模式</h1><p>在Info.plist文件的<code>&lt;dict&gt;</code>节点加入以下字段：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSRequiresAquaSystemAppearance<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="19-禁止输入中文"><a href="#19-禁止输入中文" class="headerlink" title="19. 禁止输入中文"></a>19. 禁止输入中文</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setAttribute</span>(Qt::WA_InputMethodEnabled, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="20-设置动态链接库的加载路径-rpath"><a href="#20-设置动态链接库的加载路径-rpath" class="headerlink" title="20. 设置动态链接库的加载路径 rpath"></a>20. 设置动态链接库的加载路径 rpath</h1><h2 id="1-qmake-pro"><a href="#1-qmake-pro" class="headerlink" title="1. qmake(.pro)"></a>1. qmake(.pro)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QMAKE_LFLAGS += <span class="string">&quot;-Wl,-rpath,\&#x27;\$$ORIGIN/lib\&#x27;&quot;</span> </span><br></pre></td></tr></table></figure>
+<p>$ORIGIN代表可执行程序所在路径</p>
+<h2 id="2-cmake"><a href="#2-cmake" class="headerlink" title="2. cmake"></a>2. cmake</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>(CMAKE_INSTALL_RPATH $&#123;CMAKE_INSTALL_PREFIX&#125;/lib)</span><br><span class="line"><span class="built_in">set_target_properties</span>(myexe PROPERTIES INSTALL_RPATH <span class="string">&quot;$&#123;CMAKE_INSTALL_PREFIX&#125;/lib&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>选择一种，建议第二行，指定某个执行程序或者动态库连接到这个路径</p>
+<h2 id="3-chrpath-linux"><a href="#3-chrpath-linux" class="headerlink" title="3. chrpath(linux)"></a>3. chrpath(linux)</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrpath -r &quot;/opt/MyApplication/lib/&quot; MyApplication</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">application: RUNPATH=/usr/lib</span><br><span class="line">application: new RUNPATH: /opt/MyApplication/lib/</span><br></pre></td></tr></table></figure>
+<h1 id="21-Wait-a-minute"><a href="#21-Wait-a-minute" class="headerlink" title="21. Wait a minute"></a>21. Wait a minute</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/QT/" rel="tag"><i class="fa fa-tag"></i> QT</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/10/QT-QIODevice%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E8%A7%A3%E5%86%B3/" rel="prev" title="QT-QIODevice内存泄露解决">
+      <i class="fa fa-chevron-left"></i> QT-QIODevice内存泄露解决
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/16/CPP%E5%80%BC%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="next" title="CPP值和对象">
+      CPP值和对象 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%97%A5%E5%BF%97%E6%89%93%E5%8D%B0%EF%BC%9ARelease%E4%B8%8B%E6%89%93%E5%8D%B0%E8%A1%8C%E5%8F%B7%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-text">1. 日志打印：Release下打印行号和文件名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Release%E4%B8%8B%E7%94%9F%E6%88%90%E8%B0%83%E8%AF%95%E6%96%87%E4%BB%B6%EF%BC%88win%EF%BC%9Apdb%EF%BC%89"><span class="nav-text">2. Release下生成调试文件（win：pdb）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%AB%98%E5%88%86%E5%B1%8F%E9%80%82%E9%85%8D%EF%BC%88%E5%8F%AA%E6%94%AF%E6%8C%81%E6%95%B4%E6%95%B0%E5%80%8D%E7%BC%A9%E6%94%BE%EF%BC%8C%E4%B8%8D%E5%A5%BD%EF%BC%89"><span class="nav-text">3. 高分屏适配（只支持整数倍缩放，不好）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%96%E8%80%85%E6%B7%BB%E5%8A%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%88-x2F-qt-x2F-etc-x2F-qt-conf%EF%BC%89"><span class="nav-text">或者添加资源文件（:&#x2F;qt&#x2F;etc&#x2F;qt.conf）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%AA%97%E5%8F%A3%E5%B1%85%E4%B8%AD%EF%BC%88%E5%8E%BB%E6%8E%89%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E5%8C%BA%E5%9F%9F%E5%B1%85%E4%B8%AD%EF%BC%89"><span class="nav-text">4. 窗口居中（去掉任务栏的区域居中）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%AD%97%E4%BD%93%E5%8A%A0%E8%BD%BD"><span class="nav-text">5. 字体加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%BB%99%E7%94%9F%E6%88%90%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%EF%BC%88windows%EF%BC%89"><span class="nav-text">6. 给生成文件添加信息（windows）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8Pro%E6%88%96%E8%80%85pri%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BB%A5%E4%B8%8B%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="nav-text">1. 在Pro或者pri文件中添加以下信息：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0-rc%E6%96%87%E4%BB%B6"><span class="nav-text">2. 添加.rc文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC%E4%B8%8B%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9Info-plist"><span class="nav-text">MAC下直接修改Info.plist</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E8%AD%A6%E5%91%8A%E5%BD%93%E6%88%90%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E5%92%8C%E5%BF%BD%E7%95%A5%E8%AD%A6%E5%91%8A"><span class="nav-text">7. 警告当成错误处理和忽略警告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-Mac%E4%B8%8B%E5%8E%BB%E6%8E%89%E7%84%A6%E7%82%B9%E7%9A%84%E8%93%9D%E8%89%B2%E8%BD%AE%E5%BB%93"><span class="nav-text">8. Mac下去掉焦点的蓝色轮廓</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E7%BB%A7%E6%89%BFQWidget%E7%9A%84%E5%AD%90%E7%B1%BB%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%B8%8D%E7%94%9F%E6%95%88"><span class="nav-text">9. 继承QWidget的子类样式表不生效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-text">其他方案：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E5%9B%BD%E9%99%85%E5%8C%96%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91"><span class="nav-text">10. 国际化实时翻译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-QIcon%E6%B7%BB%E5%8A%A0%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E7%9A%84%E5%9B%BE%E6%A0%87"><span class="nav-text">11. QIcon添加不同状态的图标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E5%8A%A0%E8%BD%BD%E5%AD%97%E4%BD%93"><span class="nav-text">12. 加载字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-%E9%9A%90%E5%BC%8F%E5%85%B1%E4%BA%AB%E5%92%8C%E6%98%BE%E7%A4%BA%E5%85%B1%E4%BA%AB%EF%BC%88MVC%E5%A5%BD%E5%B8%AE%E6%89%8B%EF%BC%89"><span class="nav-text">13. 隐式共享和显示共享（MVC好帮手）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8MVC%EF%BC%8C%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E6%98%BE%E7%A4%BA%E5%85%B1%E4%BA%AB%EF%BC%8C%E4%BB%BB%E6%84%8F%E4%BD%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%EF%BC%8C%E9%83%BD%E4%BC%9A%E5%8F%8D%E6%98%A0%E5%88%B0%E6%98%BE%E7%A4%BA%E7%9A%84%E8%A7%86%E5%9B%BE%E4%B8%8A%E3%80%82"><span class="nav-text">使用MVC，建议使用显示共享，任意位置修改数据，都会反映到显示的视图上。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-void-QComboBox-setMaxVisibleItems-int-maxItems-%E6%97%A0%E6%95%88"><span class="nav-text">14. void QComboBox::setMaxVisibleItems(int maxItems)无效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-Mac-QHBoxLayout%E6%B7%BB%E5%8A%A0%E7%9A%84QPushButton%E7%9F%A9%E5%BD%A2%E8%8C%83%E5%9B%B4%E6%BA%A2%E5%87%BA"><span class="nav-text">15. Mac QHBoxLayout添加的QPushButton矩形范围溢出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16-%E4%BD%BF%E7%94%A8QT-style%E5%86%85%E7%BD%AE%E7%9A%84%E5%9B%BE%E6%A0%87"><span class="nav-text">16. 使用QT style内置的图标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17-QPushButton%E5%92%8CQToolButton-setMenu%E5%8E%BB%E6%8E%89%E4%B8%8B%E6%8B%89%E5%B0%8F%E7%AE%AD%E5%A4%B4"><span class="nav-text">17. QPushButton和QToolButton setMenu去掉下拉小箭头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18-%E5%B1%8F%E8%94%BDMacOS%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F"><span class="nav-text">18. 屏蔽MacOS深色模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-%E7%A6%81%E6%AD%A2%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87"><span class="nav-text">19. 禁止输入中文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%B7%AF%E5%BE%84-rpath"><span class="nav-text">20. 设置动态链接库的加载路径 rpath</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-qmake-pro"><span class="nav-text">1. qmake(.pro)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-cmake"><span class="nav-text">2. cmake</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-chrpath-linux"><span class="nav-text">3. chrpath(linux)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Wait-a-minute"><span class="nav-text">21. Wait a minute</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="年轻气盛"
+      src="/images/head-icon.png">
+  <p class="site-author-name" itemprop="name">年轻气盛</p>
+  <div class="site-description" itemprop="description">世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/RealChuan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;RealChuan"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1070753498@qq.com" title="E-Mail → mailto:1070753498@qq.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">年轻气盛</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
