@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. C++常使用那些STL容器 vector：是封装动态大小数组的序列容器，元素是连续存储的，这意味着不仅可以通过迭代器访问元素，还可以使用偏移量来访问指向元素的常规指针。这意味着指向向量元素的指针可以传递给任何需要指向数组元素的指针的函数； list：是一个容器，支持从容器中的任何位置恒定时间插入和删除元素。不支持快速随机访问。它通常实现为双向链表。与 std::forward_list 相比">
+  <meta name="description" content="1. 简述一下什么是面向对象 面向过程思想 完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPP实用面试题（一）">
 <meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/03/18/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="自由意志">
-<meta property="og:description" content="1. C++常使用那些STL容器 vector：是封装动态大小数组的序列容器，元素是连续存储的，这意味着不仅可以通过迭代器访问元素，还可以使用偏移量来访问指向元素的常规指针。这意味着指向向量元素的指针可以传递给任何需要指向数组元素的指针的函数； list：是一个容器，支持从容器中的任何位置恒定时间插入和删除元素。不支持快速随机访问。它通常实现为双向链表。与 std::forward_list 相比">
+<meta property="og:description" content="1. 简述一下什么是面向对象 面向过程思想 完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-17T18:47:03.000Z">
-<meta property="article:modified_time" content="2023-03-17T10:52:16.555Z">
+<meta property="article:modified_time" content="2023-03-22T10:37:35.016Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="interview">
@@ -213,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-17 18:47:03 / 修改时间：10:52:16" itemprop="dateCreated datePublished" datetime="2023-03-17T18:47:03Z">2023-03-17</time>
+              <time title="创建时间：2023-03-17 18:47:03" itemprop="dateCreated datePublished" datetime="2023-03-17T18:47:03Z">2023-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-22 10:37:35" itemprop="dateModified" datetime="2023-03-22T10:37:35Z">2023-03-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -245,90 +251,148 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-C-常使用那些STL容器"><a href="#1-C-常使用那些STL容器" class="headerlink" title="1. C++常使用那些STL容器"></a>1. C++常使用那些STL容器</h1><ol>
-<li><code>vector</code>：是封装动态大小数组的序列容器，元素是连续存储的，这意味着不仅可以通过迭代器访问元素，还可以使用偏移量来访问指向元素的常规指针。这意味着指向向量元素的指针可以传递给任何需要指向数组元素的指针的函数；</li>
-<li><code>list</code>：是一个容器，支持从容器中的任何位置恒定时间插入和删除元素。不支持快速随机访问。它通常实现为双向链表。与 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/forward_list" title="cpp/container/forward list">std::forward_list</a> 相比，此容器提供双向迭代功能，同时空间效率较低；</li>
-<li><code>deque</code>：（双端队列）是一个索引序列容器，允许在其开头和结尾快速插入和删除。此外，在双端的任一端插入和删除永远不会使指向其余元素的指针或引用无效，先进先出；</li>
-<li><code>map</code>：是一个排序的关联容器，其中包含具有唯一键的键值对。键通过使用比较功能进行排序。搜索、删除和插入操作具有对数复杂性。地图通常实现为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" title="enwiki:Red–black tree">红黑树</a>；</li>
-<li><code>set</code>：是一个关联容器，其中包含一组排序的唯一对象类型。排序是使用键比较功能<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/named_req/Compare" title="cpp/named req/Compare">比较</a>完成的。搜索、删除和插入操作具有对数复杂性。集合通常实现为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" title="enwiki:Red–black tree">红黑树</a>；</li>
-<li><code>unordered_map</code>：是一个关联容器，其中包含具有唯一键的键值对。元素的搜索、插入和删除具有平均恒定时间复杂度；</li>
-<li><code>unordered_set</code>：是一个关联容器，其中包含一组 Key 类型的唯一对象。搜索、插入和删除具有平均恒定时间复杂度；</li>
-<li><code>stack</code>：提供了堆栈的功能 - 特别是LIFO（后进先出）数据结构</li>
-<li><code>string</code>：字符串；</li>
+        <h1 id="1-简述一下什么是面向对象"><a href="#1-简述一下什么是面向对象" class="headerlink" title="1. 简述一下什么是面向对象"></a>1. 简述一下什么是面向对象</h1><ol>
+<li>面向过程思想 完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能函数相互调用，完成需求；</li>
+<li>面向对象思想 面向对象的思想是尽可能模拟人类的思维方式，使得软件的开发方法与过程尽可能接近人类认识世界、解决现实问题的方法和过程，把客观世界中的实体抽象为问题域中的对象。面向对象以对象为核心，该思想认为程序由一系列对象组成。 面向对象思想的特点： - 是一种更符合人类思维习惯的思想 - 可以将复杂的问题简单化 - 将我们从执行者变成了指挥者；</li>
+<li>面向对象的三大特征：封装、继承、多态：<ol>
+<li>封装：将事物属性和行为封装到一起，也就是 C++ 中的类，便于管理，提高代码的复用性。事物的属性和行为分别对应类中的成员变量和成员方法；</li>
+<li>继承：继承使类与类之间产生关系，能够提高代码的复用性以及可维护性；</li>
+<li>多态：多态意味着调用成员函数时，会根据调用方法的对象的类型来执行不同的函数；</li>
+</ol>
+</li>
 </ol>
 <span id="more"></span>
 
-<h1 id="2-map和unordered-map区别和底层实现"><a href="#2-map和unordered-map区别和底层实现" class="headerlink" title="2. map和unordered_map区别和底层实现"></a>2. map和unordered_map区别和底层实现</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="使用方法不同"><a href="#使用方法不同" class="headerlink" title="使用方法不同"></a>使用方法不同</h3><p>使用方法是最直观的区别，这两种结构虽然都在STL库中，但是所使用的头文件不同。</p>
+<h1 id="2-简述一下-C-中的多态"><a href="#2-简述一下-C-中的多态" class="headerlink" title="2. 简述一下 C++ 中的多态"></a>2. 简述一下 C++ 中的多态</h1><p>静态多态、动态多态、多态的实现原理、虚函数、虚函数表 标准回答 在现实生活中，多态是同一个事物在不同场景下的多种形态。在面向对象中，多态是指通过基类的指针或者引用，在运行时动态调用实际绑定对象函数的行为，与之相对应的编译时绑定函数称为静态绑定。所以多态分为静态多态和动态多态。</p>
 <ol>
-<li><code>#include&lt;map&gt;</code>；</li>
-<li><code>#include&lt;unordered_map&gt;</code>；</li>
+<li>静态多态 静态多态是编译器在编译期间完成的，编译器会根据实参类型来选择调用合适的函数，如果有合适的函数就调用，没有的话就会发出警告或者报错。静态多态有函数重载、运算符重载、泛型编程等；</li>
+<li>动态多态 动态多态是在程序运行时根据基类的引用（指针）指向的对象来确定自己具体该调用哪一个类的虚函数。当父类指针（引用）指向 父类对象时，就调用父类中定义的虚函数；即当父类指针（引用）指向 子类对象时，就调用子类中定义的虚函数；</li>
+<li>加分回答：<ol>
+<li>动态多态行为的表现效果为：同样的调用语句在实际运行时有多种不同的表现形态；</li>
+<li>实现动态多态的条件：<ol>
+<li>要有继承关系；</li>
+<li>要有虚函数重写（被 virtual 声明的函数叫虚函数）；</li>
+<li>要有父类指针（父类引用）指向子类对象；</li>
 </ol>
-<h3 id="底层实现的数据结构不同"><a href="#底层实现的数据结构不同" class="headerlink" title="底层实现的数据结构不同"></a>底层实现的数据结构不同</h3><p>数据结构其实是两种类型最为根本的区别，其他的不同都是这种区别产生的结果。</p>
+</li>
+<li>动态多态的实现原理 当类中声明虚函数时，编译器会在类中生成一个虚函数表，虚函数表是一个存储类虚函数指针的数据结构， 虚函数表是由编译器自动生成与维护的。virtual 成员函数会被编译器放入虚函数表中，存在虚函数时，每个对象中都有一个指向虚函数表的指针（vptr 指针）。在多态调用时, vptr 指针就会根据这个对象在对应类的虚函数表中查找被调用的函数，从而找到函数的入口地址。</li>
+</ol>
+</li>
+</ol>
+<h1 id="3-简述一下-C-的重载和重写"><a href="#3-简述一下-C-的重载和重写" class="headerlink" title="3. 简述一下 C++ 的重载和重写"></a>3. 简述一下 C++ 的重载和重写</h1><h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><ol>
+<li>重载是指不同的函数使用相同的函数名，但是函数的参数个数或类型不同（参数列表不同）。调用的时候根据函数的参数来区别不同的函数，函数重载跟返回值无关；</li>
+<li>重载的规则 - 函数名相同 - 必须具有不同的参数列表 - 可以有不同的访问修饰符；</li>
+<li>重载用来实现静态多态（函数名相同，功能不一样）；</li>
+<li>重载是多个函数或者同一个类中方法之间的关系，是平行关系。</li>
+</ol>
+<h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><ol>
+<li>重写（也叫覆盖）是指在派生类中重新对基类中的虚函数重新实现。即函数名和参数都一样，只是函数的实现体不一样;</li>
+<li>重写的规则：<ol>
+<li>方法声明必须完全与父类中被重写的方法相同；</li>
+<li>访问修饰符的权限要大于或者等于父类中被重写的方法的访问修饰符；</li>
+<li>类重写的方法可以加virtual，也可以不加;</li>
+</ol>
+</li>
+<li>重写用来实现动态多态（根据调用方法的对象的类型来执行不同的函数）;</li>
+<li>重写是父类和子类之间的关系，是垂直关系；</li>
+</ol>
+<h2 id="加分回答"><a href="#加分回答" class="headerlink" title="加分回答"></a><strong>加分回答</strong></h2><ol>
+<li>C++中重载的实现 采用命名倾轧（name mangling）技术，编译时会将同名的函数或方法根据某种规则生成不同的函数或方法名（因为函数或方法的特征标不一样）。</li>
+<li>C++中重写的实现 C++中重写可以用来实现动态多态，父类中需要重写的方法要加上 virtual 关键字。 虚函数实现的原理是采用虚函数表，多态中每个对象内存中都有一个指针，被称为虚函数指针，这个指针指向虚函数表，表中记录的是该类的所有虚函数的入口地址，所以对象能够根据它自身的类型调用不同的函数。</li>
+</ol>
+<h1 id="4-虚函数的实现原理"><a href="#4-虚函数的实现原理" class="headerlink" title="4. 虚函数的实现原理"></a>4. 虚函数的实现原理</h1><ol>
+<li>虚函数的作用：C++ 中的虚函数的作用主要是实现了动态多态的机制。动态多态，简单的说就是用父类型的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有“多种形态”，这是一种泛型技术。</li>
+<li>虚函数实现原理 编译器处理虚函数时，给每个对象添加一个隐藏的成员。隐藏的成员是一个指针类型的数据，指向的是函数地址数组，这个数组被称为虚函数表（virtual function table，vtbl）。虚函数表中存储的是类中的虚函数的地址。如果派生类重写了基类中的虚函数，则派生类对象的虚函数表中保存的是派生类的虚函数地址，如果派生类没有重写基类中的虚函数，则派生类对象的虚函数表中保存的是父类的虚函数地址。</li>
+<li>加分回答：<ol>
+<li>使用虚函数时，对于内存和执行速度方面会有一定的成本：<ol>
+<li>每个对象都会变大，变大的量为存储虚函数表指针；</li>
+<li>对于每个类，编译器都会创建一个虚函数表；</li>
+<li>对于每次调用虚函数，都需要额外执行一个操作，就是到表中查找虚函数地址；</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="5-为什么将析构函数设置成虚函数"><a href="#5-为什么将析构函数设置成虚函数" class="headerlink" title="5. 为什么将析构函数设置成虚函数"></a>5. 为什么将析构函数设置成虚函数</h1><ol>
+<li>概念 虚析构函数，是将基类的析构函数声明为 <code> virtual class Base &#123; public: Base() &#123; &#125; // 虚析构函数 virtual ~Base() &#123; &#125; &#125;</code>；</li>
+<li>作用 虚析构函数的主要作用是为了防止遗漏资源的释放，防止内存泄露。如果基类中的析构函数没有声明为虚函数，基类指针指向派生类对象时，则当基类指针释放时不会调用派生类对象的析构函数，而是调用基类的析构函数，如果派生类析构函数中做了某些释放资源的操作，则这时就会造成内存泄露；</li>
+</ol>
+<h1 id="6-什么是纯虚函数，有什么作用"><a href="#6-什么是纯虚函数，有什么作用" class="headerlink" title="6. 什么是纯虚函数，有什么作用"></a>6. 什么是纯虚函数，有什么作用</h1><ol>
+<li>纯虚函数是一种特殊的虚函数，它的格式是：虚函数不给出具体的实现，也就是后面没有大括号实现体，而在后面加上 “&#x3D;0” class 类名 { virtual 返回值类型 函数名(参数列表) &#x3D; 0; } ；</li>
+<li>作用：很多情况下，在基类中不能对虚函数给出具体的有意义的实现，就可以把它声明为纯虚函数，它的实现留给该基类的派生类去做。例如猫类和狗类的基类是动物类，动物类中有一个吃饭的函数 eat()，那这个 eat() 函数可以是纯虚函数，因为并不能够确定动物吃的东西是什么，具体吃的内容由不同的派生类去实现；</li>
+<li>特点：如果一个类中有纯虚函数，那么这个类也被称为抽象类。这种类不能实例化对象，也就是不能创建该类的对象。除非在派生类中完全实现基类中所有的纯虚函数，否则派生类也是抽象类，不能实例化对象。</li>
+</ol>
+<h1 id="7-虚函数和纯虚函数的区别"><a href="#7-虚函数和纯虚函数的区别" class="headerlink" title="7. 虚函数和纯虚函数的区别"></a>7. 虚函数和纯虚函数的区别</h1><ol>
+<li>格式：虚函数的定义格式为：virtual 返回值类型 函数名(参数列表) {} 纯虚函数的定义格式为：virtual 返回值类型 函数名(参数列表) &#x3D; 0;；</li>
+<li>特点：虚函数可以有具体的实现，纯虚函数没有具体的实现。 对于虚函数来说，父类和子类都有各自的版本，由多态方式调用的时候动态绑定。 有纯虚函数的类称为抽象类，有纯虚函数的类不能实例化，派生类必须实现纯虚函数才可以实例化，否则也是抽象类；</li>
+<li>作用：虚函数是 C++ 中用于实现动态多态的机制。 很多情况下，在基类中不能对虚函数给出具体的有意义的实现，就可以把它声明为纯虚函数，它的实现留给该基类的派生类去做。</li>
+</ol>
+<h1 id="8-new-的实现原理，new-和-malloc-的区别"><a href="#8-new-的实现原理，new-和-malloc-的区别" class="headerlink" title="8. new 的实现原理，new 和 malloc 的区别"></a>8. new 的实现原理，new 和 malloc 的区别</h1><ol>
+<li>new 的实现原理：<ol>
+<li>简单类型，则直接调用 operator new()，在 operator new() 函数中会调用 malloc() 函数，如果调用 malloc() 失败会调用 _callnewh()，如果 _callnewh() 返回 0 则抛出 bac_alloc 异常，返回非零则继续分配内存;</li>
+<li>复杂类型，先调用 operator new()函数，然后在分配的内存上调用构造函数；</li>
+</ol>
+</li>
+<li>new 和 malloc 的区别：<ol>
+<li>new 是操作符，而 malloc 是函数；</li>
+<li>使用 new 操作符申请内存分配时无须指定内存块的大小，编译器会根据类型信息自行计算，而 malloc 则需要显式地指出所需内存的尺寸；</li>
+<li>new 分配失败的时候会直接抛出异常，malloc 分配失败会返回 NULL；</li>
+<li>对于非简单类型，new 在分配内存后，会调用构造函数，而 malloc 不会；</li>
+<li>new 分配成功后会返回对应类型的指针，而 malloc 分配成功后会返回 void * 类型；</li>
+<li>malloc 可以分配任意字节，new 只能分配实例所占内存的整数倍数大小；</li>
+<li>new 可以被重载，而 malloc 不能被重载；</li>
+<li>new 操作符从自由存储区上分配内存空间，而 malloc 从堆上动态分配内存；</li>
+<li>使用 malloc 分配的内存后，如果在使用过程中发现内存不足，可以使用 realloc 函数进行内存重新分配实现内存的扩充，new 没有这样直观的配套设施来扩充内存；</li>
+</ol>
+</li>
+</ol>
+<h1 id="9-delete-和-free-的区别"><a href="#9-delete-和-free-的区别" class="headerlink" title="9. delete 和 free 的区别"></a>9. delete 和 free 的区别</h1><ol>
+<li>delete 是操作符，而 free 是函数；</li>
+<li>delete 用于释放 new 分配的空间，free 有用释放 malloc 分配的空间；</li>
+<li>free 会不会调用对象的析构函数，而 delete 会调用对象的析构函数；</li>
+<li>调用 free 之前需要检查要释放的指针是否为 NULL，使用 delete 释放内存则不需要检查指针是否为 NULL；</li>
+</ol>
+<h1 id="10-C-的内存管理"><a href="#10-C-的内存管理" class="headerlink" title="10. C++ 的内存管理"></a>10. C++ 的内存管理</h1><p>C++ 的内存分区主要有：代码区、未初始化数据区（BSS）、已初始化数据区（DATA）、栈区（Stack）、堆区（Heap）</p>
 <ol>
-<li><code>map</code>是基于红黑树结构实现的。红黑树是一种平衡二叉查找树的变体结构，它的左右子树的高度差有可能会大于 1。所以红黑树不是严格意义上的平衡二叉树AVL，但对之进行平衡的代价相对于AVL较低， 其平均统计性能要强于AVL。红黑树具有自动排序的功能，因此它使得map也具有按键（key）排序的功能，因此在map中的元素排列都是有序的。在 <code>map</code>中，红黑树的每个节点就代表一个元素，因此实现对 <code>map</code>的增删改查，也就是相当于对红黑树的操作。对于这些操作的复杂度都为O(logn)，复杂度即为红黑树的高度。</li>
-<li><code>unordered_map</code>是基于哈希表（也叫散列表）实现的。散列表是根据关键码值而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表。散列表使得 <code>unordered_map</code>的插入和查询速度接近于O(1)（在没有冲突的情况下），但是其内部元素的排列顺序是无序的。</li>
+<li>代码区：加载的是可执行文件代码段，所有的可执行代码都加载到代码区，这块内存是不可以在运行期间修改的；</li>
+<li>未初始化数据区 加载的是可执行文件 BSS 段，位置可以分开也可以紧靠数据段，存储于数据段的数据（全局未初始化，静态未初始化数据）的生存周期为整个程序运行过程；</li>
+<li>已初始化数据区（全局初始化数据区&#x2F;静态数据区） 加载的是可执行文件数据段，存储于数据段（全局初始化，静态初始化数据，文字常量(只读)）的数据的生存周期为整个程序运行过程；</li>
+<li>栈区 栈是一种先进后出的内存结构，由编译器自动分配释放，存放函数的参数值、返回值、局部变量等。在程序运行过程中实时加载和释放，因此，局部变量的生存周期为申请到释放该段栈空间；</li>
+<li>堆区 堆是一个大容器，它的容量要远远大于栈，但没有栈那样先进后出的顺序，用于动态内存分配。堆在内存中位于BSS区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。</li>
 </ol>
-<h3 id="元素排列顺序不同"><a href="#元素排列顺序不同" class="headerlink" title="元素排列顺序不同"></a>元素排列顺序不同</h3><ol>
-<li><code>map</code>：基于红黑树，元素有序存储；</li>
-<li><code>unordered_map</code>：基于散列表，元素无序存储；</li>
+<h1 id="11-什么是内存泄露，如何检测"><a href="#11-什么是内存泄露，如何检测" class="headerlink" title="11. 什么是内存泄露，如何检测"></a>11. 什么是内存泄露，如何检测</h1><ol>
+<li>内存泄漏（Memory Leak）是指程序中已动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果；</li>
+<li>避免内存泄露的方法主要就是要有良好的编码习惯，动态开辟内存空间，及时释放内存。也可以采用智能指针来避免内存泄露；</li>
+<li>可以采用静态分析技术、源代码插装技术等进行检测。常见的一些检测工作有：LCLink、ccmalloc、Dmalloc、Electric Fence、Leaky、LeakTracer、MEMWATCH、Valgrind、KCachegrind等等。</li>
 </ol>
-<h3 id="插入和查询的时间复杂度不同"><a href="#插入和查询的时间复杂度不同" class="headerlink" title="插入和查询的时间复杂度不同"></a>插入和查询的时间复杂度不同</h3><ol>
-<li><code>map</code>：基于红黑树，复杂度与树高相同，即O(logn)；</li>
-<li><code>unordered_map</code>：基于散列表，复杂度依赖于散列函数产生的冲突多少，但大多数情况下其复杂度接近于O(1)；</li>
-</ol>
-<h3 id="效率及其稳定性不同"><a href="#效率及其稳定性不同" class="headerlink" title="效率及其稳定性不同"></a>效率及其稳定性不同</h3><p>这点实际上也是由底层的数据结构决定的。</p>
+<h1 id="12-什么是野指针，怎么产生的，如何避免"><a href="#12-什么是野指针，怎么产生的，如何避免" class="headerlink" title="12. 什么是野指针，怎么产生的，如何避免"></a>12. 什么是野指针，怎么产生的，如何避免</h1><ol>
+<li><p>野指针是指指向的位置是随机的、不可知的、不正确的；</p>
+</li>
+<li><p>野指针产生的原因：</p>
 <ol>
-<li>存储空间：<code>unordered_map</code>的散列空间会存在部分未被使用的位置，所以其内存效率不是100%的。而 <code>map</code>的红黑树的内存效率接近于100%；</li>
-<li>查找性能的稳定性：<code>map</code>的查找类似于平衡二叉树的查找，其性能十分稳定。例如在1M数据中查找一个元素，需要多少次比较呢？20次。<code>map</code>的查找次数几乎与存储数据的分布与大小无关。而 <code>unordered_map</code>依赖于散列表，如果哈希函数映射的关键码出现的冲突过多，则最坏时间复杂度可以达到是O(n)。因此 <code>unordered_map</code>的查找次数是与存储数据的分布与大小有密切关系的，它的效率是不稳定的；</li>
+<li>指针变量未初始化或者随便赋值：指针变量没有初始化，其值是随机的，也就是指针变量指向的是不确定的内存，如果对它解除引用，结果是不可知的；</li>
+<li>指针释放后未置空：有时候指针在释放后没有复制为 nullptr，虽然指针变量指向的内存被释放掉了，但是指针变量中的值还在，这时指针变量就是指向一个未知的内存，如果对它解除引用，结果是不可知的；</li>
+<li>指针操作超出了变量的作用域：函数中返回了局部变量的地址或者引用，因为局部变量出了作用域就释放了，这时候返回的地址指向的内存也是未知的。</li>
 </ol>
-<h1 id="3-vector增删改查复杂度分别是什么"><a href="#3-vector增删改查复杂度分别是什么" class="headerlink" title="3. vector增删改查复杂度分别是什么"></a>3. vector增删改查复杂度分别是什么</h1><table>
-<thead>
-<tr>
-<th align="center">push_back</th>
-<th align="center">push_front</th>
-<th align="center">insert</th>
-<th align="center">pop_back</th>
-<th align="center">pop_front</th>
-<th align="center">erace</th>
-<th>find</th>
-<th>访问</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">O(1)</td>
-<td align="center">O(N)</td>
-<td align="center">O(n)</td>
-<td align="center">O(1)</td>
-<td align="center">O(N)</td>
-<td align="center">O(n)</td>
-<td>O(N)</td>
-<td>O(1)</td>
-</tr>
-</tbody></table>
-<h1 id="4-vector支持越界检查吗？"><a href="#4-vector支持越界检查吗？" class="headerlink" title="4. vector支持越界检查吗？"></a>4. vector支持越界检查吗？</h1><p>通过 <code>operator[]</code> 获取数组元素，不会检查下标有效性，需要检查的时候使用 <code>at </code>接口；</p>
-<h1 id="5-push-back和-emplace-back区别"><a href="#5-push-back和-emplace-back区别" class="headerlink" title="5. push_back和 emplace_back区别"></a>5. <code>push_back</code>和 <code>emplace_back</code>区别</h1><ol>
-<li>左值参数的 <code>push_back</code>要调用构造函数和复制构造；</li>
-<li>右值参数的 <code>push_back</code>要调用构造函数和移动构造；</li>
-<li><code>emplace_back</code>要调用一次构造而已；</li>
+</li>
+<li><p>如何避免野指针：</p>
+<ol>
+<li>指针变量一定要初始化，可以初始化为 nullptr，因为 nullptr 明确表示空指针，对 nullptr 操作也不会有问题；</li>
+<li>释放后置为 nullptr。</li>
 </ol>
-<h1 id="6-emplace-back可以传对象吗？"><a href="#6-emplace-back可以传对象吗？" class="headerlink" title="6. emplace_back可以传对象吗？"></a>6. <code>emplace_back</code>可以传对象吗？</h1><p>可以；</p>
-<h1 id="7-移动构造函数和拷贝构造函数区别"><a href="#7-移动构造函数和拷贝构造函数区别" class="headerlink" title="7. 移动构造函数和拷贝构造函数区别"></a>7. 移动构造函数和拷贝构造函数区别</h1><ol>
-<li>拷贝构造函数：拷贝构造函数是先将传入的参数对象进行一次<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%B7%B1%E6%8B%B7%E8%B4%9D&spm=1001.2101.3001.7020">深拷贝</a>，再传给新对象。这就会有一次拷贝对象的开销，并且进行了深拷贝，就需要给对象分配地址空间；</li>
-<li>移动构造函数：首先将传递参数的内存地址空间接管，然后将内部所有指针设置为nullptr，并且在原地址上进行新对象的构造，最后调用原对象的的析构函数，这样做既不会产生额外的拷贝开销，也不会给新对象分配内存空间。</li>
+</li>
 </ol>
-<h1 id="8-shared-ptr，引用计数何时增加和减少"><a href="#8-shared-ptr，引用计数何时增加和减少" class="headerlink" title="8. shared_ptr，引用计数何时增加和减少"></a>8. <code>shared_ptr</code>，引用计数何时增加和减少</h1><ol>
-<li>增加：初始化、拷贝构造&#x2F;赋值；</li>
-<li>减少：离开作用域；</li>
+<p><strong>尽量实用智能指针！！！</strong></p>
+<h1 id="13-C-中的内存对齐"><a href="#13-C-中的内存对齐" class="headerlink" title="13. C++ 中的内存对齐"></a>13. C++ 中的内存对齐</h1><ol>
+<li>什么是内存对齐 现代计算机中内存空间都是按照 字节（byte）划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始，但是实际的计算机系统对基本类型数据在内存中存放的位置有限制，它们会要求这些数据的首地址的值是某个数 k（通常它为4或8）的倍数，这就是所谓的内存对齐；</li>
+<li>内存对齐的原因 - 平台原因（移植原因）：不是所有的硬件平台都能访问任意地址上的任意数据的。某些硬件平台只能在某些地址处取某些特定类型的数据，否则抛出硬件异常。 - 性能原因：数据结构（尤其是栈）应该尽可能地在自然边界上对齐。原因在于，为了访问未对齐的内存，处理器需要作两次内存访问，而对齐的内存访问仅需要一次访问；</li>
+<li>内存对齐的规则 - 每个特定平台上的编译器都有自己的默认“对齐系数”（也叫对齐模数）。可以通过预编译命令 #pragma pack(n)，n &#x3D; 1,2,4,8,16 来改变这一系数；<ol>
+<li>有效对其值：是给定值 #pragma pack(n) 和结构体中最长数据类型长度中较小的那个，有效对齐值也叫对齐单位；</li>
+<li>结构体第一个成员的偏移量（offset）为0，以后每个成员相对于结构体首地址的 offset 都是该成员大小与有效对齐值中较小那个的整数倍，如有需要编译器会在成员之间加上填充字节；</li>
+<li>结构体的总大小为有效对齐值的整数倍，如有需要编译器会在最末一个成员之后加上填充字节；</li>
 </ol>
-<h1 id="9-static变量可以用在哪些地方，分别有什么特点"><a href="#9-static变量可以用在哪些地方，分别有什么特点" class="headerlink" title="9. static变量可以用在哪些地方，分别有什么特点"></a>9. <code>static</code>变量可以用在哪些地方，分别有什么特点</h1><ol>
-<li>修饰<strong>全局变量</strong>时，表明一个全局变量只对定义在同一文件中的函数可见；</li>
-<li>修饰<strong>局部变量</strong>时，表明该变量的值不会因为函数终止而丢失；</li>
-<li>修饰<strong>函数</strong>时，表明该函数只在同一文件中调用；</li>
-<li>修饰 <strong>类的数据成员</strong> ，表明对该类所有对象这个数据成员都只有一个实例。即该实例归所有对象共有；</li>
-<li>用 <code>static</code>修饰不访问非静态数据成员的 <strong>类成员函数</strong> 。这意味着一个静态成员函数只能访问它的参数、类的静态数据成员和全局变量；</li>
+</li>
 </ol>
-<h1 id="10-static修饰的普通变量初始化在main函数执行前还是后？"><a href="#10-static修饰的普通变量初始化在main函数执行前还是后？" class="headerlink" title="10. static修饰的普通变量初始化在main函数执行前还是后？"></a>10. <code>static</code>修饰的普通变量初始化在main函数执行前还是后？</h1><p>前；</p>
-<h1 id="11-类的static方法可以访问非static对象吗？"><a href="#11-类的static方法可以访问非static对象吗？" class="headerlink" title="11. 类的static方法可以访问非static对象吗？"></a>11. 类的static方法可以访问非static对象吗？</h1><p>不可以；</p>
 
     </div>
 
@@ -352,7 +416,10 @@
     <a href="/2022/10/09/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="常用正则表达式">
       <i class="fa fa-chevron-left"></i> 常用正则表达式
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="CPP实用面试题（二）">
+      CPP实用面试题（二） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -411,7 +478,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E5%B8%B8%E4%BD%BF%E7%94%A8%E9%82%A3%E4%BA%9BSTL%E5%AE%B9%E5%99%A8"><span class="nav-text">1. C++常使用那些STL容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-map%E5%92%8Cunordered-map%E5%8C%BA%E5%88%AB%E5%92%8C%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-text">2. map和unordered_map区别和底层实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="nav-text">使用方法不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8D%E5%90%8C"><span class="nav-text">底层实现的数据结构不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E6%8E%92%E5%88%97%E9%A1%BA%E5%BA%8F%E4%B8%8D%E5%90%8C"><span class="nav-text">元素排列顺序不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%92%8C%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8D%E5%90%8C"><span class="nav-text">插入和查询的时间复杂度不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E7%8E%87%E5%8F%8A%E5%85%B6%E7%A8%B3%E5%AE%9A%E6%80%A7%E4%B8%8D%E5%90%8C"><span class="nav-text">效率及其稳定性不同</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-vector%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">3. vector增删改查复杂度分别是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-vector%E6%94%AF%E6%8C%81%E8%B6%8A%E7%95%8C%E6%A3%80%E6%9F%A5%E5%90%97%EF%BC%9F"><span class="nav-text">4. vector支持越界检查吗？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-push-back%E5%92%8C-emplace-back%E5%8C%BA%E5%88%AB"><span class="nav-text">5. push_back和 emplace_back区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-emplace-back%E5%8F%AF%E4%BB%A5%E4%BC%A0%E5%AF%B9%E8%B1%A1%E5%90%97%EF%BC%9F"><span class="nav-text">6. emplace_back可以传对象吗？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E7%A7%BB%E5%8A%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%8C%BA%E5%88%AB"><span class="nav-text">7. 移动构造函数和拷贝构造函数区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-shared-ptr%EF%BC%8C%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E4%BD%95%E6%97%B6%E5%A2%9E%E5%8A%A0%E5%92%8C%E5%87%8F%E5%B0%91"><span class="nav-text">8. shared_ptr，引用计数何时增加和减少</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-static%E5%8F%98%E9%87%8F%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%9C%A8%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%EF%BC%8C%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9"><span class="nav-text">9. static变量可以用在哪些地方，分别有什么特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-static%E4%BF%AE%E9%A5%B0%E7%9A%84%E6%99%AE%E9%80%9A%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9C%A8main%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E8%BF%98%E6%98%AF%E5%90%8E%EF%BC%9F"><span class="nav-text">10. static修饰的普通变量初始化在main函数执行前还是后？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E7%B1%BB%E7%9A%84static%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E9%9D%9Estatic%E5%AF%B9%E8%B1%A1%E5%90%97%EF%BC%9F"><span class="nav-text">11. 类的static方法可以访问非static对象吗？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">1. 简述一下什么是面向对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B-C-%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-text">2. 简述一下 C++ 中的多态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B-C-%E7%9A%84%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99"><span class="nav-text">3. 简述一下 C++ 的重载和重写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD"><span class="nav-text">重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99"><span class="nav-text">重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94"><span class="nav-text">加分回答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">4. 虚函数的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B0%86%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E8%AE%BE%E7%BD%AE%E6%88%90%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-text">5. 为什么将析构函数设置成虚函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-text">6. 什么是纯虚函数，有什么作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">7. 虚函数和纯虚函数的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-new-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8Cnew-%E5%92%8C-malloc-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">8. new 的实现原理，new 和 malloc 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-delete-%E5%92%8C-free-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">9. delete 和 free 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-C-%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">10. C++ 的内存管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%EF%BC%8C%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B"><span class="nav-text">11. 什么是内存泄露，如何检测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8E%E6%8C%87%E9%92%88%EF%BC%8C%E6%80%8E%E4%B9%88%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%8C%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D"><span class="nav-text">12. 什么是野指针，怎么产生的，如何避免</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-C-%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="nav-text">13. C++ 中的内存对齐</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -427,7 +494,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -440,7 +507,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

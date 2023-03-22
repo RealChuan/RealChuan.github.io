@@ -187,6 +187,263 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">操作系统实用面试题（一）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-22 18:42:17 / 修改时间：10:43:36" itemprop="dateCreated datePublished" datetime="2023-03-22T18:42:17Z">2023-03-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁"><a href="#1-介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁" class="headerlink" title="1. 介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁"></a>1. 介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁</h1><ol>
+<li>死锁 两个或两个以上的进程在执行过程中，因争夺共享资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁。这些永远在互相等待的进程称为死锁进程；</li>
+<li>产生死锁的必要条件 虽然进程在运行过程中，可能发生死锁，但死锁的发生也必须具备一定的条件，死锁的发生必须具备以下四个必要条件：<ol>
+<li>互斥条件：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放；</li>
+<li>请求和保持条件：指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己已获得的其它资源保持不放；</li>
+<li>不剥夺条件：指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放；</li>
+<li>环路等待条件：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合 {P0，P1，P2，···，Pn} 中的 P0 正在等待一个 P1 占用的资源；P1 正在等待 P2 占用的资源，……，Pn 正在等待已被 P0 占用的资源；</li>
+</ol>
+</li>
+<li>产生死锁的原因 - 竞争资源 - 进程间推进顺序非法；</li>
+<li>预防死锁 - 有序资源分配法 - 银行家算法；</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">STL实用面试题（一）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-22 18:40:43 / 修改时间：10:42:51" itemprop="dateCreated datePublished" datetime="2023-03-22T18:40:43Z">2023-03-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-STL-中有哪些常见的容器"><a href="#1-STL-中有哪些常见的容器" class="headerlink" title="1. STL 中有哪些常见的容器"></a>1. STL 中有哪些常见的容器</h1><ol>
+<li>顺序容器 容器并非排序的，元素的插入位置同元素的值无关，包含 vector、deque、list；<ol>
+<li>vector：动态数组 元素在内存连续存放。随机存取任何元素都能在常数时间完成。在尾端增删元素具有较佳的性能；</li>
+<li>deque：双向队列 元素在内存连续存放。随机存取任何元素都能在常数时间完成（仅次于 vector ）。在两端增删元素具有较佳的性能（大部分情况下是常数时间）；</li>
+<li>list：双向链表 元素在内存不连续存放。在任何位置增删元素都能在常数时间完成。不支持随机存取；</li>
+</ol>
+</li>
+<li>关联式容器 元素是排序的；插入任何元素，都按相应的排序规则来确定其位置；在查找时具有非常好的性能；通常以平衡二叉树的方式实现，包含set、multiset、map、multimap；<ol>
+<li>set&#x2F;multiset set中不允许相同元素，multiset 中允许存在相同元素；</li>
+<li>map&#x2F;multimap map 与 set 的不同在于 map 中存放的元素有且仅有两个成员变，一个名为 first，另一个名为 second，map 根据 first 值对元素从小到大排序，并可快速地根据 first 来检索元素。map 和multimap 的不同在于是否允许相同 first 值的元素</li>
+</ol>
+</li>
+<li>容器适配器 封装了一些基本的容器，使之具备了新的函数功能，包含 stack、queue、priority_queue；<ol>
+<li>stack：栈 栈是项的有限序列，并满足序列中被删除、检索和修改的项只能是最进插入序列的项（栈顶的项），后进先出</li>
+<li>queue：队列 插入只可以在尾部进行，删除、检索和修改只允许从头部进行，先进先出；</li>
+<li>priority_queue：优先级队列 内部维持某种有序，然后确保优先级最高的元素总是位于头部，最高优先级元素总是第一个出列。</li>
+</ol>
+</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">CPP实用面试题（二）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-22 18:39:17 / 修改时间：10:41:12" itemprop="dateCreated datePublished" datetime="2023-03-22T18:39:17Z">2023-03-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-浅拷贝和深拷贝"><a href="#1-浅拷贝和深拷贝" class="headerlink" title="1. 浅拷贝和深拷贝"></a>1. 浅拷贝和深拷贝</h1><ol>
+<li>浅拷贝 浅拷贝又称为值拷贝，将源对象的值拷贝到目标对象中，如果对象中有某个成员是指针类型数据，并且是在堆区创建，则使用浅拷贝仅仅拷贝的是这个指针变量的值，也就是在目标对象中该指针类型数据和源对象中的该成员指向的是同一块堆空间。这样会带来一个问题，就是在析构函数中释放该堆区数据，会被释放多次。默认的拷贝构造函数和默认的赋值运算符重载函数都是浅拷贝；</li>
+<li>深拷贝 深拷贝在拷贝的时候先开辟出和源对象大小一样的空间，然后将源对象里的内容拷贝到目标对象中去，这样指针成员就指向了不同的内存位置。并且里面的内容是一样的，这样不但达到了拷贝的目的，还不会出现问题，两个对象先后去调用析构函数，分别释放自己指针成员所指向的内存。即为每次增加一个指针，便申请一块新的内存，并让这个指针指向新的内存，深拷贝情况下，不会出现重复释放同一块内存的错误；</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/18/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,10 +467,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-17 18:47:03 / 修改时间：10:52:16" itemprop="dateCreated datePublished" datetime="2023-03-17T18:47:03Z">2023-03-17</time>
+              <time title="创建时间：2023-03-17 18:47:03" itemprop="dateCreated datePublished" datetime="2023-03-17T18:47:03Z">2023-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-22 10:37:35" itemprop="dateModified" datetime="2023-03-22T10:37:35Z">2023-03-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -235,16 +498,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-C-常使用那些STL容器"><a href="#1-C-常使用那些STL容器" class="headerlink" title="1. C++常使用那些STL容器"></a>1. C++常使用那些STL容器</h1><ol>
-<li><code>vector</code>：是封装动态大小数组的序列容器，元素是连续存储的，这意味着不仅可以通过迭代器访问元素，还可以使用偏移量来访问指向元素的常规指针。这意味着指向向量元素的指针可以传递给任何需要指向数组元素的指针的函数；</li>
-<li><code>list</code>：是一个容器，支持从容器中的任何位置恒定时间插入和删除元素。不支持快速随机访问。它通常实现为双向链表。与 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/forward_list" title="cpp/container/forward list">std::forward_list</a> 相比，此容器提供双向迭代功能，同时空间效率较低；</li>
-<li><code>deque</code>：（双端队列）是一个索引序列容器，允许在其开头和结尾快速插入和删除。此外，在双端的任一端插入和删除永远不会使指向其余元素的指针或引用无效，先进先出；</li>
-<li><code>map</code>：是一个排序的关联容器，其中包含具有唯一键的键值对。键通过使用比较功能进行排序。搜索、删除和插入操作具有对数复杂性。地图通常实现为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" title="enwiki:Red–black tree">红黑树</a>；</li>
-<li><code>set</code>：是一个关联容器，其中包含一组排序的唯一对象类型。排序是使用键比较功能<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/named_req/Compare" title="cpp/named req/Compare">比较</a>完成的。搜索、删除和插入操作具有对数复杂性。集合通常实现为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree" title="enwiki:Red–black tree">红黑树</a>；</li>
-<li><code>unordered_map</code>：是一个关联容器，其中包含具有唯一键的键值对。元素的搜索、插入和删除具有平均恒定时间复杂度；</li>
-<li><code>unordered_set</code>：是一个关联容器，其中包含一组 Key 类型的唯一对象。搜索、插入和删除具有平均恒定时间复杂度；</li>
-<li><code>stack</code>：提供了堆栈的功能 - 特别是LIFO（后进先出）数据结构</li>
-<li><code>string</code>：字符串；</li>
+          <h1 id="1-简述一下什么是面向对象"><a href="#1-简述一下什么是面向对象" class="headerlink" title="1. 简述一下什么是面向对象"></a>1. 简述一下什么是面向对象</h1><ol>
+<li>面向过程思想 完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能函数相互调用，完成需求；</li>
+<li>面向对象思想 面向对象的思想是尽可能模拟人类的思维方式，使得软件的开发方法与过程尽可能接近人类认识世界、解决现实问题的方法和过程，把客观世界中的实体抽象为问题域中的对象。面向对象以对象为核心，该思想认为程序由一系列对象组成。 面向对象思想的特点： - 是一种更符合人类思维习惯的思想 - 可以将复杂的问题简单化 - 将我们从执行者变成了指挥者；</li>
+<li>面向对象的三大特征：封装、继承、多态：<ol>
+<li>封装：将事物属性和行为封装到一起，也就是 C++ 中的类，便于管理，提高代码的复用性。事物的属性和行为分别对应类中的成员变量和成员方法；</li>
+<li>继承：继承使类与类之间产生关系，能够提高代码的复用性以及可维护性；</li>
+<li>多态：多态意味着调用成员函数时，会根据调用方法的对象的类型来执行不同的函数；</li>
+</ol>
+</li>
 </ol>
           <!--noindex-->
             <div class="post-button">
@@ -732,248 +994,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/07/23/HTTP%E7%9F%ADURL%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%B5%85%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/HTTP%E7%9F%ADURL%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%B5%85%E6%9E%90/" class="post-title-link" itemprop="url">HTTP短URL实现原理浅析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-22 20:20:37 / 修改时间：12:32:24" itemprop="dateCreated datePublished" datetime="2022-07-22T20:20:37Z">2022-07-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index"><span itemprop="name">HTTP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="厘短链"><a href="#厘短链" class="headerlink" title="厘短链"></a><a target="_blank" rel="noopener" href="https://dlj.li/">厘短链</a></h2><p>使用这个网址生成短连接，比如：</p>
-<h2 id="原链接："><a href="#原链接：" class="headerlink" title="原链接："></a>原链接：</h2><p><a target="_blank" rel="noopener" href="https://realchuan.github.io/2021/10/12/QT%E5%AE%9E%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%88%E6%83%B3%E5%88%B0%E5%B0%B1%E6%9B%B4%E6%96%B0%EF%BC%89/#more">https://realchuan.github.io/2021/10/12/QT%E5%AE%9E%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%88%E6%83%B3%E5%88%B0%E5%B0%B1%E6%9B%B4%E6%96%B0%EF%BC%89/#more</a></p>
-<h2 id="短连接："><a href="#短连接：" class="headerlink" title="短连接："></a>短连接：</h2><p><a target="_blank" rel="noopener" href="https://dlj.li/zCFb4">https://dlj.li/zCFb4</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/23/HTTP%E7%9F%ADURL%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%B5%85%E6%9E%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/07/23/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">简单工厂模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-22 20:15:48" itemprop="dateCreated datePublished" datetime="2022-07-22T20:15:48Z">2022-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-23 07:04:04" itemprop="dateModified" datetime="2022-07-23T07:04:04Z">2022-07-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h2><ol>
-<li>一个调用者想创建一个对象，只要知道其名称就可以了;</li>
-<li>扩展性高，如果想增加一个产品，只要扩展一个工厂类就可以;</li>
-<li>屏蔽产品的具体实现，调用者只关心产品的接口。</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Factory</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Factory</span>() &#123;&#125;</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Factory</span>() &#123; std::cout &lt;&lt; <span class="string">&quot;~Factory&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">    <span class="comment">// This virtual is very important</span></span><br><span class="line">    <span class="comment">// If you don&#x27;t have this virtual, try this code</span></span><br><span class="line">    <span class="comment">// Factory *f = new ComputerFactory;</span></span><br><span class="line">    <span class="comment">// delete f;</span></span><br><span class="line">    <span class="comment">// ComputerFactory&#x27;s destructor will not be called, causing a memory leak</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">name</span><span class="params">()</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;Factory&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/23/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/07/23/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/23/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">观察者模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-22 20:13:58 / 修改时间：12:41:56" itemprop="dateCreated datePublished" datetime="2022-07-22T20:13:58Z">2022-07-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。</strong><br><strong>观察者模式又叫做发布-订阅(Publish-Subscribe)模式、模型-视图(Model-View)模式、源-监听器(Source-Listener)模式。</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/23/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1041,7 +1065,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1054,7 +1078,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
