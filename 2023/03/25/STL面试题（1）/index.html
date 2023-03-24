@@ -22,20 +22,20 @@
 
   <meta name="description" content="1. STL 中有哪些常见的容器 顺序容器 容器并非排序的，元素的插入位置同元素的值无关，包含 vector、deque、list； vector：动态数组 元素在内存连续存放。随机存取任何元素都能在常数时间完成。在尾端增删元素具有较佳的性能； deque：双向队列 元素在内存连续存放。随机存取任何元素都能在常数时间完成（仅次于 vector ）。在两端增删元素具有较佳的性能（大部分情况下是常数时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STL实用面试题（一）">
-<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:title" content="STL面试题（1）">
+<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/STL%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="自由意志">
 <meta property="og:description" content="1. STL 中有哪些常见的容器 顺序容器 容器并非排序的，元素的插入位置同元素的值无关，包含 vector、deque、list； vector：动态数组 元素在内存连续存放。随机存取任何元素都能在常数时间完成。在尾端增删元素具有较佳的性能； deque：双向队列 元素在内存连续存放。随机存取任何元素都能在常数时间完成（仅次于 vector ）。在两端增删元素具有较佳的性能（大部分情况下是常数时">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-22T18:40:43.000Z">
-<meta property="article:modified_time" content="2023-03-22T10:42:51.129Z">
+<meta property="article:published_time" content="2023-03-24T18:45:55.000Z">
+<meta property="article:modified_time" content="2023-03-24T10:46:32.507Z">
 <meta property="article:author" content="年轻气盛">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="c++">
 <meta property="article:tag" content="interview">
-<meta property="article:tag" content="STL">
+<meta property="article:tag" content="stl">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/STL%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>STL实用面试题（一） | 自由意志</title>
+  <title>STL面试题（1） | 自由意志</title>
   
 
 
@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/STL%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -205,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          STL实用面试题（一）
+          STL面试题（1）
         </h1>
 
         <div class="post-meta">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-22 18:40:43 / 修改时间：10:42:51" itemprop="dateCreated datePublished" datetime="2023-03-22T18:40:43Z">2023-03-22</time>
+              <time title="创建时间：2023-03-24 18:45:55 / 修改时间：10:46:32" itemprop="dateCreated datePublished" datetime="2023-03-24T18:45:55Z">2023-03-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,7 +224,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -302,7 +302,7 @@
 </li>
 </ol>
 <h1 id="5-deque-的实现原理"><a href="#5-deque-的实现原理" class="headerlink" title="5. deque 的实现原理"></a>5. deque 的实现原理</h1><p>deque 是由一段一段的定量的连续空间构成。一旦有必要在 deque 前端或者尾端增加新的空间，便配置一段连续定量的空间，串接在 deque 的头端或者尾端。deque 最大的工作就是维护这些分段连续的内存空间的整体性的假象，并提供随机存取的接口，避开了重新配置空间，复制，释放的轮回，代价就是复杂的迭代器架构。<br>既然 deque 是分段连续内存空间，那么就必须有中央控制，维持整体连续的假象，数据结构的设计及迭代器的前进后退操作颇为繁琐。<br>deque 采取一块所谓的 map（不是 STL 的 map 容器）作为主控，这里所谓的 map 是一小块连续的内存空间，其中每一个元素（此处成为一个结点）都是一个指针，指向另一段连续性内存空间，称作缓冲区。缓冲区才是 deque的存储空间的主体。</p>
-<h1 id="6-set-的实现原理"><a href="#6-set-的实现原理" class="headerlink" title="6. set 的实现原理"></a>6. set 的实现原理</h1><p>set 底层使用红黑树实现，一种高效的平衡检索二叉树。 </p>
+<h1 id="6-set-的实现原理"><a href="#6-set-的实现原理" class="headerlink" title="6. set 的实现原理"></a>6. set 的实现原理</h1><p>set 底层使用红黑树实现，一种高效的平衡检索二叉树。</p>
 <ol>
 <li>set 容器中每一个元素就是二叉树的每一个节点，对于 set 容器的插入删除操作，效率都比较高，原因是二叉树的删除插入元素并不需要进行内存拷贝和内存移动，只是改变了指针的指向；</li>
 <li>对 set 进行插入删除操作 都不会引起迭代器的失效，因为迭代器相当于一个指针指向每一个二叉树的节点，对 set的插入删除并不会改变原有内存中节点的改变；</li>
@@ -314,12 +314,18 @@
 <li>各操作的时间复杂度 插入: O(logN) 查看: O(logN) 删除: O(logN)；</li>
 </ol>
 <h1 id="8-map，unordered-map-的区别"><a href="#8-map，unordered-map-的区别" class="headerlink" title="8. map，unordered_map 的区别"></a>8. map，unordered_map 的区别</h1><ol>
-<li>导入的头文件 map：<code>#include &lt;map&gt; </code> unordered_map：<code>#include &lt;unordered_map&gt;</code>；</li>
+<li>导入的头文件 map：<code>#include &lt;map&gt;&lt;span&gt; &lt;/span&gt;</code>unordered_map：<code>#include &lt;unordered_map&gt;</code>；</li>
 <li>原理及特点：<ol>
 <li>map：内部实现了一个红黑树，该结构具有自动排序的功能，因此 map 内部的所有元素都是有序的，红黑树的每一个节点都代表着 map 的一个元素，因此，对于 map 进行的查找，删除，添加等一系列的操作都相当于是对红黑树进行这样的操作，故红黑树的效率决定了 map 的效率。</li>
 <li>unordered_map：内部实现了一个哈希表，因此其元素的排列顺序是杂乱的，无序的；</li>
 </ol>
 </li>
+</ol>
+<h1 id="9-迭代器失效原因，有哪些情况"><a href="#9-迭代器失效原因，有哪些情况" class="headerlink" title="9. 迭代器失效原因，有哪些情况"></a>9. 迭代器失效原因，有哪些情况</h1><p>STL 中某些容器调用了某些成员方法后会导致迭代器失效。</p>
+<p>例如 vector 容器，如果调用 reserve() 来增加容器容量，之前创建好的任何迭代器（例如开始迭代器和结束迭代器）都可能会失效，这是因为，为了增加容器的容量，vector 容器的元素可能已经被复制或移到了新的内存地址。</p>
+<ol>
+<li>序列式容器迭代器失效 对于序列式容器，例如 vector、deque，由于序列式容器是组合式容器，当当前元素的迭代器被删除后，其后的所有元素的迭代器都会失效，这是因为 vector、deque都是连续存储的一段空间，所以当对其进行 erase 操作时，其后的每一个元素都会向前移一个位置。解决：erase 返回下一个有效的迭代器；</li>
+<li>关联式容器迭代器失效 对于关联容器，例如如 map、 set，删除当前的迭代器，仅仅会使当前的迭代器失效，只要在 erase 时，递增当前迭代器即可。这是因为 map 之类的容器，使用了红黑树来实现，插入、删除一个节点不会对其他点造成影响。erase 迭代器只是被删元素的迭代器失效，但是返回值为 void，所以要采用 erase(iter++) 自增方式删除迭代器；</li>
 </ol>
 
     </div>
@@ -331,9 +337,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/c/" rel="tag"><i class="fa fa-tag"></i> c++</a>
               <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
-              <a href="/tags/STL/" rel="tag"><i class="fa fa-tag"></i> STL</a>
+              <a href="/tags/stl/" rel="tag"><i class="fa fa-tag"></i> stl</a>
           </div>
 
         
@@ -342,12 +348,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="CPP实用面试题（二）">
-      <i class="fa fa-chevron-left"></i> CPP实用面试题（二）
+    <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%884%EF%BC%89/" rel="prev" title="CPP面试题（4）">
+      <i class="fa fa-chevron-left"></i> CPP面试题（4）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="操作系统实用面试题（一）">
-      操作系统实用面试题（一） <i class="fa fa-chevron-right"></i>
+    <a href="/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/" rel="next" title="Linux操作系统面试题（1）">
+      Linux操作系统面试题（1） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -407,7 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-STL-%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">1. STL 中有哪些常见的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-STL-%E5%AE%B9%E5%99%A8%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%EF%BC%8C%E6%9F%A5%E6%89%BE%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">2. STL 容器用过哪些，查找的时间复杂度是多少，为什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-vector-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6%EF%BC%8C%E6%89%A9%E5%AE%B9%E4%BB%A5%E5%90%8E%EF%BC%8C%E5%AE%83%E7%9A%84%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E4%BC%9A%E5%8F%98%E5%8C%96%E5%90%97%EF%BC%9F"><span class="nav-text">3. vector 的扩容机制，扩容以后，它的内存地址会变化吗？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-vector-%E5%92%8C-list-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E5%88%86%E5%88%AB%E9%80%82%E7%94%A8%E4%BA%8E%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-text">4. vector 和 list 的区别，分别适用于什么场景？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-deque-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">5. deque 的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-set-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">6. set 的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-map-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8C%E5%90%84%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AF%E5%A4%9A%E5%B0%91"><span class="nav-text">7. map 实现原理，各操作的时间复杂度是多少</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-map%EF%BC%8Cunordered-map-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">8. map，unordered_map 的区别</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-STL-%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">1. STL 中有哪些常见的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-STL-%E5%AE%B9%E5%99%A8%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%EF%BC%8C%E6%9F%A5%E6%89%BE%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">2. STL 容器用过哪些，查找的时间复杂度是多少，为什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-vector-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6%EF%BC%8C%E6%89%A9%E5%AE%B9%E4%BB%A5%E5%90%8E%EF%BC%8C%E5%AE%83%E7%9A%84%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E4%BC%9A%E5%8F%98%E5%8C%96%E5%90%97%EF%BC%9F"><span class="nav-text">3. vector 的扩容机制，扩容以后，它的内存地址会变化吗？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-vector-%E5%92%8C-list-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E5%88%86%E5%88%AB%E9%80%82%E7%94%A8%E4%BA%8E%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-text">4. vector 和 list 的区别，分别适用于什么场景？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-deque-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">5. deque 的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-set-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">6. set 的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-map-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8C%E5%90%84%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AF%E5%A4%9A%E5%B0%91"><span class="nav-text">7. map 实现原理，各操作的时间复杂度是多少</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-map%EF%BC%8Cunordered-map-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">8. map，unordered_map 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%A4%B1%E6%95%88%E5%8E%9F%E5%9B%A0%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E6%83%85%E5%86%B5"><span class="nav-text">9. 迭代器失效原因，有哪些情况</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -423,20 +429,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

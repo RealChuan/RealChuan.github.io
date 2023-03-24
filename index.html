@@ -187,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -201,7 +201,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">操作系统实用面试题（一）</a>
+            <a href="/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">Linux操作系统面试题（2）——网络</a>
         </h2>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-22 18:42:17 / 修改时间：10:43:36" itemprop="dateCreated datePublished" datetime="2023-03-22T18:42:17Z">2023-03-22</time>
+              <time title="创建时间：2023-03-24 18:48:17 / 修改时间：10:48:56" itemprop="dateCreated datePublished" datetime="2023-03-24T18:48:17Z">2023-03-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -235,21 +235,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁"><a href="#1-介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁" class="headerlink" title="1. 介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁"></a>1. 介绍一下死锁，产生的必要条件，产生的原因，怎么预防死锁</h1><ol>
-<li>死锁 两个或两个以上的进程在执行过程中，因争夺共享资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁。这些永远在互相等待的进程称为死锁进程；</li>
-<li>产生死锁的必要条件 虽然进程在运行过程中，可能发生死锁，但死锁的发生也必须具备一定的条件，死锁的发生必须具备以下四个必要条件：<ol>
-<li>互斥条件：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放；</li>
-<li>请求和保持条件：指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己已获得的其它资源保持不放；</li>
-<li>不剥夺条件：指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放；</li>
-<li>环路等待条件：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合 {P0，P1，P2，···，Pn} 中的 P0 正在等待一个 P1 占用的资源；P1 正在等待 P2 占用的资源，……，Pn 正在等待已被 P0 占用的资源；</li>
-</ol>
-</li>
-<li>产生死锁的原因 - 竞争资源 - 进程间推进顺序非法；</li>
-<li>预防死锁 - 有序资源分配法 - 银行家算法；</li>
+          <h1 id="1-TCP-三次握手四次挥手过程"><a href="#1-TCP-三次握手四次挥手过程" class="headerlink" title="1. TCP 三次握手四次挥手过程"></a>1. TCP 三次握手四次挥手过程</h1><h2 id="三次握手过程："><a href="#三次握手过程：" class="headerlink" title="三次握手过程："></a>三次握手过程：</h2><ol>
+<li>第一次握手：客户端向服务器端发送连接请求报文段，包含自身数据通讯初始序号，进入SYN-SENT状态。</li>
+<li>第二次握手：服务器端收到连接请求报文段后，如果同意，发送应答，包含自身数据通讯初始序号，进入SYN-RECEIVED状态。</li>
+<li>第三次握手：客户端收到应答，最后向服务器端发送确认报文，进入ESTABLISHED状态，此时成功建立长连接。</li>
 </ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%BD%91%E7%BB%9C/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -273,7 +266,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -287,7 +280,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">STL实用面试题（一）</a>
+            <a href="/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">Linux操作系统面试题（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -298,7 +291,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-22 18:40:43 / 修改时间：10:42:51" itemprop="dateCreated datePublished" datetime="2023-03-22T18:40:43Z">2023-03-22</time>
+              <time title="创建时间：2023-03-24 18:46:58 / 修改时间：10:47:34" itemprop="dateCreated datePublished" datetime="2023-03-24T18:46:58Z">2023-03-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,7 +299,89 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-进程和线程的区别"><a href="#1-进程和线程的区别" class="headerlink" title="1. 进程和线程的区别"></a>1. 进程和线程的区别</h1><ol>
+<li>进程有独立的地址空间，线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间；</li>
+<li>进程和线程切换时，需要切换进程和线程的上下文，进程的上下文切换时间开销远远大于线程上下文切换时间，耗费资源较大，效率要差一些；</li>
+<li>进程的并发性较低，线程的并发性较高；</li>
+<li>每个独立的进程有一个程序运行的入口、顺序执行序列和程序的出口，但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制；</li>
+<li>系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了 CPU 外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源；</li>
+<li>一个进程崩溃后，在保护模式下不会对其他进程产生影响，但是一个线程崩溃整个进程都死掉。所以多进程要比多线程健壮；</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/STL%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/25/STL%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">STL面试题（1）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-24 18:45:55 / 修改时间：10:46:32" itemprop="dateCreated datePublished" datetime="2023-03-24T18:45:55Z">2023-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -342,7 +417,7 @@
 </ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2023/03/25/STL%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -366,7 +441,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%884%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -380,7 +455,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">CPP实用面试题（二）</a>
+            <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%884%EF%BC%89/" class="post-title-link" itemprop="url">CPP面试题（4）</a>
         </h2>
 
         <div class="post-meta">
@@ -391,7 +466,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-22 18:39:17 / 修改时间：10:41:12" itemprop="dateCreated datePublished" datetime="2023-03-22T18:39:17Z">2023-03-22</time>
+              <time title="创建时间：2023-03-24 18:44:39 / 修改时间：10:45:10" itemprop="dateCreated datePublished" datetime="2023-03-24T18:44:39Z">2023-03-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -399,7 +474,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -414,13 +489,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-浅拷贝和深拷贝"><a href="#1-浅拷贝和深拷贝" class="headerlink" title="1. 浅拷贝和深拷贝"></a>1. 浅拷贝和深拷贝</h1><ol>
-<li>浅拷贝 浅拷贝又称为值拷贝，将源对象的值拷贝到目标对象中，如果对象中有某个成员是指针类型数据，并且是在堆区创建，则使用浅拷贝仅仅拷贝的是这个指针变量的值，也就是在目标对象中该指针类型数据和源对象中的该成员指向的是同一块堆空间。这样会带来一个问题，就是在析构函数中释放该堆区数据，会被释放多次。默认的拷贝构造函数和默认的赋值运算符重载函数都是浅拷贝；</li>
-<li>深拷贝 深拷贝在拷贝的时候先开辟出和源对象大小一样的空间，然后将源对象里的内容拷贝到目标对象中去，这样指针成员就指向了不同的内存位置。并且里面的内容是一样的，这样不但达到了拷贝的目的，还不会出现问题，两个对象先后去调用析构函数，分别释放自己指针成员所指向的内存。即为每次增加一个指针，便申请一块新的内存，并让这个指针指向新的内存，深拷贝情况下，不会出现重复释放同一块内存的错误；</li>
+          <h1 id="1-C-引用的概念"><a href="#1-C-引用的概念" class="headerlink" title="1. C++引用的概念"></a>1. C++引用的概念</h1><ol>
+<li>引用（Reference）是 C++ 相对于 C 语言的一个扩充。引用可以看做是数据的一个别名，通过这个别名和原来的名字都能够找到这份数据。引用类似于 Windows 中的快捷方式，一个可执行程序可以有多个快捷方式，通过这些快捷方式和可执行程序本身都能够运行程序；引用还类似于人的绰号（笔名），使用绰号（笔名）和本名都能表示一个人；</li>
+<li>基本语法 typename &amp; ref &#x3D; varname；</li>
+<li>使用引用的注意事项：<ol>
+<li>引用必须引用合法的内存空间；</li>
+<li>引用在定义时必须初始化；</li>
+<li>引用一旦初始化后，就不能再引用其它数据；</li>
+<li>引用在定义时需要加上 &amp;，在使用时不能加 &amp;，使用时加 &amp; 表示取地址；</li>
+<li>函数中不要返回局部变量的引用；</li>
+</ol>
+</li>
+<li>引用的本质是指针，低层的实现还是指针；</li>
 </ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%884%EF%BC%89/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -444,7 +528,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/18/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -458,7 +542,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/18/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">CPP实用面试题（一）</a>
+            <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/" class="post-title-link" itemprop="url">CPP面试题（3）</a>
         </h2>
 
         <div class="post-meta">
@@ -467,23 +551,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-03-17 18:47:03" itemprop="dateCreated datePublished" datetime="2023-03-17T18:47:03Z">2023-03-17</time>
+              <time title="创建时间：2023-03-24 18:43:53 / 修改时间：10:44:25" itemprop="dateCreated datePublished" datetime="2023-03-24T18:43:53Z">2023-03-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-22 10:37:35" itemprop="dateModified" datetime="2023-03-22T10:37:35Z">2023-03-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -498,19 +576,170 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-简述一下什么是面向对象"><a href="#1-简述一下什么是面向对象" class="headerlink" title="1. 简述一下什么是面向对象"></a>1. 简述一下什么是面向对象</h1><ol>
-<li>面向过程思想 完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能函数相互调用，完成需求；</li>
-<li>面向对象思想 面向对象的思想是尽可能模拟人类的思维方式，使得软件的开发方法与过程尽可能接近人类认识世界、解决现实问题的方法和过程，把客观世界中的实体抽象为问题域中的对象。面向对象以对象为核心，该思想认为程序由一系列对象组成。 面向对象思想的特点： - 是一种更符合人类思维习惯的思想 - 可以将复杂的问题简单化 - 将我们从执行者变成了指挥者；</li>
-<li>面向对象的三大特征：封装、继承、多态：<ol>
-<li>封装：将事物属性和行为封装到一起，也就是 C++ 中的类，便于管理，提高代码的复用性。事物的属性和行为分别对应类中的成员变量和成员方法；</li>
-<li>继承：继承使类与类之间产生关系，能够提高代码的复用性以及可维护性；</li>
-<li>多态：多态意味着调用成员函数时，会根据调用方法的对象的类型来执行不同的函数；</li>
-</ol>
-</li>
+          <h1 id="1-C-语言和-C-语言的区别"><a href="#1-C-语言和-C-语言的区别" class="headerlink" title="1. C 语言和 C++ 语言的区别"></a>1. C 语言和 C++ 语言的区别</h1><ol>
+<li>C 语言是面向过程的语言，而 C++ 支持面向对象，所以 C 语言自然没有面向对象的封装、继承、多态等特性，也不支持面向对象的一些语法；</li>
+<li>C++ 支持函数重载，C 语言不支持；</li>
+<li>C 程序中如果函数没有任何参数需要将参数定义为 void 以此来限定函数不可传递任何参数，如果不进行限定让参数表默认为空其意义是可以传递任何参数，在 C++ 中，不带参数的函数表示函数不能传递任何参数；</li>
+<li>C 语言 struct 中不能有函数，而 C++ 语言 struct 中可以有函数；</li>
+<li>C 语言函数参数不支持默认值，而 C++ 语言支持参数默认值；</li>
+<li>C++ 语言支持内联函数，而 C 语言不支持；</li>
+<li>C++ 语言支持引用，而 C 语言不支持；</li>
+<li>C 语言采用 malloc 和 free 函数动态申请和释放内存，而 C++ 使用 new 和 delete 运算符；</li>
+<li>C 语言中只有局部和全局两个作用域，而 C++ 中有局部、全局、类、名称空间作用域；</li>
 </ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/03/18/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">CPP面试题（2）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-24 18:42:27 / 修改时间：10:43:04" itemprop="dateCreated datePublished" datetime="2023-03-24T18:42:27Z">2023-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-C-的内存管理"><a href="#1-C-的内存管理" class="headerlink" title="1. C++ 的内存管理"></a>1. C++ 的内存管理</h1><p>C++ 的内存分区主要有：代码区、未初始化数据区（BSS）、已初始化数据区（DATA）、栈区（Stack）、堆区（Heap）</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">CPP面试题（1）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-24 18:40:43 / 修改时间：10:42:10" itemprop="dateCreated datePublished" datetime="2023-03-24T18:40:43Z">2023-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-简述一下什么是面向对象"><a href="#1-简述一下什么是面向对象" class="headerlink" title="1. 简述一下什么是面向对象"></a>1. 简述一下什么是面向对象</h1><h2 id="1-面向过程思想："><a href="#1-面向过程思想：" class="headerlink" title="1. 面向过程思想："></a>1. 面向过程思想：</h2><p>完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能函数相互调用，完成需求；</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -763,237 +992,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/08/18/WSL2%E9%80%9A%E8%BF%87Clash%E4%BD%BF%E7%94%A8Windows%E4%BB%A3%E7%90%86%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/18/WSL2%E9%80%9A%E8%BF%87Clash%E4%BD%BF%E7%94%A8Windows%E4%BB%A3%E7%90%86%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/" class="post-title-link" itemprop="url">WSL2通过Clash使用Windows代理网上冲浪</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-08-17 18:58:57 / 修改时间：11:13:51" itemprop="dateCreated datePublished" datetime="2022-08-17T18:58:57Z">2022-08-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WSL2/" itemprop="url" rel="index"><span itemprop="name">WSL2</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-允许Clash通过Windows防火墙"><a href="#1-允许Clash通过Windows防火墙" class="headerlink" title="1.允许Clash通过Windows防火墙"></a>1.允许Clash通过Windows防火墙</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/18/WSL2%E9%80%9A%E8%BF%87Clash%E4%BD%BF%E7%94%A8Windows%E4%BB%A3%E7%90%86%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/08/13/non-blocking%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/13/non-blocking%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/" class="post-title-link" itemprop="url">non-blocking网络框架流量控制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-08-12 18:58:28 / 修改时间：11:20:19" itemprop="dateCreated datePublished" datetime="2022-08-12T18:58:28Z">2022-08-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一般的non-blocking网络框架都会有两块应用层缓冲区Buffer：输入和输出。</p>
-<p>防止卡在write和read处，损失性能，异步处理。</p>
-<ol>
-<li>write：没必要非写完缓冲区的所有数据（需要等待TCP缓冲区可写），可以多发送几次；</li>
-<li>read：没必要每次都要读到一个完整的数据包分割处，或者读到撑爆缓冲区；</li>
-</ol>
-<p>由于缓冲区的存在，势必需要控制缓冲区大小，便有了高水位回调和低水位回调这种流量控制方案。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/13/non-blocking%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/07/28/std-atomic-flag%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E9%94%81%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/28/std-atomic-flag%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E9%94%81%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/" class="post-title-link" itemprop="url">std::atomic_flag实现自旋锁和互斥锁</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-27 18:09:17 / 修改时间：10:12:33" itemprop="dateCreated datePublished" datetime="2022-07-27T18:09:17Z">2022-07-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Mutex</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">DISABLE_COPY</span>(Mutex)</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Mutex</span>() &#123;&#125;</span><br><span class="line">    ~<span class="built_in">Mutex</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">lock</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (m_atomic_flag.<span class="built_in">test_and_set</span>(std::memory_order_acquire)) &#123;</span><br><span class="line">            <span class="comment">// 有这一行 ？ 互斥锁：自旋锁；</span></span><br><span class="line">            <span class="comment">// std::this_thread::yield();</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123; m_atomic_flag.<span class="built_in">clear</span>(std::memory_order_release); &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::atomic_flag m_atomic_flag;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/28/std-atomic-flag%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%97%8B%E9%94%81%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1065,20 +1063,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. 浅拷贝和深拷贝 浅拷贝 浅拷贝又称为值拷贝，将源对象的值拷贝到目标对象中，如果对象中有某个成员是指针类型数据，并且是在堆区创建，则使用浅拷贝仅仅拷贝的是这个指针变量的值，也就是在目标对象中该指针类型数据和源对象中的该成员指向的是同一块堆空间。这样会带来一个问题，就是在析构函数中释放该堆区数据，会被释放多次。默认的拷贝构造函数和默认的赋值运算符重载函数都是浅拷贝； 深拷贝 深拷贝在拷贝的时候先">
+  <meta name="description" content="1. C 语言和 C++ 语言的区别 C 语言是面向过程的语言，而 C++ 支持面向对象，所以 C 语言自然没有面向对象的封装、继承、多态等特性，也不支持面向对象的一些语法； C++ 支持函数重载，C 语言不支持； C 程序中如果函数没有任何参数需要将参数定义为 void 以此来限定函数不可传递任何参数，如果不进行限定让参数表默认为空其意义是可以传递任何参数，在 C++ 中，不带参数的函数表示函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CPP实用面试题（二）">
-<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:title" content="CPP面试题（3）">
+<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/index.html">
 <meta property="og:site_name" content="自由意志">
-<meta property="og:description" content="1. 浅拷贝和深拷贝 浅拷贝 浅拷贝又称为值拷贝，将源对象的值拷贝到目标对象中，如果对象中有某个成员是指针类型数据，并且是在堆区创建，则使用浅拷贝仅仅拷贝的是这个指针变量的值，也就是在目标对象中该指针类型数据和源对象中的该成员指向的是同一块堆空间。这样会带来一个问题，就是在析构函数中释放该堆区数据，会被释放多次。默认的拷贝构造函数和默认的赋值运算符重载函数都是浅拷贝； 深拷贝 深拷贝在拷贝的时候先">
+<meta property="og:description" content="1. C 语言和 C++ 语言的区别 C 语言是面向过程的语言，而 C++ 支持面向对象，所以 C 语言自然没有面向对象的封装、继承、多态等特性，也不支持面向对象的一些语法； C++ 支持函数重载，C 语言不支持； C 程序中如果函数没有任何参数需要将参数定义为 void 以此来限定函数不可传递任何参数，如果不进行限定让参数表默认为空其意义是可以传递任何参数，在 C++ 中，不带参数的函数表示函数">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-22T18:39:17.000Z">
-<meta property="article:modified_time" content="2023-03-22T10:41:12.177Z">
+<meta property="article:published_time" content="2023-03-24T18:43:53.000Z">
+<meta property="article:modified_time" content="2023-03-24T10:44:25.125Z">
 <meta property="article:author" content="年轻气盛">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="c++">
 <meta property="article:tag" content="interview">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/">
+<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>CPP实用面试题（二） | 自由意志</title>
+  <title>CPP面试题（3） | 自由意志</title>
   
 
 
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/23/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%BA%8C%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CPP实用面试题（二）
+          CPP面试题（3）
         </h1>
 
         <div class="post-meta">
@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-22 18:39:17 / 修改时间：10:41:12" itemprop="dateCreated datePublished" datetime="2023-03-22T18:39:17Z">2023-03-22</time>
+              <time title="创建时间：2023-03-24 18:43:53 / 修改时间：10:44:25" itemprop="dateCreated datePublished" datetime="2023-03-24T18:43:53Z">2023-03-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +223,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/interview/" itemprop="url" rel="index"><span itemprop="name">interview</span></a>
                 </span>
             </span>
 
@@ -245,76 +245,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-浅拷贝和深拷贝"><a href="#1-浅拷贝和深拷贝" class="headerlink" title="1. 浅拷贝和深拷贝"></a>1. 浅拷贝和深拷贝</h1><ol>
-<li>浅拷贝 浅拷贝又称为值拷贝，将源对象的值拷贝到目标对象中，如果对象中有某个成员是指针类型数据，并且是在堆区创建，则使用浅拷贝仅仅拷贝的是这个指针变量的值，也就是在目标对象中该指针类型数据和源对象中的该成员指向的是同一块堆空间。这样会带来一个问题，就是在析构函数中释放该堆区数据，会被释放多次。默认的拷贝构造函数和默认的赋值运算符重载函数都是浅拷贝；</li>
-<li>深拷贝 深拷贝在拷贝的时候先开辟出和源对象大小一样的空间，然后将源对象里的内容拷贝到目标对象中去，这样指针成员就指向了不同的内存位置。并且里面的内容是一样的，这样不但达到了拷贝的目的，还不会出现问题，两个对象先后去调用析构函数，分别释放自己指针成员所指向的内存。即为每次增加一个指针，便申请一块新的内存，并让这个指针指向新的内存，深拷贝情况下，不会出现重复释放同一块内存的错误；</li>
+        <h1 id="1-C-语言和-C-语言的区别"><a href="#1-C-语言和-C-语言的区别" class="headerlink" title="1. C 语言和 C++ 语言的区别"></a>1. C 语言和 C++ 语言的区别</h1><ol>
+<li>C 语言是面向过程的语言，而 C++ 支持面向对象，所以 C 语言自然没有面向对象的封装、继承、多态等特性，也不支持面向对象的一些语法；</li>
+<li>C++ 支持函数重载，C 语言不支持；</li>
+<li>C 程序中如果函数没有任何参数需要将参数定义为 void 以此来限定函数不可传递任何参数，如果不进行限定让参数表默认为空其意义是可以传递任何参数，在 C++ 中，不带参数的函数表示函数不能传递任何参数；</li>
+<li>C 语言 struct 中不能有函数，而 C++ 语言 struct 中可以有函数；</li>
+<li>C 语言函数参数不支持默认值，而 C++ 语言支持参数默认值；</li>
+<li>C++ 语言支持内联函数，而 C 语言不支持；</li>
+<li>C++ 语言支持引用，而 C 语言不支持；</li>
+<li>C 语言采用 malloc 和 free 函数动态申请和释放内存，而 C++ 使用 new 和 delete 运算符；</li>
+<li>C 语言中只有局部和全局两个作用域，而 C++ 中有局部、全局、类、名称空间作用域；</li>
 </ol>
 <span id="more"></span>
 
-<h1 id="2-2种智能指针实现原理和使用场景，以及其线程安全"><a href="#2-2种智能指针实现原理和使用场景，以及其线程安全" class="headerlink" title="2. 2种智能指针实现原理和使用场景，以及其线程安全"></a>2. 2种智能指针实现原理和使用场景，以及其线程安全</h1><ol>
-<li>智能指针实现原理 建立所有权（ownership）概念，对于特定的对象，只能有一个智能指针可拥有它，这样只有拥有对象的智能指针的析构函数会删除该对象。然后，让赋值操作转让所有权。这就是用于unique_ptr 的策略，unique_ptr 能够在编译期识别错误。 跟踪引用特定对象的智能指针计数，这称为引用计数（reference counting）。例如，赋值时，计数将加 1，而指针过期时，计数将减 1. 仅当最后一个指针过期时，才调用 delete。这是 shared_ptr 采用的策略。</li>
-<li>使用场景 如果程序要使用多个指向同一个对象的指针，应该选择 shared_ptr； 如果程序不需要多个指向同一个对象的指针，则可以使用 unique_ptr; 如果使用 new [] 分配内存，应该选择 unique_ptr; 如果函数使用 new 分配内存，并返回指向该内存的指针，将其返回类型声明为 unique_ptr 是不错的选择。</li>
-<li>线程安全 shared_ptr 智能指针的引用计数在手段上使用了 atomic 原子操作，只要 shared_ptr 在拷贝或赋值时增加引用，析构时减少引用就可以了。首先原子是线程安全的，所有 shared_ptr 智能指针在多线程下引用计数也是安全的，也就是说 shared_ptr 智能指针在多线程下传递使用时引用计数是不会有线程安全问题的。 但是指向对象的指针不是线程安全的，使用 shared_ptr 智能指针访问资源不是线程安全的，需要手动加锁解锁。智能指针的拷贝也不是线程安全的。</li>
-</ol>
-<h1 id="3-shared-ptr-引用计数何时增加和减少"><a href="#3-shared-ptr-引用计数何时增加和减少" class="headerlink" title="3. shared_ptr 引用计数何时增加和减少"></a>3. shared_ptr 引用计数何时增加和减少</h1><ol>
-<li>增加：初始化、拷贝构造&#x2F;赋值；</li>
-<li>减少：离开作用域；</li>
-</ol>
-<h1 id="4-智能指针有没有内存泄露的情况"><a href="#4-智能指针有没有内存泄露的情况" class="headerlink" title="4.智能指针有没有内存泄露的情况"></a>4.智能指针有没有内存泄露的情况</h1><p>智能指针有内存泄露的情况：当两个类对象中各自有一个 shared_ptr 指向对方时，会造成循环引用，使引用计数失效，从而导致内存泄露。 为了解决循环引用导致的内存泄漏，引入了弱指针weak_ptr，weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理，其类似一个普通指针，但是不会指向引用计数的共享内存，但是可以检测到所管理的对象是否已经被释放，从而避免非法访问。</p>
-<h1 id="5-简述一下堆和栈的区别"><a href="#5-简述一下堆和栈的区别" class="headerlink" title="5. 简述一下堆和栈的区别"></a>5. 简述一下堆和栈的区别</h1><ol>
-<li>管理方式：<ol>
-<li>对于栈来讲，是由编译器自动管理，无需手动控制；</li>
-<li>对于堆来说，分配和释放都是由程序员控制的；</li>
-</ol>
-</li>
-<li>空间大小：<ol>
-<li>总体来说，栈的空间是要小于堆的。堆内存几乎是没有什么限制的；</li>
-<li>但是对于栈来讲，一般是有一定的空间大小的；</li>
-</ol>
-</li>
-<li>碎片问题：<ol>
-<li>对于堆来讲，由于分配和释放是由程序员控制的（利用new&#x2F;delete 或 malloc&#x2F;free），频繁的操作势必会造成内存空间的不连续，从而造成大量的内存碎片，使程序效率降低；</li>
-<li>对于栈来讲，则不会存在这个问题，因为栈是先进后出的数据结构，在某一数据弹出之前，它之前的所有数据都已经弹出；</li>
-</ol>
-</li>
-<li>生长方向：<ol>
-<li>对于堆来讲，生长方向是向上的，也就是沿着内存地址增加的方向；</li>
-<li>对于栈来讲，它的生长方式是向下的，也就是沿着内存地址减小的方向增长；</li>
-</ol>
-</li>
-<li>分配方式：<ol>
-<li>堆都是动态分配的，没有静态分配的堆；</li>
-<li>栈有两种分配方式：静态分配和动态分配；<ol>
-<li>静态分配是编译器完成的，比如局部变量的分配；</li>
-<li>动态分配由alloca函数进行分配，但是栈的动态分配和堆是不同的，它的动态分配是由编译器实现的，无需我们手工实现；</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>分配效率：<ol>
-<li>栈是机器系统提供的数据结构，计算机会在底层对栈提供支持，分配专门的寄存器存放栈的地址，压栈出栈都有专门的指令执行，这就决定了栈的效率很高；</li>
-<li>堆则是 C&#x2F;C++ 函数提供的，它的机制是很复杂的，例如为了分配一块内存，库函数会按照一定的算法在堆内存中搜索可用的足够大小的空间，如果没有足够大小的空间（可能是由于碎片太多），就有可能调用系统功能去增加程序数据段的内存空间，这样就有机会分到足够大小的内存，然后进行返回。显然，堆的效率要比栈底的多；</li>
-</ol>
-</li>
-</ol>
-<h1 id="6-指针和引用的区别"><a href="#6-指针和引用的区别" class="headerlink" title="6. 指针和引用的区别"></a>6. 指针和引用的区别</h1><ol>
-<li>定义和性质不同。指针是一种数据类型，用于保存地址类型的数据，而引用可以看成是变量的别名。<ol>
-<li>指针定义格式为：数据类型 ；</li>
-<li>而引用的定义格式为：数据类型 &amp;；</li>
-</ol>
-</li>
-<li>引用不可以为空，当被创建的时候必须初始化，而指针变量可以是空值，在任何时候初始化；</li>
-<li>指针可以有多级，但引用只能是一级；</li>
-<li>引用使用时无需解引用（），指针需要解引用；</li>
-<li>指针变量的值可以是 NULL，而引用的值不可以为 NULL；</li>
-<li>指针的值在初始化后可以改变，即指向其它的存储单元，而引用在进行初始化后就不会再改变了；</li>
-<li>sizeof 引用得到的是所指向的变量（对象）的大小，而 sizeof 指针得到的是指针变量本身的大小；</li>
-<li>指针作为函数参数传递时传递的是指针变量的值，而引用作为函数参数传递时传递的是实参本身，而不是拷贝副本；</li>
-<li>指针和引用进行++运算意义不一样；</li>
-</ol>
-<h1 id="7-C-和-C-中-struct-的区别以及和-class-的区别"><a href="#7-C-和-C-中-struct-的区别以及和-class-的区别" class="headerlink" title="7. C++ 和 C 中 struct 的区别以及和 class 的区别"></a>7. C++ 和 C 中 struct 的区别以及和 class 的区别</h1><ol>
-<li><p>C++ 和 C 中 struct 的区别：</p>
-<ol>
+<h1 id="2-C-和-C-中-struct-的区别以及和-class-的区别"><a href="#2-C-和-C-中-struct-的区别以及和-class-的区别" class="headerlink" title="2. C++ 和 C 中 struct 的区别以及和 class 的区别"></a>2. C++ 和 C 中 struct 的区别以及和 class 的区别</h1><ol>
+<li>C++ 和 C 中 struct 的区别：<ol>
 <li>C 的结构体不允许有函数存在，C++ 的结构体允许有内部成员函数，并且允许该函数是虚函数；</li>
 <li>C 的结构体内部成员不能加权限，默认是 public，而 C++ 的结构体内部成员权限可以是 public、protected、private，默认 public；</li>
 <li>C 的结构体是不可以继承，C++ 的结构体可以从其它的结构体或者类继承；</li>
@@ -322,20 +267,32 @@
 <li>C 中使用结构体需要加上 struct 关键字，或者对结构体使用 typedef 取别名后直接使用，而 C++ 中使用结构体可以省略 struct 关键字直接使用 <code>struct student&#123; int age; string name; &#125; typedef struct student student2; //C中取别 struct student stu1; // C 中正常使用 student2 stu2; // C 中通过取别名的使用 student stu3; // C++ 中使用,C 中直接使用编译不通过</code></li>
 </ol>
 </li>
-<li><p>struct 和 class 的区别：</p>
-<ol>
+<li>struct 和 class 的区别：<ol>
 <li>struct 一般用于描述一个数据结构集合，而 class 是对一个对象数据的封装；</li>
 <li>struct 中默认访问控制权限是 public，而 class 中默认的访问控制权限是 <code>private struct A &#123; int iNum; // 默认访问控制权限是 public &#125; class B &#123; int iNum; // 默认访问控制权限是 private &#125; ；</code></li>
-<li>在继承关系中，struct 默认是公有继承，而 class 是私有继承 4. class 关键字可以用于定义模板参数，而 struct 不能 template <code>&lt;class t=&quot;&quot;&gt;</code> int func(const T&amp; t, const Y&amp; y) { }；</li>
+<li>在继承关系中，struct 默认是公有继承，而 class 是私有继承；</li>
+<li>class 关键字可以用于定义模板参数，而 struct 不能 template <code>&lt;class t=&quot;&quot;&gt;</code> int func(const T&amp; t, const Y&amp; y) { }；</li>
 </ol>
 </li>
 </ol>
-<h1 id="8-C-语言里面-volatile，可以和-const-同时使用吗"><a href="#8-C-语言里面-volatile，可以和-const-同时使用吗" class="headerlink" title="8. C 语言里面 volatile，可以和 const 同时使用吗"></a>8. C 语言里面 volatile，可以和 const 同时使用吗</h1><ol>
+<h1 id="3-C-语言里面-volatile，可以和-const-同时使用吗"><a href="#3-C-语言里面-volatile，可以和-const-同时使用吗" class="headerlink" title="3. C 语言里面 volatile，可以和 const 同时使用吗"></a>3. C 语言里面 volatile，可以和 const 同时使用吗</h1><ol>
 <li>volatile 限定符是用来告诉计算机，所修饰的变量的值随时都会进行修改的。用于防止编译器对该代码进行优化。通俗的讲就是编译器在用到这个变量时必须每次都小心地从内存中重新读取这个变量的值，而不是使用保存在寄存器里的备份；</li>
 <li>const 和 volatile 可以一起使用，volatile 的含义是防止编译器对该代码进行优化，这个值可能变掉的。而 const 的含义是在代码中不能对该变量进行修改；</li>
 <li>因此，它们本来就不是矛盾的；</li>
 </ol>
-<h1 id="9-const-和-define-的区别"><a href="#9-const-和-define-的区别" class="headerlink" title="9. const 和 define 的区别"></a>9. const 和 define 的区别</h1><p>const 在 C 语言中表示只读，编译器禁止对它修饰的变量进行修改，在 C++ 中增加了常量的语义。而 define 用于定义宏，而宏也可以用于定义常量。它们的区别有：</p>
+<h1 id="4-extern-的作用，extern变量在哪个数据段，为什么要-extern-C"><a href="#4-extern-的作用，extern变量在哪个数据段，为什么要-extern-C" class="headerlink" title="4. extern 的作用，extern变量在哪个数据段，为什么要 extern C"></a>4. extern 的作用，extern变量在哪个数据段，为什么要 extern C</h1><ol>
+<li>extern 可以置于变量声明或者函数声明前，以表示变量或者函数的定义在别的文件中，提示编译器遇到此变量和函数时在其它文件中寻找其定义；</li>
+<li>extern 变量表示声明一个变量，表示该变量是一个外部变量，也就是全局变量，所以 extern 修饰的变量保存在静态存储区（全局区），全局变量如果没有显示初始化，会默认初始化为 0，或者显示初始化为 0 ，则保存在程序的 BSS 段，如果初始化不为 0 则保存在程序的 DATA 段；</li>
+<li>extern “C” 的作用是为了能够正确的实现 C++ 代码调用 C 语言代码。加上 extern “C” 后，会指示编译器这部分代码按照 C 语言（而不是 C++）的方式进行编译。由于 C++ 支持函数重载，因此编译器编译函数的过程中会将函数的参数类型也加到编译后的代码中，而不仅仅是函数名；而C语言并不支持函数重载，因此编译 C 语言代码的函数时不会带上函数的参数类型，一般只包括函数名。 这个功能十分有用处，因为在 C++ 出现以前，很多代码都是 C 语言写的，而且很底层的库也是 C 语言写的，为了更好的支持原来的 C 代码和已经写好的 C 语言库，需要在 C++ 中尽可能的支持 C，而 extern “C” 就是其中的一个策略。</li>
+</ol>
+<h1 id="5-const-的用法"><a href="#5-const-的用法" class="headerlink" title="5. const 的用法"></a>5. const 的用法</h1><ol>
+<li>用在变量身上，表示该变量只读，不能对它的值进行修改 <code>const int a = 10; a = 20;</code> &#x2F;&#x2F; 编译会报错，因为 a 只读，不能对它进行修改；</li>
+<li>结合指针一起使用 <code>const int * p; </code>&#x2F;&#x2F; 常量指针 <code>int * const p;</code>&#x2F;&#x2F; 指针常量 <code>const int * const p; const int * p</code>是常量指针，表示指针变量 p 所指向的内容不能修改，指针变量 p 的内容可以修改； <code>int * const p</code> 是指针常量，表示指针变量 p 的内容不能修改，指针变量 p 所指向的内容可以修改； <code>const int * const p</code> 表示指针变量 p 的内容和所指向的内容都不可以修改；</li>
+<li>const 用于函数参数 <code>void foo(const int * p); void foo(const int &amp; p); </code>const 用于形参时说明形参在函数内部不能被改变，这是非常有用的，有时候函数参数传递指针或者引用，在函数内部不希望对指针和引用指向的数据进行修改，可以加上 const；</li>
+<li>在类中修饰成员方法，防止在方法中修改非 static 成员 <code> class A &#123; public: int a; void fun() const &#123; a = 20; &#125;</code>&#x2F;&#x2F; 错误，const 修饰的成员方法中不能修改非静态成员变量 } }；</li>
+<li>const 修饰类的成员变量 <code>class T &#123; public: T() : a(10) &#123; &#125; private: const int a; static const int b; &#125;; const int T::b = 20; </code>类的成员变量可以分为静态的和非静态的，如果 const 修饰的是静态的成员变量，可以在构造函数中对该变量进行初始化；如果 const 修饰的是静态的成员变量，则需要在类外对该变量进行初始化。</li>
+</ol>
+<h1 id="6-const-和-define-的区别"><a href="#6-const-和-define-的区别" class="headerlink" title="6. const 和 define 的区别"></a>6. const 和 define 的区别</h1><p>const 在 C 语言中表示只读，编译器禁止对它修饰的变量进行修改，在 C++ 中增加了常量的语义。而 define 用于定义宏，而宏也可以用于定义常量。它们的区别有：</p>
 <ol>
 <li>const 生效于编译阶段，而 define 生效于预处理阶段；</li>
 <li>define只是简单的字符串替换，没有类型检查，而 const 有对应的数据类型，编译器要进行判断的，可以避免一些低级的错误；</li>
@@ -343,12 +300,8 @@
 <li>define 不分配内存，给出的是立即数，有多少次使用就进行多少次替换，在内存中会有多个拷贝，消耗内存大，const 在静态存储区中分配空间，在程序运行过程中内存中只有一个拷贝；</li>
 <li>可以对 const 常量进行调试，但是不能对宏常量进行调试。</li>
 </ol>
-<h1 id="10-extern-的作用，extern变量在哪个数据段，为什么要-extern-C"><a href="#10-extern-的作用，extern变量在哪个数据段，为什么要-extern-C" class="headerlink" title="10. extern 的作用，extern变量在哪个数据段，为什么要 extern C"></a>10. extern 的作用，extern变量在哪个数据段，为什么要 extern C</h1><ol>
-<li>extern 可以置于变量声明或者函数声明前，以表示变量或者函数的定义在别的文件中，提示编译器遇到此变量和函数时在其它文件中寻找其定义；</li>
-<li>extern 变量表示声明一个变量，表示该变量是一个外部变量，也就是全局变量，所以 extern 修饰的变量保存在静态存储区（全局区），全局变量如果没有显示初始化，会默认初始化为 0，或者显示初始化为 0 ，则保存在程序的 BSS 段，如果初始化不为 0 则保存在程序的 DATA 段；</li>
-<li>extern “C” 的作用是为了能够正确的实现 C++ 代码调用 C 语言代码。加上 extern “C” 后，会指示编译器这部分代码按照 C 语言（而不是 C++）的方式进行编译。由于 C++ 支持函数重载，因此编译器编译函数的过程中会将函数的参数类型也加到编译后的代码中，而不仅仅是函数名；而C语言并不支持函数重载，因此编译 C 语言代码的函数时不会带上函数的参数类型，一般只包括函数名。 这个功能十分有用处，因为在 C++ 出现以前，很多代码都是 C 语言写的，而且很底层的库也是 C 语言写的，为了更好的支持原来的 C 代码和已经写好的 C 语言库，需要在 C++ 中尽可能的支持 C，而 extern “C” 就是其中的一个策略。</li>
-</ol>
-<h1 id="11-static-关键字的作用"><a href="#11-static-关键字的作用" class="headerlink" title="11. static 关键字的作用"></a>11. static 关键字的作用</h1><p>static 是一个关键字，可以用来修饰局部变量、全局变量、成员变量、函数和成员方法。主要作用有：限制数据的作用域、延长数据的生命周期、修饰成员可以被该类所有对象共享。</p>
+<h1 id="7-static-关键字的作用"><a href="#7-static-关键字的作用" class="headerlink" title="7. static 关键字的作用"></a>7. static 关键字的作用</h1><p>static 是一个关键字，可以用来修饰局部变量、全局变量、成员变量、函数和成员方法。</p>
+<p>主要作用有：限制数据的作用域、延长数据的生命周期、修饰成员可以被该类所有对象共享。</p>
 <ol>
 <li>限制数据的作用域（隐藏） 所有没有加 static 的全局变量和函数都具有全局可见性，其它源文件中也可以访问。被 static 修饰的全局变量和函数只能在当前源文件中访问，其它源文件访问不了，利用这个特性可以在不同的文件中定义同名变量和同名函数，而不必担心命名冲突；</li>
 <li>延长数据的生命周期 普通的局部变量出了作用域就会释放，而静态变量存储在静态区，知道程序运行结束才会释放；</li>
@@ -357,6 +310,25 @@
 <h2 id="加分回答"><a href="#加分回答" class="headerlink" title="加分回答"></a>加分回答</h2><ol>
 <li>静态变量默认初始化值为0，如果没有显示初始化静态变量或者初始化为0的静态变量会存储在BSS段，而初显示初始化的静态变量存储在DATA段;</li>
 <li>静态成员函数中不能访问普通的成员变量，只能访问静态成员变量，并且在静态成员函数中没有 this 指针；</li>
+</ol>
+<h1 id="8-C-中的四种类型转换"><a href="#8-C-中的四种类型转换" class="headerlink" title="8. C++ 中的四种类型转换"></a>8. C++ 中的四种类型转换</h1><p>使用 C 风格的类型转换可以把想要的任何东西转换成我们需要的类型，但是这种类型转换太过松散，对于这种松散的情况，C++ 提供了更严格的类型转换，可以提供更好的控制转换过程，并添加 4 个类型转换运算符，使转换过程更规范：<code>static_cast</code>、<code>dynamic_cast</code>、<code>const_cast</code>、<code>reinterpret_cast</code>。</p>
+<ol>
+<li><code>static_cast </code>静态转换 用于类层次结构中基类（父类）和派生类（子类）之间指针或引用的转换 - 进行上行转换（把派生类的指针或引用转换成基类表示）是安全的 - 进行下行转换（把基类指针或引用转换成派生类表示）时，由于没有动态类型检查，所以是不安全的 用于基本数据类型之间的转换，如把 int 转换成 char，把 char 转换成 int。这种转换的安全性也要开发人员来保证；</li>
+<li><code>dynamic_cast </code>动态转换 <code>dynamic_cast </code>主要用于类层次间的上行转换和下行转换 在类层次间进行上行转换时，<code>dynamic_cast </code>和 <code>static_cast</code> 的效果是一样的 在进行下行转换时，<code>dynamic_cast </code>具有类型检查的功能，比 <code>static_cast </code>更安全；</li>
+<li><code>const_cast </code>常量转换 该运算符用来修改类型的const属性 常量指针被转化成非常量指针，并且仍然指向原来的对象 常量引用被转换成非常量引用，并且仍然指向原来的对象 注意：不能直接对非指针和非引用的变量使用 <code>const_cast </code>操作符；</li>
+<li><code>reinterpret_cast </code>重新解释转换 这是最不安全的一种转换机制，最有可能出问题 主要用于将一种数据类型从一种类型转换为另一种类型，它可以将一个指针转换成一个整数，也可以将一个整数转换成一个指针；</li>
+</ol>
+<h1 id="9-auto-和-decltype-如何使用"><a href="#9-auto-和-decltype-如何使用" class="headerlink" title="9. auto 和 decltype 如何使用"></a>9. auto 和 decltype 如何使用</h1><p>C++11 提供了多种简化声明的功能，尤其在使用模板时。</p>
+<ol>
+<li>auto 实现自动类型推断，要求进行显示初始化，让编译器能够将变量的类型设置为初始值的类型： <code>auto a = 12; auto pt = &amp;a; double fm(double a, int b) &#123; return a + b; &#125; auto pf = fm; </code>简化模板声明 <code>for(std::initializer_list </code>；</li>
+<li>decltype 将变量的类型声明为表达式指定的类型： <code>decltype(expression) var; decltype(x) y;</code>&#x2F;&#x2F; 让y的类型与x相同，x是一个表达式；</li>
+</ol>
+<h1 id="10-C-11-中的可变参数模板新特性"><a href="#10-C-11-中的可变参数模板新特性" class="headerlink" title="10. C++11 中的可变参数模板新特性"></a>10. C++11 中的可变参数模板新特性</h1><p>在 C++11 之前，类模板和函数模板只能含有固定数量的模板参数。</p>
+<p>C++11 增强了模板功能，它对参数进行了高度泛化，允许模板定义中包含 0 到任意个、任意类型的模板参数，这就是可变参数模板。可变参数模板的加入使得 C++11 的功能变得更加强大，能够很有效的提升灵活性。</p>
+<ol>
+<li>可变参数函数模板语法： <code>template&lt;typename... t=&quot;&quot;&gt; void fun(T...args) </code>{ &#x2F;&#x2F; 函数体 } 模板参数中， typename（或者 class）后跟 … 就表明 T 是一个可变模板参数，它可以接收多种数据类型，又称模板参数包。fun() 函数中，args 参数的类型用 T… 表示，表示 args 参数可以接收任意个参数，又称函数参数包；</li>
+<li>可变参数类模板语法： <code>template &lt;typename... types=&quot;&quot;&gt; class test</code>；</li>
+<li>展开参数包的方式 - 可变参数函数模板可以采用递归方式、逗号表达式 + 初始化列表的方式展开参数包； - 可变参数类模板可以采用递归+继承的方式展开参数包。 加分回答 C++ 11 标准提供的 tuple 元组类就是一个典型的可变参数模板类，它的定义如下： <code>template &lt;typename... types=&quot;&quot;&gt; class tuple;&lt;/typename...&gt;&lt;/typename...&gt;&lt;/typename...&gt;</code>；</li>
 </ol>
 
     </div>
@@ -368,7 +340,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/c/" rel="tag"><i class="fa fa-tag"></i> c++</a>
               <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
           </div>
 
@@ -378,12 +350,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/03/18/CPP%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="CPP实用面试题（一）">
-      <i class="fa fa-chevron-left"></i> CPP实用面试题（一）
+    <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/" rel="prev" title="CPP面试题（2）">
+      <i class="fa fa-chevron-left"></i> CPP面试题（2）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/03/23/STL%E5%AE%9E%E7%94%A8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="STL实用面试题（一）">
-      STL实用面试题（一） <i class="fa fa-chevron-right"></i>
+    <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%884%EF%BC%89/" rel="next" title="CPP面试题（4）">
+      CPP面试题（4） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -443,7 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1. 浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2%E7%A7%8D%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%85%B6%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-text">2. 2种智能指针实现原理和使用场景，以及其线程安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-shared-ptr-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E4%BD%95%E6%97%B6%E5%A2%9E%E5%8A%A0%E5%92%8C%E5%87%8F%E5%B0%91"><span class="nav-text">3. shared_ptr 引用计数何时增加和减少</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">4.智能指针有没有内存泄露的情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B%E5%A0%86%E5%92%8C%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">5. 简述一下堆和栈的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">6. 指针和引用的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-C-%E5%92%8C-C-%E4%B8%AD-struct-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%92%8C-class-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">7. C++ 和 C 中 struct 的区别以及和 class 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-C-%E8%AF%AD%E8%A8%80%E9%87%8C%E9%9D%A2-volatile%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%92%8C-const-%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8%E5%90%97"><span class="nav-text">8. C 语言里面 volatile，可以和 const 同时使用吗</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-const-%E5%92%8C-define-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">9. const 和 define 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-extern-%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%8Cextern%E5%8F%98%E9%87%8F%E5%9C%A8%E5%93%AA%E4%B8%AA%E6%95%B0%E6%8D%AE%E6%AE%B5%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81-extern-C"><span class="nav-text">10. extern 的作用，extern变量在哪个数据段，为什么要 extern C</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-static-%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">11. static 关键字的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94"><span class="nav-text">加分回答</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E8%AF%AD%E8%A8%80%E5%92%8C-C-%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">1. C 语言和 C++ 语言的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-C-%E5%92%8C-C-%E4%B8%AD-struct-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%92%8C-class-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">2. C++ 和 C 中 struct 的区别以及和 class 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-C-%E8%AF%AD%E8%A8%80%E9%87%8C%E9%9D%A2-volatile%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%92%8C-const-%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8%E5%90%97"><span class="nav-text">3. C 语言里面 volatile，可以和 const 同时使用吗</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-extern-%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%8Cextern%E5%8F%98%E9%87%8F%E5%9C%A8%E5%93%AA%E4%B8%AA%E6%95%B0%E6%8D%AE%E6%AE%B5%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81-extern-C"><span class="nav-text">4. extern 的作用，extern变量在哪个数据段，为什么要 extern C</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-const-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-text">5. const 的用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-const-%E5%92%8C-define-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">6. const 和 define 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-static-%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">7. static 关键字的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94"><span class="nav-text">加分回答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-C-%E4%B8%AD%E7%9A%84%E5%9B%9B%E7%A7%8D%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">8. C++ 中的四种类型转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-auto-%E5%92%8C-decltype-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-text">9. auto 和 decltype 如何使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-C-11-%E4%B8%AD%E7%9A%84%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%A8%A1%E6%9D%BF%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-text">10. C++11 中的可变参数模板新特性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -459,20 +431,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
