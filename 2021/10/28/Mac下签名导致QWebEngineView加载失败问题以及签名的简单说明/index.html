@@ -22,13 +22,13 @@
 
   <meta name="description" content="问题：Mac下QtWebEngineProcess直接签完名，会导致应用调起QWebEngineView失败，网页不加载。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下签名导致QWebEngineView加载失败问题以及打包简单介绍">
-<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8C%85%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:title" content="Mac下签名导致QWebEngineView加载失败问题以及签名的简单说明">
+<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E7%AD%BE%E5%90%8D%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/index.html">
 <meta property="og:site_name" content="自由意志">
 <meta property="og:description" content="问题：Mac下QtWebEngineProcess直接签完名，会导致应用调起QWebEngineView失败，网页不加载。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-27T19:10:31.000Z">
-<meta property="article:modified_time" content="2023-03-17T11:01:23.391Z">
+<meta property="article:modified_time" content="2023-08-16T14:02:17.231Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="QT">
 <meta property="article:tag" content="Mac">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="sign">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8C%85%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">
+<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E7%AD%BE%E5%90%8D%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>Mac下签名导致QWebEngineView加载失败问题以及打包简单介绍 | 自由意志</title>
+  <title>Mac下签名导致QWebEngineView加载失败问题以及签名的简单说明 | 自由意志</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8C%85%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E7%AD%BE%E5%90%8D%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -206,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac下签名导致QWebEngineView加载失败问题以及打包简单介绍
+          Mac下签名导致QWebEngineView加载失败问题以及签名的简单说明
         </h1>
 
         <div class="post-meta">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 11:01:23" itemprop="dateModified" datetime="2023-03-17T11:01:23Z">2023-03-17</time>
+                <time title="修改时间：2023-08-16 14:02:17" itemprop="dateModified" datetime="2023-08-16T14:02:17Z">2023-08-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,18 +257,19 @@
 <span id="more"></span>
 
 <h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>本质是在一个App下有多个子程序，会发生签名崩溃，需要每个子程序都签名；</p>
-<h3 id="签名步骤："><a href="#签名步骤：" class="headerlink" title="签名步骤："></a>签名步骤：</h3><h4 id="1-第一次签名"><a href="#1-第一次签名" class="headerlink" title="1. 第一次签名"></a>1. 第一次签名</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --deep --force --verify --verbose --sign &quot;Developer ID Application: ***&quot; --options runtime MyApp.app</span><br></pre></td></tr></table></figure>
+<h3 id="签名步骤："><a href="#签名步骤：" class="headerlink" title="签名步骤："></a>签名步骤：</h3><h4 id="1-应用签名，-app签名"><a href="#1-应用签名，-app签名" class="headerlink" title="1. 应用签名，.app签名"></a>1. 应用签名，.app签名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --deep --force --verify --verbose --sign <span class="string">&quot;Developer ID Application: ******(******)&quot;</span> MyApp.app</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-QtWebEngineProcess签名"><a href="#2-QtWebEngineProcess签名" class="headerlink" title="2. QtWebEngineProcess签名"></a>2. QtWebEngineProcess签名</h4><p>为 QtWebEngineProcess 创建一个授权文件QtWebEngineProcess.entitlements：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">plist</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//Apple//DTD PLIST 1.0//EN&quot;</span> <span class="string">&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">&quot;1.0&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.security.cs.disable-executable-page-protection<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-QtWebEngineProcess签名"><a href="#2-QtWebEngineProcess签名" class="headerlink" title="2. QtWebEngineProcess签名"></a>2. QtWebEngineProcess签名</h4><h5 id="为-QtWebEngineProcess-创建一个授权文件entitlements-plist："><a href="#为-QtWebEngineProcess-创建一个授权文件entitlements-plist：" class="headerlink" title="为 QtWebEngineProcess 创建一个授权文件entitlements.plist："></a>为 QtWebEngineProcess 创建一个授权文件entitlements.plist：</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">plist</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//Apple//DTD PLIST 1.0//EN&quot;</span> <span class="string">&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">&quot;1.0&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.security.cs.disable-executable-page-protection<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --verify --verbose --sign &quot;Developer ID Application: ***&quot; --entitlements QtWebEngineProcess.entitlements --options runtime MyApp.app/Contents/Frameworks/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess</span><br></pre></td></tr></table></figure>
+<h5 id="格式化entitlements-plist，防止无法解析："><a href="#格式化entitlements-plist，防止无法解析：" class="headerlink" title="格式化entitlements.plist，防止无法解析："></a>格式化entitlements.plist，防止无法解析：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plutil -convert xml1 entitlements.plist</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-可执行程序签名"><a href="#3-可执行程序签名" class="headerlink" title="3. 可执行程序签名"></a>3. 可执行程序签名</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --force --verify --verbose --sign &quot;Developer ID Application: ***&quot; --options runtime Output/MyApp.app/Contents/MacOS/MyApp</span><br></pre></td></tr></table></figure>
+<h5 id="对-QtWebEngineProcess-进行签名："><a href="#对-QtWebEngineProcess-进行签名：" class="headerlink" title="对 QtWebEngineProcess 进行签名："></a>对 QtWebEngineProcess 进行签名：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --force --verify --verbose --sign <span class="string">&quot;Developer ID Application: ******(******)&quot;</span> --entitlements <span class="string">&quot;entitlements.plist&quot;</span> MyApp.app/Contents/Frameworks/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess</span><br></pre></td></tr></table></figure>
 
-<h3 id="原帖：https-forum-qt-io-topic-102212-qtwebengine-signing-issues"><a href="#原帖：https-forum-qt-io-topic-102212-qtwebengine-signing-issues" class="headerlink" title="原帖：https://forum.qt.io/topic/102212/qtwebengine-signing-issues"></a>原帖：<a target="_blank" rel="noopener" href="https://forum.qt.io/topic/102212/qtwebengine-signing-issues">https://forum.qt.io/topic/102212/qtwebengine-signing-issues</a></h3><h4 id="4-app签名"><a href="#4-app签名" class="headerlink" title="4. app签名"></a>4. app签名</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --force --verify --verbose -f -s &quot;Developer ID Application: ***&quot; MyApp.app --deep</span><br><span class="line"></span><br><span class="line">codesign --options=runtime --timestamp --force --verify --verbose -f -s &quot;Developer ID Application: ***&quot; MyApp.app/Contents/MacOS/MyApp&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="3-可执行程序签名"><a href="#3-可执行程序签名" class="headerlink" title="3. 可执行程序签名"></a>3. 可执行程序签名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --force --verify --verbose --sign <span class="string">&quot;Developer ID Application: ******(******)&quot;</span> MyApp.app/Contents/MacOS/MyApp</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://github.com/RealChuan/Qt-Examples/tree/master/Scripts">打包脚本</a></p>
+<h3 id="原帖：https-forum-qt-io-topic-102212-qtwebengine-signing-issues"><a href="#原帖：https-forum-qt-io-topic-102212-qtwebengine-signing-issues" class="headerlink" title="原帖：https://forum.qt.io/topic/102212/qtwebengine-signing-issues"></a>原帖：<a target="_blank" rel="noopener" href="https://forum.qt.io/topic/102212/qtwebengine-signing-issues">https://forum.qt.io/topic/102212/qtwebengine-signing-issues</a></h3><h2 id="小Tips：签名之前需要解锁keychain："><a href="#小Tips：签名之前需要解锁keychain：" class="headerlink" title="小Tips：签名之前需要解锁keychain："></a>小Tips：签名之前需要解锁keychain：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">security unlock-keychain -p <span class="string">&quot;******&quot;</span> <span class="string">&quot;<span class="variable">$HOME</span>/Library/Keychains/login.keychain&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="完整打包脚本："><a href="#完整打包脚本：" class="headerlink" title="完整打包脚本："></a>完整打包脚本：</h2><p><a href="https://github.com/RealChuan/Qt-Examples/blob/master/packaging/macos/package.py">macos packaging python script</a></p>
 
     </div>
 
@@ -356,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%BE%E5%90%8D%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-text">签名步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%AD%BE%E5%90%8D"><span class="nav-text">1. 第一次签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-QtWebEngineProcess%E7%AD%BE%E5%90%8D"><span class="nav-text">2. QtWebEngineProcess签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%AD%BE%E5%90%8D"><span class="nav-text">3. 可执行程序签名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%B8%96%EF%BC%9Ahttps-forum-qt-io-topic-102212-qtwebengine-signing-issues"><span class="nav-text">原帖：https:&#x2F;&#x2F;forum.qt.io&#x2F;topic&#x2F;102212&#x2F;qtwebengine-signing-issues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-app%E7%AD%BE%E5%90%8D"><span class="nav-text">4. app签名</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%BE%E5%90%8D%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-text">签名步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D%EF%BC%8C-app%E7%AD%BE%E5%90%8D"><span class="nav-text">1. 应用签名，.app签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-QtWebEngineProcess%E7%AD%BE%E5%90%8D"><span class="nav-text">2. QtWebEngineProcess签名</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA-QtWebEngineProcess-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8E%88%E6%9D%83%E6%96%87%E4%BB%B6entitlements-plist%EF%BC%9A"><span class="nav-text">为 QtWebEngineProcess 创建一个授权文件entitlements.plist：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96entitlements-plist%EF%BC%8C%E9%98%B2%E6%AD%A2%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%EF%BC%9A"><span class="nav-text">格式化entitlements.plist，防止无法解析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9-QtWebEngineProcess-%E8%BF%9B%E8%A1%8C%E7%AD%BE%E5%90%8D%EF%BC%9A"><span class="nav-text">对 QtWebEngineProcess 进行签名：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%AD%BE%E5%90%8D"><span class="nav-text">3. 可执行程序签名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%B8%96%EF%BC%9Ahttps-forum-qt-io-topic-102212-qtwebengine-signing-issues"><span class="nav-text">原帖：https:&#x2F;&#x2F;forum.qt.io&#x2F;topic&#x2F;102212&#x2F;qtwebengine-signing-issues</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8FTips%EF%BC%9A%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%89%8D%E9%9C%80%E8%A6%81%E8%A7%A3%E9%94%81keychain%EF%BC%9A"><span class="nav-text">小Tips：签名之前需要解锁keychain：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC%EF%BC%9A"><span class="nav-text">完整打包脚本：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
