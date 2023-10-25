@@ -20,23 +20,23 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="问题：Mac下QtWebEngineProcess直接签完名，会导致应用调起QWebEngineView失败，网页不加载。">
+  <meta name="description" content="Windows写注册表实现开机自启动；注册表有两个位置可以写入： 12HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run &#x2F;&#x2F;对于所有用户HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run &#x2F;&#x2F; 对于当前用户  Windows">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下签名导致QWebEngineView加载失败问题以及签名的简单说明">
-<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E7%AD%BE%E5%90%8D%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/index.html">
+<meta property="og:title" content="桌面端程序开机自启动代码实现">
+<meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/10/26/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="自由意志">
-<meta property="og:description" content="问题：Mac下QtWebEngineProcess直接签完名，会导致应用调起QWebEngineView失败，网页不加载。">
+<meta property="og:description" content="Windows写注册表实现开机自启动；注册表有两个位置可以写入： 12HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run &#x2F;&#x2F;对于所有用户HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run &#x2F;&#x2F; 对于当前用户  Windows">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-27T19:10:31.000Z">
-<meta property="article:modified_time" content="2023-08-16T14:02:17.231Z">
+<meta property="article:published_time" content="2023-10-25T18:48:11.000Z">
+<meta property="article:modified_time" content="2023-10-25T11:09:25.767Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="QT">
-<meta property="article:tag" content="Mac">
-<meta property="article:tag" content="Deploy">
-<meta property="article:tag" content="sign">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E7%AD%BE%E5%90%8D%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/">
+<link rel="canonical" href="https://github.com/RealChuan/RealChuan.github.io/2023/10/26/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>Mac下签名导致QWebEngineView加载失败问题以及签名的简单说明 | 自由意志</title>
+  <title>桌面端程序开机自启动代码实现 | 自由意志</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2021/10/28/Mac%E4%B8%8B%E7%AD%BE%E5%90%8D%E5%AF%BC%E8%87%B4QWebEngineView%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E7%AD%BE%E5%90%8D%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2023/10/26/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head-icon.png">
@@ -206,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac下签名导致QWebEngineView加载失败问题以及签名的简单说明
+          桌面端程序开机自启动代码实现
         </h1>
 
         <div class="post-meta">
@@ -215,16 +215,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-10-27 19:10:31" itemprop="dateCreated datePublished" datetime="2021-10-27T19:10:31Z">2021-10-27</time>
+              <time title="创建时间：2023-10-25 18:48:11 / 修改时间：11:09:25" itemprop="dateCreated datePublished" datetime="2023-10-25T18:48:11Z">2023-10-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-16 14:02:17" itemprop="dateModified" datetime="2023-08-16T14:02:17Z">2023-08-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -253,24 +247,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>Mac下QtWebEngineProcess直接签完名，会导致应用调起QWebEngineView失败，网页不加载。  </p>
+        <h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="写注册表实现开机自启动；"><a href="#写注册表实现开机自启动；" class="headerlink" title="写注册表实现开机自启动；"></a>写注册表实现开机自启动；</h2><p>注册表有两个位置可以写入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run //对于所有用户</span><br><span class="line">HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run // 对于当前用户</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/RealChuan/Qt-Examples/blob/master/Bootstrap/bootstrap_win.cc">Windows QT代码实现</a></p>
 <span id="more"></span>
 
-<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>本质是在一个App下有多个子程序，会发生签名崩溃，需要每个子程序都签名；</p>
-<h3 id="签名步骤："><a href="#签名步骤：" class="headerlink" title="签名步骤："></a>签名步骤：</h3><h4 id="1-应用签名，-app签名"><a href="#1-应用签名，-app签名" class="headerlink" title="1. 应用签名，.app签名"></a>1. 应用签名，.app签名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --deep --force --verify --verbose --sign <span class="string">&quot;Developer ID Application: ******(******)&quot;</span> MyApp.app</span><br></pre></td></tr></table></figure>
+<h1 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h1><h2 id="编写plist文件，拷贝到-Library-LaunchAgents-，使用launchctl-load-unload命令实现开机自启动"><a href="#编写plist文件，拷贝到-Library-LaunchAgents-，使用launchctl-load-unload命令实现开机自启动" class="headerlink" title="编写plist文件，拷贝到~/Library/LaunchAgents/，使用launchctl load/unload命令实现开机自启动"></a>编写plist文件，拷贝到<code>~/Library/LaunchAgents/</code>，使用<code>launchctl load/unload</code>命令实现开机自启动</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">plist</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//Apple//DTD PLIST 1.0//EN&quot;</span> <span class="string">&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">&quot;1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Label<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>com.myapp.launcher<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>ProgramArguments<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>/Applications/myapp.app/Contents/MacOS/myapp<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>RunAtLoad<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">true</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-QtWebEngineProcess签名"><a href="#2-QtWebEngineProcess签名" class="headerlink" title="2. QtWebEngineProcess签名"></a>2. QtWebEngineProcess签名</h4><h5 id="为-QtWebEngineProcess-创建一个授权文件entitlements-plist："><a href="#为-QtWebEngineProcess-创建一个授权文件entitlements-plist：" class="headerlink" title="为 QtWebEngineProcess 创建一个授权文件entitlements.plist："></a>为 QtWebEngineProcess 创建一个授权文件entitlements.plist：</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">plist</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//Apple//DTD PLIST 1.0//EN&quot;</span> <span class="string">&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">&quot;1.0&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">key</span>&gt;</span>com.apple.security.cs.disable-executable-page-protection<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="格式化entitlements-plist，防止无法解析："><a href="#格式化entitlements-plist，防止无法解析：" class="headerlink" title="格式化entitlements.plist，防止无法解析："></a>格式化entitlements.plist，防止无法解析：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plutil -convert xml1 entitlements.plist</span><br></pre></td></tr></table></figure>
-
-<h5 id="对-QtWebEngineProcess-进行签名："><a href="#对-QtWebEngineProcess-进行签名：" class="headerlink" title="对 QtWebEngineProcess 进行签名："></a>对 QtWebEngineProcess 进行签名：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --force --verify --verbose --sign <span class="string">&quot;Developer ID Application: ******(******)&quot;</span> --entitlements <span class="string">&quot;entitlements.plist&quot;</span> MyApp.app/Contents/Frameworks/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-可执行程序签名"><a href="#3-可执行程序签名" class="headerlink" title="3. 可执行程序签名"></a>3. 可执行程序签名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign --options=runtime --timestamp --force --verify --verbose --sign <span class="string">&quot;Developer ID Application: ******(******)&quot;</span> MyApp.app/Contents/MacOS/MyApp</span><br></pre></td></tr></table></figure>
-
-<h3 id="原帖：https-forum-qt-io-topic-102212-qtwebengine-signing-issues"><a href="#原帖：https-forum-qt-io-topic-102212-qtwebengine-signing-issues" class="headerlink" title="原帖：https://forum.qt.io/topic/102212/qtwebengine-signing-issues"></a>原帖：<a target="_blank" rel="noopener" href="https://forum.qt.io/topic/102212/qtwebengine-signing-issues">https://forum.qt.io/topic/102212/qtwebengine-signing-issues</a></h3><h2 id="小Tips：签名之前需要解锁keychain："><a href="#小Tips：签名之前需要解锁keychain：" class="headerlink" title="小Tips：签名之前需要解锁keychain："></a>小Tips：签名之前需要解锁keychain：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">security unlock-keychain -p <span class="string">&quot;******&quot;</span> <span class="string">&quot;<span class="variable">$HOME</span>/Library/Keychains/login.keychain&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="完整打包脚本："><a href="#完整打包脚本：" class="headerlink" title="完整打包脚本："></a>完整打包脚本：</h2><p><a href="https://github.com/RealChuan/Qt-Examples/blob/master/packaging/macos/package.py">macos packaging python script</a></p>
-
+<p><a href="https://github.com/RealChuan/Qt-Examples/blob/master/Bootstrap/bootstrap_mac.cc">MacOS QT代码实现</a></p>
+<h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h1><h2 id="使用systemctl机制实现开机自启动"><a href="#使用systemctl机制实现开机自启动" class="headerlink" title="使用systemctl机制实现开机自启动;"></a>使用<code>systemctl</code>机制实现开机自启动;</h2><ol>
+<li>拷贝.service和.timer文件到~&#x2F;.config&#x2F;systemd&#x2F;user&#x2F;，使用systemctl –user enable&#x2F;disable命令实现开机自启动;</li>
+<li><code>systemctl</code>命令用于.timer文件,.timer文件用于定时执行.service文件，防止图形界面启动后，出现<code>qxcbconnection: could not connect to display</code>错误;</li>
+</ol>
+<p><a href="https://github.com/RealChuan/Qt-Examples/blob/master/Bootstrap/bootstrap_linux.cc">Ubuntu QT代码实现</a></p>
+<h2 id="把-x2F-usr-x2F-share-x2F-Application-x2F-下的-desktop文件拷贝到-x2F-config-x2F-autostart-x2F-下，实现开机自启动（未验证）"><a href="#把-x2F-usr-x2F-share-x2F-Application-x2F-下的-desktop文件拷贝到-x2F-config-x2F-autostart-x2F-下，实现开机自启动（未验证）" class="headerlink" title="把&#x2F;usr&#x2F;share&#x2F;Application&#x2F;下的.desktop文件拷贝到~&#x2F;.config&#x2F;autostart&#x2F;下，实现开机自启动（未验证）"></a>把&#x2F;usr&#x2F;share&#x2F;Application&#x2F;下的.desktop文件拷贝到~&#x2F;.config&#x2F;autostart&#x2F;下，实现开机自启动（未验证）</h2>
     </div>
 
     
@@ -281,9 +272,9 @@
           
           <div class="post-tags">
               <a href="/tags/QT/" rel="tag"><i class="fa fa-tag"></i> QT</a>
-              <a href="/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
-              <a href="/tags/Deploy/" rel="tag"><i class="fa fa-tag"></i> Deploy</a>
-              <a href="/tags/sign/" rel="tag"><i class="fa fa-tag"></i> sign</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/MacOS/" rel="tag"><i class="fa fa-tag"></i> MacOS</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
           </div>
 
         
@@ -292,13 +283,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/10/16/CPP%E5%80%BC%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="prev" title="CPP值和对象">
-      <i class="fa fa-chevron-left"></i> CPP值和对象
+    <a href="/2023/03/25/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%BD%91%E7%BB%9C/" rel="prev" title="Linux操作系统面试题（2）——网络">
+      <i class="fa fa-chevron-left"></i> Linux操作系统面试题（2）——网络
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/11/16/QT-MAC%E4%B8%8B%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B7%B7%E5%90%88%E5%A4%9A%E9%80%89%E5%AF%B9%E8%AF%9D%E6%A1%86%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="QT MAC下文件文件夹混合多选对话框解决方案">
-      QT MAC下文件文件夹混合多选对话框解决方案 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -357,7 +345,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%BE%E5%90%8D%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-text">签名步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D%EF%BC%8C-app%E7%AD%BE%E5%90%8D"><span class="nav-text">1. 应用签名，.app签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-QtWebEngineProcess%E7%AD%BE%E5%90%8D"><span class="nav-text">2. QtWebEngineProcess签名</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA-QtWebEngineProcess-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8E%88%E6%9D%83%E6%96%87%E4%BB%B6entitlements-plist%EF%BC%9A"><span class="nav-text">为 QtWebEngineProcess 创建一个授权文件entitlements.plist：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96entitlements-plist%EF%BC%8C%E9%98%B2%E6%AD%A2%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%EF%BC%9A"><span class="nav-text">格式化entitlements.plist，防止无法解析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9-QtWebEngineProcess-%E8%BF%9B%E8%A1%8C%E7%AD%BE%E5%90%8D%EF%BC%9A"><span class="nav-text">对 QtWebEngineProcess 进行签名：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%AD%BE%E5%90%8D"><span class="nav-text">3. 可执行程序签名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%B8%96%EF%BC%9Ahttps-forum-qt-io-topic-102212-qtwebengine-signing-issues"><span class="nav-text">原帖：https:&#x2F;&#x2F;forum.qt.io&#x2F;topic&#x2F;102212&#x2F;qtwebengine-signing-issues</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8FTips%EF%BC%9A%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%89%8D%E9%9C%80%E8%A6%81%E8%A7%A3%E9%94%81keychain%EF%BC%9A"><span class="nav-text">小Tips：签名之前需要解锁keychain：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC%EF%BC%9A"><span class="nav-text">完整打包脚本：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E6%B3%A8%E5%86%8C%E8%A1%A8%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%EF%BC%9B"><span class="nav-text">写注册表实现开机自启动；</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MacOS"><span class="nav-text">MacOS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99plist%E6%96%87%E4%BB%B6%EF%BC%8C%E6%8B%B7%E8%B4%9D%E5%88%B0-Library-LaunchAgents-%EF%BC%8C%E4%BD%BF%E7%94%A8launchctl-load-unload%E5%91%BD%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-text">编写plist文件，拷贝到~&#x2F;Library&#x2F;LaunchAgents&#x2F;，使用launchctl load&#x2F;unload命令实现开机自启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu"><span class="nav-text">Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8systemctl%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-text">使用systemctl机制实现开机自启动;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A-x2F-usr-x2F-share-x2F-Application-x2F-%E4%B8%8B%E7%9A%84-desktop%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D%E5%88%B0-x2F-config-x2F-autostart-x2F-%E4%B8%8B%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%EF%BC%88%E6%9C%AA%E9%AA%8C%E8%AF%81%EF%BC%89"><span class="nav-text">把&#x2F;usr&#x2F;share&#x2F;Application&#x2F;下的.desktop文件拷贝到~&#x2F;.config&#x2F;autostart&#x2F;下，实现开机自启动（未验证）</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

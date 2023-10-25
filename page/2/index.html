@@ -187,6 +187,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/08/19/VScode-CMake-Qt6%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head-icon.png">
+      <meta itemprop="name" content="年轻气盛">
+      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由意志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/19/VScode-CMake-Qt6%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">VScode+CMake+Qt6简单配置说明</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-18 19:14:55" itemprop="dateCreated datePublished" datetime="2022-08-18T19:14:55Z">2022-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-28 11:49:19" itemprop="dateModified" datetime="2022-11-28T11:49:19Z">2022-11-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/QT/" itemprop="url" rel="index"><span itemprop="name">QT</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-Build"><a href="#1-Build" class="headerlink" title="1.Build"></a>1.Build</h2><p>Ninja配置方法在下面</p>
+<h3 id="1-CMakeLists-txt"><a href="#1-CMakeLists-txt" class="headerlink" title="1.CMakeLists.txt"></a>1.CMakeLists.txt</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.16</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(Qt-Examples VERSION <span class="number">0.1</span> LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> (CMAKE_PREFIX_PATH <span class="string">&quot;C:\\Qt\\6.3.1\\msvc2019_64&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_EXPORT_COMPILE_COMMANDS <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_INCLUDE_CURRENT_DIR <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTOUIC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTOMOC <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_AUTORCC <span class="keyword">ON</span>)</span><br><span class="line"><span class="comment">#qt_standard_project_setup() 这个识别不了</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">17</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(Qt6 COMPONENTS Widgets REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_subdirectory</span>(Battery)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/19/VScode-CMake-Qt6%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/08/18/WSL2%E9%80%9A%E8%BF%87Clash%E4%BD%BF%E7%94%A8Windows%E4%BB%A3%E7%90%86%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -830,81 +912,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/05/12/windows%E4%B8%8B%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head-icon.png">
-      <meta itemprop="name" content="年轻气盛">
-      <meta itemprop="description" content="世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由意志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/12/windows%E4%B8%8B%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">windows下程序开机自动启设置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-05-11 19:05:22 / 修改时间：11:09:21" itemprop="dateCreated datePublished" datetime="2022-05-11T19:05:22Z">2022-05-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="注册表开机自启动"><a href="#注册表开机自启动" class="headerlink" title="注册表开机自启动"></a>注册表开机自启动</h2><h3 id="注册表位置："><a href="#注册表位置：" class="headerlink" title="注册表位置："></a>注册表位置：</h3><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_CURRENT_USER<span class="symbol">\\</span>Software<span class="symbol">\\</span>Microsoft<span class="symbol">\\</span>Windows<span class="symbol">\\</span>CurrentVersion<span class="symbol">\\</span>Run</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/05/12/windows%E4%B8%8B%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E8%AE%BE%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/RealChuan/RealChuan.github.io/2022/02/25/muduo%E4%B8%AD%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1062,7 +1069,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
