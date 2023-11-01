@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. C++ 的内存管理C++ 的内存分区主要有：代码区、未初始化数据区（BSS）、已初始化数据区（DATA）、栈区（Stack）、堆区（Heap）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-24T18:42:27.000Z">
-<meta property="article:modified_time" content="2023-03-24T10:43:04.662Z">
+<meta property="article:modified_time" content="2023-11-01T10:47:16.694Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="interview">
@@ -213,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-24 18:42:27 / 修改时间：10:43:04" itemprop="dateCreated datePublished" datetime="2023-03-24T18:42:27Z">2023-03-24</time>
+              <time title="创建时间：2023-03-24 18:42:27" itemprop="dateCreated datePublished" datetime="2023-03-24T18:42:27Z">2023-03-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-01 10:47:16" itemprop="dateModified" datetime="2023-11-01T10:47:16Z">2023-11-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -248,11 +254,11 @@
         <h1 id="1-C-的内存管理"><a href="#1-C-的内存管理" class="headerlink" title="1. C++ 的内存管理"></a>1. C++ 的内存管理</h1><p>C++ 的内存分区主要有：代码区、未初始化数据区（BSS）、已初始化数据区（DATA）、栈区（Stack）、堆区（Heap）</p>
 <span id="more"></span>
 
-<h2 id="1-代码区："><a href="#1-代码区：" class="headerlink" title="1. 代码区："></a>1. 代码区：</h2><p>加载的是可执行文件代码段，所有的可执行代码都加载到代码区，这块内存是不可以在运行期间修改的；</p>
-<h2 id="2-未初始化数据区："><a href="#2-未初始化数据区：" class="headerlink" title="2. 未初始化数据区："></a>2. 未初始化数据区：</h2><p>加载的是可执行文件 BSS 段，位置可以分开也可以紧靠数据段，存储于数据段的数据（全局未初始化，静态未初始化数据）的生存周期为整个程序运行过程；</p>
-<h2 id="3-已初始化数据区（全局初始化数据区-x2F-静态数据区）："><a href="#3-已初始化数据区（全局初始化数据区-x2F-静态数据区）：" class="headerlink" title="3. 已初始化数据区（全局初始化数据区&#x2F;静态数据区）："></a>3. 已初始化数据区（全局初始化数据区&#x2F;静态数据区）：</h2><p>加载的是可执行文件数据段，存储于数据段（全局初始化，静态初始化数据，文字常量(只读)）的数据的生存周期为整个程序运行过程；</p>
-<h2 id="4-栈区："><a href="#4-栈区：" class="headerlink" title="4. 栈区："></a>4. 栈区：</h2><p>栈是一种先进后出的内存结构，由编译器自动分配释放，存放函数的参数值、返回值、局部变量等。在程序运行过程中实时加载和释放，因此，局部变量的生存周期为申请到释放该段栈空间；</p>
-<h2 id="5-堆区："><a href="#5-堆区：" class="headerlink" title="5. 堆区："></a>5. 堆区：</h2><p>堆是一个大容器，它的容量要远远大于栈，但没有栈那样先进后出的顺序，用于动态内存分配。堆在内存中位于BSS区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。</p>
+<h2 id="1-代码区"><a href="#1-代码区" class="headerlink" title="1. 代码区"></a>1. 代码区</h2><p>加载的是可执行文件代码段，所有的可执行代码都加载到代码区，这块内存是不可以在运行期间修改的；</p>
+<h2 id="2-未初始化数据区"><a href="#2-未初始化数据区" class="headerlink" title="2. 未初始化数据区"></a>2. 未初始化数据区</h2><p>加载的是可执行文件 BSS 段，位置可以分开也可以紧靠数据段，存储于数据段的数据（全局未初始化，静态未初始化数据）的生存周期为整个程序运行过程；</p>
+<h2 id="3-已初始化数据区（全局初始化数据区-x2F-静态数据区）"><a href="#3-已初始化数据区（全局初始化数据区-x2F-静态数据区）" class="headerlink" title="3. 已初始化数据区（全局初始化数据区&#x2F;静态数据区）"></a>3. 已初始化数据区（全局初始化数据区&#x2F;静态数据区）</h2><p>加载的是可执行文件数据段，存储于数据段（全局初始化，静态初始化数据，文字常量(只读)）的数据的生存周期为整个程序运行过程；</p>
+<h2 id="4-栈区"><a href="#4-栈区" class="headerlink" title="4. 栈区"></a>4. 栈区</h2><p>栈是一种先进后出的内存结构，由编译器自动分配释放，存放函数的参数值、返回值、局部变量等。在程序运行过程中实时加载和释放，因此，局部变量的生存周期为申请到释放该段栈空间；</p>
+<h2 id="5-堆区"><a href="#5-堆区" class="headerlink" title="5. 堆区"></a>5. 堆区</h2><p>堆是一个大容器，它的容量要远远大于栈，但没有栈那样先进后出的顺序，用于动态内存分配。堆在内存中位于BSS区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。</p>
 <h1 id="2-C-中的内存对齐"><a href="#2-C-中的内存对齐" class="headerlink" title="2. C++ 中的内存对齐"></a>2. C++ 中的内存对齐</h1><ol>
 <li>现代计算机中内存空间都是按照 字节（byte）划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始，但是实际的计算机系统对基本类型数据在内存中存放的位置有限制，它们会要求这些数据的首地址的值是某个数 k（通常它为4或8）的倍数，这就是所谓的内存对齐；</li>
 <li>内存对齐的原因：<ol>
@@ -289,7 +295,7 @@
 </ol>
 <h1 id="5-new-的实现原理，new-和-malloc-的区别"><a href="#5-new-的实现原理，new-和-malloc-的区别" class="headerlink" title="5. new 的实现原理，new 和 malloc 的区别"></a>5. new 的实现原理，new 和 malloc 的区别</h1><ol>
 <li>new 的实现原理：<ol>
-<li>简单类型，则直接调用 operator new()，在 operator new() 函数中会调用 malloc() 函数，如果调用 malloc() 失败会调用 _callnewh()，如果 _callnewh() 返回 0 则抛出 bac_alloc 异常，返回非零则继续分配内存;</li>
+<li>简单类型，则直接调用 operator new()，在 operator new() 函数中会调用 malloc() 函数，如果调用 malloc() 失败会调用 _callnewh()，如果_callnewh() 返回 0 则抛出 bac_alloc 异常，返回非零则继续分配内存;</li>
 <li>复杂类型，先调用 operator new()函数，然后在分配的内存上调用构造函数；</li>
 </ol>
 </li>
@@ -312,16 +318,16 @@
 <li>free 会不会调用对象的析构函数，而 delete 会调用对象的析构函数；</li>
 <li>调用 free 之前需要检查要释放的指针是否为 NULL，使用 delete 释放内存则不需要检查指针是否为 NULL；</li>
 </ol>
-<h1 id="7-C-中智能指针和指针的区别是什么？"><a href="#7-C-中智能指针和指针的区别是什么？" class="headerlink" title="7. C++ 中智能指针和指针的区别是什么？"></a>7. C++ 中智能指针和指针的区别是什么？</h1><h2 id="智能指针："><a href="#智能指针：" class="headerlink" title="智能指针："></a>智能指针：</h2><p>如果在程序中使用 new 从堆（自由存储区）分配内存，等到不需要时，应使用 delete 将其释放。C++ 引入了智能指针 auto_ptr，以帮助自动完成这个过程。随后的编程体验（尤其是使用STL）表明，需要有更精致的机制。基于程序员的编程体验和 BOOST 库提供的解决方案，C++11 摒弃了 auto_ptr，并新增了三种智能指针：unique_ptr、shared_ptr 和 weak_ptr。所有新增的智能指针都能与 STL 容器和移动语义协同工作；</p>
-<h2 id="指针："><a href="#指针：" class="headerlink" title="指针："></a>指针：</h2><p>C 语言规定所有变量在使用前必须先定义，指定其类型，并按此分配内存单元。指针变量不同于整型变量和其他类型的变量，它是专门用来存放地址的，所以必须将它定义为“指针类型”；</p>
-<h2 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h2><p>在于智能指针实际上是对普通指针加了一层封装机制，区别是它负责自动释放所指的对象，这样的一层封装机制的目的是为了使得智能指针可以方便的管理一个对象的生命期。指针是一种数据类型，用于保存内存地址，而智能指针是类模板。</p>
+<h1 id="7-C-中智能指针和指针的区别是什么？"><a href="#7-C-中智能指针和指针的区别是什么？" class="headerlink" title="7. C++ 中智能指针和指针的区别是什么？"></a>7. C++ 中智能指针和指针的区别是什么？</h1><h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2><p>如果在程序中使用 new 从堆（自由存储区）分配内存，等到不需要时，应使用 delete 将其释放。C++ 引入了智能指针 auto_ptr，以帮助自动完成这个过程。随后的编程体验（尤其是使用STL）表明，需要有更精致的机制。基于程序员的编程体验和 BOOST 库提供的解决方案，C++11 摒弃了 auto_ptr，并新增了三种智能指针：unique_ptr、shared_ptr 和 weak_ptr。所有新增的智能指针都能与 STL 容器和移动语义协同工作；</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>C 语言规定所有变量在使用前必须先定义，指定其类型，并按此分配内存单元。指针变量不同于整型变量和其他类型的变量，它是专门用来存放地址的，所以必须将它定义为“指针类型”；</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>在于智能指针实际上是对普通指针加了一层封装机制，区别是它负责自动释放所指的对象，这样的一层封装机制的目的是为了使得智能指针可以方便的管理一个对象的生命期。指针是一种数据类型，用于保存内存地址，而智能指针是类模板。</p>
 <h1 id="8-shared-ptr-引用计数何时增加和减少"><a href="#8-shared-ptr-引用计数何时增加和减少" class="headerlink" title="8. shared_ptr 引用计数何时增加和减少"></a>8. shared_ptr 引用计数何时增加和减少</h1><ol>
 <li>增加：初始化、拷贝构造&#x2F;赋值；</li>
 <li>减少：离开作用域；</li>
 </ol>
 <h1 id="9-shared-ptr线程安全？"><a href="#9-shared-ptr线程安全？" class="headerlink" title="9. shared_ptr线程安全？"></a>9. shared_ptr线程安全？</h1><p>shared_ptr 智能指针的引用计数在手段上使用了 atomic 原子操作，只要 shared_ptr 在拷贝或赋值时增加引用，析构时减少引用就可以了。首先原子是线程安全的，所有 shared_ptr 智能指针在多线程下引用计数也是安全的，也就是说 shared_ptr 智能指针在多线程下传递使用时引用计数是不会有线程安全问题的。 但是指向对象的指针不是线程安全的，使用 shared_ptr 智能指针访问资源不是线程安全的，需要手动加锁解锁。智能指针的拷贝也不是线程安全的。</p>
 <h1 id="10-智能指针有没有内存泄露的情况"><a href="#10-智能指针有没有内存泄露的情况" class="headerlink" title="10. 智能指针有没有内存泄露的情况"></a>10. 智能指针有没有内存泄露的情况</h1><p>智能指针有内存泄露的情况：当两个类对象中各自有一个 shared_ptr 指向对方时，会造成循环引用，使引用计数失效，从而导致内存泄露。 为了解决循环引用导致的内存泄漏，引入了弱指针weak_ptr，weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理，其类似一个普通指针，但是不会指向引用计数的共享内存，但是可以检测到所管理的对象是否已经被释放，从而避免非法访问。</p>
-<h1 id="11-weak-ptr-如何解决-shared-ptr-的循环引用问题？"><a href="#11-weak-ptr-如何解决-shared-ptr-的循环引用问题？" class="headerlink" title="11. weak_ptr 如何解决 shared_ptr 的循环引用问题？"></a>11. weak_ptr 如何解决 shared_ptr 的循环引用问题？</h1><p><code>weak_ptr </code>是为了配合 <code>shared_ptr </code>而引入的一种智能指针，它指向一个由 <code>shared_ptr</code> 管理的对象而不影响所指对象的生命周期，也就是将一个 <code>weak_ptr </code>绑定到一个 <code>shared_ptr </code>不会改变 <code>shared_ptr </code>的引用计数，依此特性可以解决 <code>shared_ptr </code>的循环引用问题。 <code>weak_ptr </code>没有解引用 <code>*</code> 和获取指针 <code>-&gt;</code> 运算符，它只能通过 <code>lock </code>成员函数去获取对应的 <code>shared_ptr </code>智能指针对象，从而获取对应的地址和内容。 不论是否有 <code>weak_ptr </code>指向，一旦最后一个指向对象的 <code>shared_ptr </code>被销毁，对象就会被释放。</p>
+<h1 id="11-weak-ptr-如何解决-shared-ptr-的循环引用问题？"><a href="#11-weak-ptr-如何解决-shared-ptr-的循环引用问题？" class="headerlink" title="11. weak_ptr 如何解决 shared_ptr 的循环引用问题？"></a>11. weak_ptr 如何解决 shared_ptr 的循环引用问题？</h1><p><code>weak_ptr</code>是为了配合 <code>shared_ptr</code>而引入的一种智能指针，它指向一个由 <code>shared_ptr</code> 管理的对象而不影响所指对象的生命周期，也就是将一个 <code>weak_ptr</code>绑定到一个 <code>shared_ptr</code>不会改变 <code>shared_ptr</code>的引用计数，依此特性可以解决 <code>shared_ptr</code>的循环引用问题。 <code>weak_ptr</code>没有解引用 <code>*</code> 和获取指针 <code>-&gt;</code> 运算符，它只能通过 <code>lock</code>成员函数去获取对应的 <code>shared_ptr</code>智能指针对象，从而获取对应的地址和内容。 不论是否有 <code>weak_ptr</code>指向，一旦最后一个指向对象的 <code>shared_ptr</code>被销毁，对象就会被释放。</p>
 
     </div>
 
@@ -407,7 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">1. C++ 的内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%A3%E7%A0%81%E5%8C%BA%EF%BC%9A"><span class="nav-text">1. 代码区：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9C%AA%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%9A"><span class="nav-text">2. 未初始化数据区：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B7%B2%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%88%E5%85%A8%E5%B1%80%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%8C%BA-x2F-%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%89%EF%BC%9A"><span class="nav-text">3. 已初始化数据区（全局初始化数据区&#x2F;静态数据区）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%A0%88%E5%8C%BA%EF%BC%9A"><span class="nav-text">4. 栈区：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A0%86%E5%8C%BA%EF%BC%9A"><span class="nav-text">5. 堆区：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-C-%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="nav-text">2. C++ 中的内存对齐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%EF%BC%8C%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B"><span class="nav-text">3. 什么是内存泄露，如何检测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8E%E6%8C%87%E9%92%88%EF%BC%8C%E6%80%8E%E4%B9%88%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%8C%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D"><span class="nav-text">4. 什么是野指针，怎么产生的，如何避免</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-new-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8Cnew-%E5%92%8C-malloc-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">5. new 的实现原理，new 和 malloc 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-delete-%E5%92%8C-free-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">6. delete 和 free 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-C-%E4%B8%AD%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">7. C++ 中智能指针和指针的区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%EF%BC%9A"><span class="nav-text">智能指针：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%EF%BC%9A"><span class="nav-text">指针：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">区别：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-shared-ptr-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E4%BD%95%E6%97%B6%E5%A2%9E%E5%8A%A0%E5%92%8C%E5%87%8F%E5%B0%91"><span class="nav-text">8. shared_ptr 引用计数何时增加和减少</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-shared-ptr%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-text">9. shared_ptr线程安全？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">10. 智能指针有没有内存泄露的情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-weak-ptr-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-shared-ptr-%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-text">11. weak_ptr 如何解决 shared_ptr 的循环引用问题？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">1. C++ 的内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%A3%E7%A0%81%E5%8C%BA"><span class="nav-text">1. 代码区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9C%AA%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%8C%BA"><span class="nav-text">2. 未初始化数据区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B7%B2%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%88%E5%85%A8%E5%B1%80%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%8C%BA-x2F-%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%89"><span class="nav-text">3. 已初始化数据区（全局初始化数据区&#x2F;静态数据区）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%A0%88%E5%8C%BA"><span class="nav-text">4. 栈区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A0%86%E5%8C%BA"><span class="nav-text">5. 堆区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-C-%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="nav-text">2. C++ 中的内存对齐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%EF%BC%8C%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B"><span class="nav-text">3. 什么是内存泄露，如何检测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8E%E6%8C%87%E9%92%88%EF%BC%8C%E6%80%8E%E4%B9%88%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%8C%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D"><span class="nav-text">4. 什么是野指针，怎么产生的，如何避免</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-new-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8Cnew-%E5%92%8C-malloc-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">5. new 的实现原理，new 和 malloc 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-delete-%E5%92%8C-free-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">6. delete 和 free 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-C-%E4%B8%AD%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">7. C++ 中智能指针和指针的区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-text">智能指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-text">指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-shared-ptr-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E4%BD%95%E6%97%B6%E5%A2%9E%E5%8A%A0%E5%92%8C%E5%87%8F%E5%B0%91"><span class="nav-text">8. shared_ptr 引用计数何时增加和减少</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-shared-ptr%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-text">9. shared_ptr线程安全？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">10. 智能指针有没有内存泄露的情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-weak-ptr-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-shared-ptr-%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-text">11. weak_ptr 如何解决 shared_ptr 的循环引用问题？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

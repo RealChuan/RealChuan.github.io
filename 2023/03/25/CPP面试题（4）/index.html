@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. C++引用的概念 引用（Reference）是 C++ 相对于 C 语言的一个扩充。引用可以看做是数据的一个别名，通过这个别名和原来的名字都能够找到这份数据。引用类似于 Windows 中的快捷方式，一个可执行程序可以有多个快捷方式，通过这些快捷方式和可执行程序本身都能够运行程序；引用还类似于人的绰号（笔名），使用绰号（笔名）和本名都能表示一个人； 基本语法 typename &amp; r">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-24T18:44:39.000Z">
-<meta property="article:modified_time" content="2023-03-24T10:45:10.244Z">
+<meta property="article:modified_time" content="2023-11-01T10:47:26.639Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="interview">
@@ -213,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-24 18:44:39 / 修改时间：10:45:10" itemprop="dateCreated datePublished" datetime="2023-03-24T18:44:39Z">2023-03-24</time>
+              <time title="创建时间：2023-03-24 18:44:39" itemprop="dateCreated datePublished" datetime="2023-03-24T18:44:39Z">2023-03-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-11-01 10:47:26" itemprop="dateModified" datetime="2023-11-01T10:47:26Z">2023-11-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -262,8 +268,8 @@
 
 <h1 id="2-左值、右值、左值引用、右值引用、右值引用的使用场景"><a href="#2-左值、右值、左值引用、右值引用、右值引用的使用场景" class="headerlink" title="2. 左值、右值、左值引用、右值引用、右值引用的使用场景"></a>2. 左值、右值、左值引用、右值引用、右值引用的使用场景</h1><ol>
 <li>左值：在 C++ 中可以取地址的、有名字的就是左值 <code>int a = 10;</code>&#x2F;&#x2F; 其中 a 就是左值；</li>
-<li>右值：不能取地址的、没有名字的就是右值 <code>int a = 10; </code>&#x2F;&#x2F; 其中 10 就是右值；</li>
-<li>左值引用：左值引用就是对一个左值进行引用。传统的 C++ 引用（现在称为左值引用）使得标识符关联到左值。左值是一个表示数据的表达式（如变量名或解除引用的指针），程序可获取其地址。最初，左值可出现在赋值语句的左边，但修饰符 const 的出现使得可以声明这样的标识符，即不能给它赋值，但可获取其地址：<code> int n; int * pt = new int; const int b = 101; int &amp; rn = n; int &amp; rt = *pt; const int &amp; rb = b; const int &amp; rb = 10；</code></li>
+<li>右值：不能取地址的、没有名字的就是右值 <code>int a = 10;</code>&#x2F;&#x2F; 其中 10 就是右值；</li>
+<li>左值引用：左值引用就是对一个左值进行引用。传统的 C++ 引用（现在称为左值引用）使得标识符关联到左值。左值是一个表示数据的表达式（如变量名或解除引用的指针），程序可获取其地址。最初，左值可出现在赋值语句的左边，但修饰符 const 的出现使得可以声明这样的标识符，即不能给它赋值，但可获取其地址：<code>int n; int * pt = new int; const int b = 101; int &amp; rn = n; int &amp; rt = *pt; const int &amp; rb = b; const int &amp; rb = 10；</code></li>
 <li>右值引用：右值引用就是对一个右值进行引用。C++ 11 新增了右值引用（rvalue reference），这种引用可指向右值（即可出现在赋值表达式右边的值），但不能对其应用地址运算符。右值包括字面常量（C-风格字符串除外，它表示地址）、诸如 x + y 等表达式以及返回值的函数（条件是该函数返回的不是引用），右值引用使用 &amp;&amp; 声明： <code>int x = 10; int y = 23; int &amp;&amp; r1 = 13; int &amp;&amp; r2 = x + y; double &amp;&amp; r3 = std::sqrt(2.0)；</code></li>
 <li>右值引用的使用场景：右值引用可以实现移动语义、完美转发；</li>
 </ol>
@@ -322,7 +328,7 @@
 <li>浅拷贝 浅拷贝又称为值拷贝，将源对象的值拷贝到目标对象中，如果对象中有某个成员是指针类型数据，并且是在堆区创建，则使用浅拷贝仅仅拷贝的是这个指针变量的值，也就是在目标对象中该指针类型数据和源对象中的该成员指向的是同一块堆空间。这样会带来一个问题，就是在析构函数中释放该堆区数据，会被释放多次。默认的拷贝构造函数和默认的赋值运算符重载函数都是浅拷贝；</li>
 <li>深拷贝 深拷贝在拷贝的时候先开辟出和源对象大小一样的空间，然后将源对象里的内容拷贝到目标对象中去，这样指针成员就指向了不同的内存位置。并且里面的内容是一样的，这样不但达到了拷贝的目的，还不会出现问题，两个对象先后去调用析构函数，分别释放自己指针成员所指向的内存。即为每次增加一个指针，便申请一块新的内存，并让这个指针指向新的内存，深拷贝情况下，不会出现重复释放同一块内存的错误；</li>
 </ol>
-<h1 id="6-动态库静态库的区别和优缺点"><a href="#6-动态库静态库的区别和优缺点" class="headerlink" title="6. 动态库静态库的区别和优缺点"></a>6. 动态库静态库的区别和优缺点</h1><h2 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h2><ol>
+<h1 id="6-动态库静态库的区别和优缺点"><a href="#6-动态库静态库的区别和优缺点" class="headerlink" title="6. 动态库静态库的区别和优缺点"></a>6. 动态库静态库的区别和优缺点</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol>
 <li>命令方式不同：<ol>
 <li>静态库命名 Linux : libxxx.a lib : 前缀（固定） xxx : 库的名字，自己起 .a : 后缀（固定） Windows : libxxx.lib；</li>
 <li>动态库命名 Linux : libxxx.so lib : 前缀（固定） xxx : 库的名字，自己起 .so : 后缀（固定） Windows : libxxx.dll;</li>
@@ -334,7 +340,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h2><ol>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol>
 <li>静态库:<ol>
 <li>优点：发布程序时无需提供静态库，移植方便，运行速度相对快些;</li>
 <li>缺点：静态链接生成的可执行文件体积较大，消耗内存，如果所使用的静态库发生更新改变，程序必须重新编译，更新麻烦；</li>
@@ -431,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E5%BC%95%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">1. C++引用的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%B7%A6%E5%80%BC%E3%80%81%E5%8F%B3%E5%80%BC%E3%80%81%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E3%80%81%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E3%80%81%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">2. 左值、右值、左值引用、右值引用、右值引用的使用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">3. 指针和引用的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B%E5%A0%86%E5%92%8C%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">4. 简述一下堆和栈的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">5. 浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%8A%A8%E6%80%81%E5%BA%93%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">6. 动态库静态库的区别和优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="nav-text">优缺点：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E5%BC%95%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">1. C++引用的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%B7%A6%E5%80%BC%E3%80%81%E5%8F%B3%E5%80%BC%E3%80%81%E5%B7%A6%E5%80%BC%E5%BC%95%E7%94%A8%E3%80%81%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E3%80%81%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">2. 左值、右值、左值引用、右值引用、右值引用的使用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">3. 指针和引用的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B%E5%A0%86%E5%92%8C%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">4. 简述一下堆和栈的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">5. 浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%8A%A8%E6%80%81%E5%BA%93%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">6. 动态库静态库的区别和优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">优缺点</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -28,7 +28,7 @@
 <meta property="og:description" content="一般的non-blocking网络框架都会有两块应用层缓冲区Buffer：输入和输出。 防止卡在write和read处，损失性能，异步处理。  write：没必要非写完缓冲区的所有数据（需要等待TCP缓冲区可写），可以多发送几次； read：没必要每次都要读到一个完整的数据包分割处，或者读到撑爆缓冲区；  由于缓冲区的存在，势必需要控制缓冲区大小，便有了高水位回调和低水位回调这种流量控制方案。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T18:58:28.000Z">
-<meta property="article:modified_time" content="2023-03-24T10:51:34.787Z">
+<meta property="article:modified_time" content="2023-11-01T10:48:48.224Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="IO复用">
 <meta property="article:tag" content="non-blocking">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-24 10:51:34" itemprop="dateModified" datetime="2023-03-24T10:51:34Z">2023-03-24</time>
+                <time title="修改时间：2023-11-01 10:48:48" itemprop="dateModified" datetime="2023-11-01T10:48:48Z">2023-11-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,13 +262,13 @@
 <p>由于缓冲区的存在，势必需要控制缓冲区大小，便有了高水位回调和低水位回调这种流量控制方案。</p>
 <span id="more"></span>
 
-<h2 id="高水位回调：网络速率大于数据接收处理速率；"><a href="#高水位回调：网络速率大于数据接收处理速率；" class="headerlink" title="高水位回调：网络速率大于数据接收处理速率；"></a>高水位回调：网络速率大于数据接收处理速率；</h2><h3 id="常见场景：代理服务。"><a href="#常见场景：代理服务。" class="headerlink" title="常见场景：代理服务。"></a>常见场景：代理服务。</h3><p>在一台PC上，多个应用向本地proxy server请求，假设LOOPBACK速度是100M&#x2F;s，但是proxy server向外部网络请求的速度是10M&#x2F;s（路由器硬件、运营商带宽），这个应该是比较常见的。</p>
+<h2 id="高水位回调：网络速率大于数据接收处理速率"><a href="#高水位回调：网络速率大于数据接收处理速率" class="headerlink" title="高水位回调：网络速率大于数据接收处理速率"></a>高水位回调：网络速率大于数据接收处理速率</h2><h3 id="常见场景：代理服务"><a href="#常见场景：代理服务" class="headerlink" title="常见场景：代理服务"></a>常见场景：代理服务</h3><p>在一台PC上，多个应用向本地proxy server请求，假设LOOPBACK速度是100M&#x2F;s，但是proxy server向外部网络请求的速度是10M&#x2F;s（路由器硬件、运营商带宽），这个应该是比较常见的。</p>
 <p>此时如果proxy server不停读取数据，然后异步发送，肯定会造成内存数据堆积，撑爆内存；</p>
 <ol>
 <li>限定读取缓冲区大小到一个值（MAX_SIZE），然后停止读取网络IO上的数据（交给下层TCP协议处理），处理数据转发；</li>
 <li>等缓冲区低于MAX_SIZE，proxy server继续读取网络IO上的数据，再继续处理数据转发。</li>
 </ol>
-<h2 id="低水位回调：分包发送。"><a href="#低水位回调：分包发送。" class="headerlink" title="低水位回调：分包发送。"></a>低水位回调：分包发送。</h2><h3 id="常见场景：大文件下载。"><a href="#常见场景：大文件下载。" class="headerlink" title="常见场景：大文件下载。"></a>常见场景：大文件下载。</h3><p>一般大文件下载功能的实现，不会把整个文件读到内存发送到网络，因为这样一定会造成内存数据堆积，撑爆内存；</p>
+<h2 id="低水位回调：分包发送"><a href="#低水位回调：分包发送" class="headerlink" title="低水位回调：分包发送"></a>低水位回调：分包发送</h2><h3 id="常见场景：大文件下载"><a href="#常见场景：大文件下载" class="headerlink" title="常见场景：大文件下载"></a>常见场景：大文件下载</h3><p>一般大文件下载功能的实现，不会把整个文件读到内存发送到网络，因为这样一定会造成内存数据堆积，撑爆内存；</p>
 <p>所以下载实现的一般步骤如下：</p>
 <ol>
 <li>读取文件的一定长度，然后发送；</li>
@@ -363,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%B0%B4%E4%BD%8D%E5%9B%9E%E8%B0%83%EF%BC%9A%E7%BD%91%E7%BB%9C%E9%80%9F%E7%8E%87%E5%A4%A7%E4%BA%8E%E6%95%B0%E6%8D%AE%E6%8E%A5%E6%94%B6%E5%A4%84%E7%90%86%E9%80%9F%E7%8E%87%EF%BC%9B"><span class="nav-text">高水位回调：网络速率大于数据接收处理速率；</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF%EF%BC%9A%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E3%80%82"><span class="nav-text">常见场景：代理服务。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E6%B0%B4%E4%BD%8D%E5%9B%9E%E8%B0%83%EF%BC%9A%E5%88%86%E5%8C%85%E5%8F%91%E9%80%81%E3%80%82"><span class="nav-text">低水位回调：分包发送。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF%EF%BC%9A%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E3%80%82"><span class="nav-text">常见场景：大文件下载。</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%B0%B4%E4%BD%8D%E5%9B%9E%E8%B0%83%EF%BC%9A%E7%BD%91%E7%BB%9C%E9%80%9F%E7%8E%87%E5%A4%A7%E4%BA%8E%E6%95%B0%E6%8D%AE%E6%8E%A5%E6%94%B6%E5%A4%84%E7%90%86%E9%80%9F%E7%8E%87"><span class="nav-text">高水位回调：网络速率大于数据接收处理速率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF%EF%BC%9A%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1"><span class="nav-text">常见场景：代理服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E6%B0%B4%E4%BD%8D%E5%9B%9E%E8%B0%83%EF%BC%9A%E5%88%86%E5%8C%85%E5%8F%91%E9%80%81"><span class="nav-text">低水位回调：分包发送</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF%EF%BC%9A%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="nav-text">常见场景：大文件下载</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
