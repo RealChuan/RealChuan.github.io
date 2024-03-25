@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. 简述一下什么是面向对象1. 面向过程思想完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，">
+  <meta name="description" content="什么是面向对象1. 面向过程思想完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPP面试题（1）">
 <meta property="og:url" content="https://github.com/RealChuan/RealChuan.github.io/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="自由意志">
-<meta property="og:description" content="1. 简述一下什么是面向对象1. 面向过程思想完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，">
+<meta property="og:description" content="什么是面向对象1. 面向过程思想完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-24T18:40:43.000Z">
-<meta property="article:modified_time" content="2023-11-01T10:47:13.227Z">
+<meta property="article:modified_time" content="2024-03-25T11:17:57.748Z">
 <meta property="article:author" content="年轻气盛">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="interview">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-01 10:47:13" itemprop="dateModified" datetime="2023-11-01T10:47:13Z">2023-11-01</time>
+                <time title="修改时间：2024-03-25 11:17:57" itemprop="dateModified" datetime="2024-03-25T11:17:57Z">2024-03-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-简述一下什么是面向对象"><a href="#1-简述一下什么是面向对象" class="headerlink" title="1. 简述一下什么是面向对象"></a>1. 简述一下什么是面向对象</h1><h2 id="1-面向过程思想"><a href="#1-面向过程思想" class="headerlink" title="1. 面向过程思想"></a>1. 面向过程思想</h2><p>完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能函数相互调用，完成需求；</p>
+        <h1 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象"></a>什么是面向对象</h1><h2 id="1-面向过程思想"><a href="#1-面向过程思想" class="headerlink" title="1. 面向过程思想"></a>1. 面向过程思想</h2><p>完成一个需求的步骤：首先是搞清楚要做什么，然后再分析怎么做，最后再通过代码体现。一步一步去实现，而具体的每一步都需要我们去实现和操作。这些步骤相互调用和协作，从而完成需求。在上面的每一个具体步骤中我们都是参与者，并且需要面对具体的每一个步骤和过程，这就是面向过程最直接的体现。 面向过程编程，其实就是面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能函数相互调用，完成需求；</p>
 <span id="more"></span>
 
 <h2 id="2-面向对象思想"><a href="#2-面向对象思想" class="headerlink" title="2. 面向对象思想"></a>2. 面向对象思想</h2><p>面向对象的思想是尽可能模拟人类的思维方式，使得软件的开发方法与过程尽可能接近人类认识世界、解决现实问题的方法和过程，把客观世界中的实体抽象为问题域中的对象。面向对象以对象为核心，该思想认为程序由一系列对象组成。 面向对象思想的特点： - 是一种更符合人类思维习惯的思想 - 可以将复杂的问题简单化 - 将我们从执行者变成了指挥者；</p>
@@ -260,7 +260,7 @@
 <li>继承：继承使类与类之间产生关系，能够提高代码的复用性以及可维护性；</li>
 <li>多态：多态意味着调用成员函数时，会根据调用方法的对象的类型来执行不同的函数；</li>
 </ol>
-<h1 id="2-简述一下-C-中的多态"><a href="#2-简述一下-C-中的多态" class="headerlink" title="2. 简述一下 C++ 中的多态"></a>2. 简述一下 C++ 中的多态</h1><p>静态多态、动态多态、多态的实现原理、虚函数、虚函数表 标准回答 在现实生活中，多态是同一个事物在不同场景下的多种形态。在面向对象中，多态是指通过基类的指针或者引用，在运行时动态调用实际绑定对象函数的行为，与之相对应的编译时绑定函数称为静态绑定。所以多态分为静态多态和动态多态。</p>
+<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>静态多态、动态多态、多态的实现原理、虚函数、虚函数表 标准回答 在现实生活中，多态是同一个事物在不同场景下的多种形态。在面向对象中，多态是指通过基类的指针或者引用，在运行时动态调用实际绑定对象函数的行为，与之相对应的编译时绑定函数称为静态绑定。所以多态分为静态多态和动态多态。</p>
 <ol>
 <li>静态多态是编译器在编译期间完成的，编译器会根据实参类型来选择调用合适的函数，如果有合适的函数就调用，没有的话就会发出警告或者报错。静态多态有函数重载、运算符重载、泛型编程等；</li>
 <li>动态多态是在程序运行时根据基类的引用（指针）指向的对象来确定自己具体该调用哪一个类的虚函数。当父类指针（引用）指向 父类对象时，就调用父类中定义的虚函数；即当父类指针（引用）指向 子类对象时，就调用子类中定义的虚函数；</li>
@@ -275,7 +275,7 @@
 </li>
 <li>动态多态的实现原理 当类中声明虚函数时，编译器会在类中生成一个虚函数表，虚函数表是一个存储类虚函数指针的数据结构， 虚函数表是由编译器自动生成与维护的。virtual 成员函数会被编译器放入虚函数表中，存在虚函数时，每个对象中都有一个指向虚函数表的指针（vptr 指针）。在多态调用时, vptr 指针就会根据这个对象在对应类的虚函数表中查找被调用的函数，从而找到函数的入口地址。</li>
 </ol>
-<h1 id="3-简述一下-C-的重载和重写"><a href="#3-简述一下-C-的重载和重写" class="headerlink" title="3. 简述一下 C++ 的重载和重写"></a>3. 简述一下 C++ 的重载和重写</h1><h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><ol>
+<h1 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h1><h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><ol>
 <li>重载是指不同的函数使用相同的函数名，但是函数的参数个数或类型不同（参数列表不同）。调用的时候根据函数的参数来区别不同的函数，函数重载跟返回值无关；</li>
 <li>重载的规则 - 函数名相同 - 必须具有不同的参数列表 - 可以有不同的访问修饰符；</li>
 <li>重载用来实现静态多态（函数名相同，功能不一样）；</li>
@@ -296,7 +296,7 @@
 <li>C++中重载的实现 采用命名倾轧（name mangling）技术，编译时会将同名的函数或方法根据某种规则生成不同的函数或方法名（因为函数或方法的特征标不一样）。</li>
 <li>C++中重写的实现 C++中重写可以用来实现动态多态，父类中需要重写的方法要加上 virtual 关键字。 虚函数实现的原理是采用虚函数表，多态中每个对象内存中都有一个指针，被称为虚函数指针，这个指针指向虚函数表，表中记录的是该类的所有虚函数的入口地址，所以对象能够根据它自身的类型调用不同的函数。</li>
 </ol>
-<h1 id="4-什么情况会调用拷贝构造，什么时候会调用赋值操作"><a href="#4-什么情况会调用拷贝构造，什么时候会调用赋值操作" class="headerlink" title="4. 什么情况会调用拷贝构造，什么时候会调用赋值操作"></a>4. 什么情况会调用拷贝构造，什么时候会调用赋值操作</h1><ol>
+<h1 id="什么情况会调用拷贝构造，什么时候会调用赋值操作"><a href="#什么情况会调用拷贝构造，什么时候会调用赋值操作" class="headerlink" title="什么情况会调用拷贝构造，什么时候会调用赋值操作"></a>什么情况会调用拷贝构造，什么时候会调用赋值操作</h1><ol>
 <li>拷贝构造函数的调用时机：<ol>
 <li>用一个对象初始化另外一个对象；</li>
 <li>对象以值传递的方式传递给函数参数；</li>
@@ -308,7 +308,29 @@
 </ol>
 </li>
 </ol>
-<h1 id="5-虚函数的实现原理"><a href="#5-虚函数的实现原理" class="headerlink" title="5. 虚函数的实现原理"></a>5. 虚函数的实现原理</h1><ol>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>在C++中，当创建一个派生类（子类）的对象时，构造函数的执行顺序和销毁对象时析构函数的执行顺序有特定的规则，这些规则确保了对象的正确初始化和清理。以下是子类和父类构造函数及析构函数执行的特点：</p>
+<h1 id="构造函数执行特点"><a href="#构造函数执行特点" class="headerlink" title="构造函数执行特点"></a>构造函数执行特点</h1><ol>
+<li><p><strong>从基类到派生类</strong>：当创建一个派生类的对象时，首先调用基类的构造函数，然后是派生类的构造函数。这样做是为了确保基类的部分首先被初始化，因为派生类通常会依赖于基类中的数据成员和成员函数。</p>
+</li>
+<li><p><strong>按照继承顺序</strong>：如果有多个基类（多继承情况），则基类的构造函数按照继承列表中出现的顺序依次调用。</p>
+</li>
+<li><p><strong>初始化列表</strong>：派生类构造函数的初始化列表中可以特别指定调用基类构造函数的参数，如果没有指定，则使用基类的默认构造函数。</p>
+</li>
+<li><p><strong>派生类构造函数的初始化</strong>：派生类的构造函数体在基类构造函数执行完毕后执行，可以包含对派生类特有数据成员的初始化。</p>
+</li>
+</ol>
+<h1 id="析构函数执行特点"><a href="#析构函数执行特点" class="headerlink" title="析构函数执行特点"></a>析构函数执行特点</h1><ol>
+<li><p><strong>从派生类到基类</strong>：当销毁一个派生类的对象时，首先调用派生类的析构函数，然后是基类的析构函数。这样做是为了确保派生类的部分首先被清理，然后是基类的部分，这样可以保证资源的正确释放顺序。</p>
+</li>
+<li><p><strong>按照继承的逆序</strong>：如果有多个基类，则析构函数按照继承列表中出现的逆序依次调用。</p>
+</li>
+<li><p><strong>资源管理</strong>：析构函数通常用于释放对象在生命周期中分配的资源，如内存、文件句柄等。正确的析构顺序确保了资源被正确释放，避免了资源泄露。</p>
+</li>
+<li><p><strong>虚拟析构函数</strong>：如果基类中的析构函数不是虚拟的（没有使用<code>virtual</code>关键字），那么在派生类中重写析构函数时，基类的析构函数不会自动变为虚拟的。这可能导致在通过基类指针删除派生类对象时，派生类的析构函数不被调用，从而可能导致资源泄露。因此，建议将基类的析构函数声明为虚拟析构函数。</p>
+</li>
+</ol>
+<p>通过遵循这些规则，C++确保了对象的正确构造和销毁，从而维护了程序的稳定性和健壮性。正确理解和使用这些构造和析构的特点，对于编写高效、安全的面向对象程序至关重要。</p>
+<h1 id="虚函数的实现原理"><a href="#虚函数的实现原理" class="headerlink" title="虚函数的实现原理"></a>虚函数的实现原理</h1><ol>
 <li>虚函数的作用：C++ 中的虚函数的作用主要是实现了动态多态的机制。动态多态，简单的说就是用父类型的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有“多种形态”，这是一种泛型技术。</li>
 <li>虚函数实现原理 编译器处理虚函数时，给每个对象添加一个隐藏的成员。隐藏的成员是一个指针类型的数据，指向的是函数地址数组，这个数组被称为虚函数表（virtual function table，vtbl）。虚函数表中存储的是类中的虚函数的地址。如果派生类重写了基类中的虚函数，则派生类对象的虚函数表中保存的是派生类的虚函数地址，如果派生类没有重写基类中的虚函数，则派生类对象的虚函数表中保存的是父类的虚函数地址。</li>
 <li>加分回答：<ol>
@@ -321,28 +343,24 @@
 </ol>
 </li>
 </ol>
-<h1 id="6-为什么将析构函数设置成虚函数"><a href="#6-为什么将析构函数设置成虚函数" class="headerlink" title="6. 为什么将析构函数设置成虚函数"></a>6. 为什么将析构函数设置成虚函数</h1><ol>
-<li>虚析构函数，是将基类的析构函数声明为 <code>virtual class Base &#123; public: Base() &#123; &#125; // 虚析构函数 virtual ~Base() &#123; &#125; &#125;</code>；</li>
-<li>虚析构函数的主要作用是为了防止遗漏资源的释放，防止内存泄露。如果基类中的析构函数没有声明为虚函数，基类指针指向派生类对象时，则当基类指针释放时不会调用派生类对象的析构函数，而是调用基类的析构函数，如果派生类析构函数中做了某些释放资源的操作，则这时就会造成内存泄露；</li>
-</ol>
-<h1 id="7-什么是纯虚函数，有什么作用"><a href="#7-什么是纯虚函数，有什么作用" class="headerlink" title="7. 什么是纯虚函数，有什么作用"></a>7. 什么是纯虚函数，有什么作用</h1><ol>
+<h1 id="什么是纯虚函数，有什么作用"><a href="#什么是纯虚函数，有什么作用" class="headerlink" title="什么是纯虚函数，有什么作用"></a>什么是纯虚函数，有什么作用</h1><ol>
 <li>纯虚函数是一种特殊的虚函数，它的格式是：虚函数不给出具体的实现，也就是后面没有大括号实现体，而在后面加上 “&#x3D;0” class 类名 { virtual 返回值类型 函数名(参数列表) &#x3D; 0; } ；</li>
 <li>作用：很多情况下，在基类中不能对虚函数给出具体的有意义的实现，就可以把它声明为纯虚函数，它的实现留给该基类的派生类去做。例如猫类和狗类的基类是动物类，动物类中有一个吃饭的函数 eat()，那这个 eat() 函数可以是纯虚函数，因为并不能够确定动物吃的东西是什么，具体吃的内容由不同的派生类去实现；</li>
 <li>特点：如果一个类中有纯虚函数，那么这个类也被称为抽象类。这种类不能实例化对象，也就是不能创建该类的对象。除非在派生类中完全实现基类中所有的纯虚函数，否则派生类也是抽象类，不能实例化对象。</li>
 </ol>
-<h1 id="8-虚函数和纯虚函数的区别"><a href="#8-虚函数和纯虚函数的区别" class="headerlink" title="8. 虚函数和纯虚函数的区别"></a>8. 虚函数和纯虚函数的区别</h1><ol>
+<h1 id="虚函数和纯虚函数的区别"><a href="#虚函数和纯虚函数的区别" class="headerlink" title="虚函数和纯虚函数的区别"></a>虚函数和纯虚函数的区别</h1><ol>
 <li>格式：虚函数的定义格式为：virtual 返回值类型 函数名(参数列表) {} 纯虚函数的定义格式为：virtual 返回值类型 函数名(参数列表) &#x3D; 0;；</li>
 <li>特点：虚函数可以有具体的实现，纯虚函数没有具体的实现。 对于虚函数来说，父类和子类都有各自的版本，由多态方式调用的时候动态绑定。 有纯虚函数的类称为抽象类，有纯虚函数的类不能实例化，派生类必须实现纯虚函数才可以实例化，否则也是抽象类；</li>
 <li>作用：虚函数是 C++ 中用于实现动态多态的机制。 很多情况下，在基类中不能对虚函数给出具体的有意义的实现，就可以把它声明为纯虚函数，它的实现留给该基类的派生类去做。</li>
 </ol>
-<h1 id="9-内联函数和函数的区别，内联函数的作用"><a href="#9-内联函数和函数的区别，内联函数的作用" class="headerlink" title="9. 内联函数和函数的区别，内联函数的作用"></a>9. 内联函数和函数的区别，内联函数的作用</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol>
+<h1 id="内联函数和函数的区别，内联函数的作用"><a href="#内联函数和函数的区别，内联函数的作用" class="headerlink" title="内联函数和函数的区别，内联函数的作用"></a>内联函数和函数的区别，内联函数的作用</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol>
 <li>内联函数比普通函数多了关键字 inline；</li>
 <li>内联函数避免了函数调用的开销；普通函数有调用的开销；</li>
 <li>普通函数在被调用的时候，需要寻址（函数入口地址）；内联函数不需要寻址；</li>
 <li>内联函数有一定的限制，内联函数体要求代码简单，不能包含复杂的结构控制语句，如果内联函数函数体过于复杂，编译器将自动把内联函数当成普通函数来执行；普通函数没有这个要求；</li>
 </ol>
 <h2 id="内联函数的作用"><a href="#内联函数的作用" class="headerlink" title="内联函数的作用"></a>内联函数的作用</h2><p>因为函数调用时候需要创建时间、参数传入传递等操作，造成了时间和空间的额外开销。通过编译器预处理，在调用内联函数的地方将内联函数内的语句复制到调用函数的地方，也就是直接展开代码执行，从而提高了效率，减少了一些不必要的开销。同时内联函数还能解决宏定义的问题。</p>
-<h1 id="10-虚函数可以是内联函数吗"><a href="#10-虚函数可以是内联函数吗" class="headerlink" title="10. 虚函数可以是内联函数吗"></a>10. 虚函数可以是内联函数吗</h1><ol>
+<h1 id="虚函数可以是内联函数吗"><a href="#虚函数可以是内联函数吗" class="headerlink" title="虚函数可以是内联函数吗"></a>虚函数可以是内联函数吗</h1><ol>
 <li>虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联；</li>
 <li>内联是在编译期建议编译器内联，而虚函数的多态性在运行期，编译器无法知道运行期调用哪个代码，因此虚函数表现为多态性时不可以内联；</li>
 <li>inline virtual 唯一可以内联的时候是：编译器知道所调用的对象是哪个类，这只有在编译器具有实际对象而不是对象的指针或引用时才会发生；</li>
@@ -371,8 +389,8 @@
       <i class="fa fa-chevron-left"></i> 常用正则表达式
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%882%EF%BC%89/" rel="next" title="CPP面试题（2）">
-      CPP面试题（2） <i class="fa fa-chevron-right"></i>
+    <a href="/2023/03/25/CPP%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%883%EF%BC%89/" rel="next" title="CPP面试题（3）">
+      CPP面试题（3） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -432,7 +450,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">1. 简述一下什么是面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E6%80%9D%E6%83%B3"><span class="nav-text">1. 面向过程思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3"><span class="nav-text">2. 面向对象思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%EF%BC%9A%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-text">3. 面向对象的三大特征：封装、继承、多态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B-C-%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-text">2. 简述一下 C++ 中的多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94"><span class="nav-text">加分回答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B-C-%E7%9A%84%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99"><span class="nav-text">3. 简述一下 C++ 的重载和重写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD"><span class="nav-text">重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99"><span class="nav-text">重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94-1"><span class="nav-text">加分回答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%BC%9A%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%EF%BC%8C%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E8%B0%83%E7%94%A8%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="nav-text">4. 什么情况会调用拷贝构造，什么时候会调用赋值操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">5. 虚函数的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B0%86%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E8%AE%BE%E7%BD%AE%E6%88%90%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-text">6. 为什么将析构函数设置成虚函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-text">7. 什么是纯虚函数，有什么作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">8. 虚函数和纯虚函数的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">9. 内联函数和函数的区别，内联函数的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">内联函数的作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E8%99%9A%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E6%98%AF%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%90%97"><span class="nav-text">10. 虚函数可以是内联函数吗</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">什么是面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E6%80%9D%E6%83%B3"><span class="nav-text">1. 面向过程思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3"><span class="nav-text">2. 面向对象思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%EF%BC%9A%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-text">3. 面向对象的三大特征：封装、继承、多态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94"><span class="nav-text">加分回答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99"><span class="nav-text">重载和重写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD"><span class="nav-text">重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%86%99"><span class="nav-text">重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%88%86%E5%9B%9E%E7%AD%94-1"><span class="nav-text">加分回答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%BC%9A%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%EF%BC%8C%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E8%B0%83%E7%94%A8%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="nav-text">什么情况会调用拷贝构造，什么时候会调用赋值操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-text">继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E7%89%B9%E7%82%B9"><span class="nav-text">构造函数执行特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E7%89%B9%E7%82%B9"><span class="nav-text">析构函数执行特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-text">虚函数的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-text">什么是纯虚函数，有什么作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">虚函数和纯虚函数的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">内联函数和函数的区别，内联函数的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">内联函数的作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E6%98%AF%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%90%97"><span class="nav-text">虚函数可以是内联函数吗</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
